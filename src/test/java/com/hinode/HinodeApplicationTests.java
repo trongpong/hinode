@@ -1,4 +1,4 @@
-package com.tronghd.hinode;
+package com.hinode;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

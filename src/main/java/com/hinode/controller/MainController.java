@@ -10,7 +10,6 @@ public class MainController {
 	
 	@GetMapping
 	public String init(Map<Object, String> model) {
-		
-		return "index";
+				return "view/index";
 	}
 }

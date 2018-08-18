@@ -1,4 +1,4 @@
-package com.hinode;
+package com.hinode.controller;
 
 import java.util.Map;
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>South - Real Estate Agency Template | Home</title>
+    <title th:text="#{project.title}">South - Real Estate Agency Template | Home</title>
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -76,15 +76,15 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="menuhover"><a href="#">Home</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Collaborate</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">Language</a>
+                                <li class="menuhover"><a href="#" th:text="#{menu.home}">Home</a></li>
+                                <li><a href="#" th:text="#{menu.about}">About Us</a></li>
+                                <li><a href="#" th:text="#{menu.collaborate}">Collaborate</a></li>
+                                <li><a href="#" th:text="#{menu.contact}">Contact</a></li>
+                                <li><a href="#" th:text="#{menu.language}">Language</a>
                                     <ul class="dropdown">
-                                        <li><a href="#">日本語</a></li>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">Tiếng Việt</a></li>
+                                        <li><a href="#" th:text="#{lang.ja}" class="language" data-value="ja">日本語</a></li>
+                                        <li><a href="#" th:text="#{lang.en}" class="language" data-value="en">English</a></li>
+                                        <li><a href="#" th:text="#{lang.vi}" class="language" data-value="vi">Tiếng Việt</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -372,8 +372,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading wow fadeInUp">
-                        <h2>Featured Properties</h2>
-                        <p>Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
+                        <h2　th:text="#{message.recommend}">Featured Properties</h2>
+                        <p th:text="#{message.recommend.text}">Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
                     </div>
                 </div>
             </div>
@@ -839,15 +839,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
     <script type="text/javascript">
 	    $(document).ready(function() {
-	    	var location = window.location + "";
-	    	locale = location.substring(location.indexOf("lang=") + 5);
-	    	$("#locales").val(location.indexOf("lang=") == -1 ? "ja" : locale)
-	    	
-	    	console.log(locale);
-	        $("#locales").change(function () {
-	            var selectedOption = $('#locales').val();
+	        $(".language").click(function () {
+	            var selectedOption = $(this).attr("data-value");
 	            if (selectedOption != ''){
-	                window.location.replace('internationalization?lang=' + selectedOption);
+	                window.location.replace('index?lang=' + selectedOption);
 	            }
 	        });
 	    });

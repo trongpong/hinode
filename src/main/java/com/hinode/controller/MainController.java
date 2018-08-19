@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 	
-	@GetMapping
+	@GetMapping("/")
 	public String init(Map<Object, String> model) {
-				return "view/index";
+				return "public/index";
 	}
 }

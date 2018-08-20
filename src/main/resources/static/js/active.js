@@ -33,11 +33,11 @@
     }
 
     // :: Sticky Active Code
-    if ($.fn.sticky) {
+    /*if ($.fn.sticky) {
         $("#stickyHeader").sticky({
             topSpacing: 0
         });
-    }
+    }*/
 
     // :: Tooltip Active Code
     if ($.fn.tooltip) {

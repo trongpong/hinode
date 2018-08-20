@@ -38,6 +38,8 @@
 
 /* :: 1.0 Import Fonts */
 /*@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");*/
+
+
 /* :: 2.0 Import All CSS */
 @import url(bootstrap.min.css);
 @import url(animate.css);
@@ -48,6 +50,7 @@
 @import url(themify-icons.css);
 @import url(nice-select.css);
 @import url(jquery-ui.min.css);
+@import url(scrollbar.css);
 
 /* :: VARIABLE :: */
 :root{
@@ -368,7 +371,7 @@ img {
     margin-bottom: 10px; }
   .section-heading h2 {
     font-size: 30px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     margin-bottom: 5px; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .section-heading h2 {
@@ -483,12 +486,13 @@ img {
 .main-header-area {
   width: 100%;
   height: var(--menuHeight);
-  position: relative;
+  position: fixed;
   z-index: 1;
-  /*background-color: rgba(0, 0, 0, 0.4);*/
-  background-color: var(--mainColorDark);
   -webkit-transition-duration: 500ms;
-  transition-duration: 500ms; }
+  transition-duration: 500ms; 
+  z-index: 10000 !important;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--mainColorDark);}
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .main-header-area {
       height: 70px; } }

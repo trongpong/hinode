@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title th:text="#{project.title}">South - Real Estate Agency Template | Home</title>
+    <title th:text="#{project.title}"></title>
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -27,38 +27,14 @@
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-
-        <!-- Top Header Area -->
-        <div class="top-header-area">
-            <div class="h-100 justify-content-between align-items-center">
-                <!-- <div class="phone-number d-flex">
-                    <div class="icon">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                    </div>
-                    <div class="number">
-                        <a href="tel:03-6907-2663">03-6907-2663</a>
-                    </div>
-                </div>
-                <div class="phone-number d-flex">
-                    <div class="icon">
-                        <i class="fa fa-cog" aria-hidden="true"></i>
-                    </div>
-                    <div class="number">
-                        <a href="#">日本語</a>
-                    </div>
-                </div>
-                 -->
-            </div>
-        </div>
-
-        <!-- Main Header Area -->
+		<!-- Main Header Area -->
         <div class="main-header-area" id="stickyHeader">
             <div class="classy-nav-container breakpoint-off">
                 <!-- Classy Menu -->
                 <nav class="classy-navbar justify-content-between container" id="southNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="index.html"><img class="ilogo" src="img/core-img/headlogo.png" alt=""></a>
+                    <a class="nav-brand" href="index"><img class="ilogo" src="img/core-img/headlogo.png" alt=""></a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -97,21 +73,14 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
+    <!-- #################### START CONTENT  #################### -->
+    <div layout:fragment="content">
+    
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero1.png);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero1.png);"></div>
             <!-- Single Hero Slide -->
             <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero2.png);">
                 <div class="container h-100">
@@ -125,246 +94,12 @@
                 </div>
             </div>
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero3.png);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">Hot line 03-6907-2663</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero3.png);"></div>
         </div>
     </section>
     <!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Advance Search Area Start ##### -->
-    <div class="south-search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="advanced-search-form">
-                        <!-- Search Title -->
-                        <div class="search-title">
-                            <p>Search for your home</p>
-                        </div>
-                        <!-- Search Form -->
-                        <form action="#" method="post" id="advanceSearch">
-                            <div class="row">
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="input" class="form-control" name="input" placeholder="Keyword">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="cities">
-                                            <option>All Cities</option>
-                                            <option>Riga</option>
-                                            <option>Melbourne</option>
-                                            <option>Vienna</option>
-                                            <option>Vancouver</option>
-                                            <option>Toronto</option>
-                                            <option>Calgary</option>
-                                            <option>Adelaide</option>
-                                            <option>Perth</option>
-                                            <option>Auckland</option>
-                                            <option>Helsinki</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="catagories">
-                                            <option>All Catagories</option>
-                                            <option>Apartment</option>
-                                            <option>Bar</option>
-                                            <option>Farm</option>
-                                            <option>House</option>
-                                            <option>Store</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="offers">
-                                            <option>All Offers</option>
-                                            <option>100% OFF</option>
-                                            <option>75% OFF</option>
-                                            <option>50% OFF</option>
-                                            <option>25% OFF</option>
-                                            <option>10% OFF</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-xl-3">
-                                    <div class="form-group">
-                                        <select class="form-control" id="listings">
-                                            <option>All Listings</option>
-                                            <option>Listings 1</option>
-                                            <option>Listings 2</option>
-                                            <option>Listings 3</option>
-                                            <option>Listings 4</option>
-                                            <option>Listings 5</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-xl-2">
-                                    <div class="form-group">
-                                        <select class="form-control" id="bedrooms">
-                                            <option>Bedrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5+</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-4 col-xl-2">
-                                    <div class="form-group">
-                                        <select class="form-control" id="bathrooms">
-                                            <option>Bathrooms</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5+</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
-                                    <!-- Space Range -->
-                                    <div class="slider-range">
-                                        <div data-min="120" data-max="820" data-unit=" sq. ft" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="120" data-value-max="820">
-                                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                        </div>
-                                        <div class="range">120 sq. ft - 820 sq. ft</div>
-                                    </div>
-
-                                    <!-- Distance Range -->
-                                    <div class="slider-range">
-                                        <div data-min="10" data-max="1300" data-unit=" mil" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="10" data-value-max="1300">
-                                            <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                            <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
-                                        </div>
-                                        <div class="range">10 mil - 1300 mil</div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 search-form-second-steps">
-                                    <div class="row">
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="types">
-                                                    <option>All Types</option>
-                                                    <option>Apartment <span>(30)</span></option>
-                                                    <option>Land <span>(69)</span></option>
-                                                    <option>Villas <span>(103)</span></option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="catagories2">
-                                                    <option>All Catagories</option>
-                                                    <option>Apartment</option>
-                                                    <option>Bar</option>
-                                                    <option>Farm</option>
-                                                    <option>House</option>
-                                                    <option>Store</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="Actions">
-                                                    <option>All Actions</option>
-                                                    <option>Sales</option>
-                                                    <option>Booking</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4 col-lg-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="city2">
-                                                    <option>All City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                    <option>City 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="Actions3">
-                                                    <option>All Actions</option>
-                                                    <option>Sales</option>
-                                                    <option>Booking</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="city3">
-                                                    <option>All City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                    <option>City 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12 col-md-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="city5">
-                                                    <option>All City</option>
-                                                    <option>City 1</option>
-                                                    <option>City 2</option>
-                                                    <option>City 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 d-flex justify-content-between align-items-end">
-                                    <!-- More Filter -->
-                                    <div class="more-filter">
-                                        <a href="#" id="moreFilter">+ More filters</a>
-                                    </div>
-                                    <!-- Submit -->
-                                    <div class="form-group mb-0">
-                                        <button type="submit" class="btn south-btn">Search</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Advance Search Area End ##### -->
+    
 
     <!-- ##### Featured Properties Area Start ##### -->
     <section class="featured-properties-area section-padding-100-50">
@@ -372,7 +107,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading wow fadeInUp">
-                        <h2　th:text="#{message.recommend}">Featured Properties</h2>
+                        <h2 th:text="#{message.recommend}">Featured Properties</h2>
                         <p th:text="#{message.recommend.text}">Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
                     </div>
                 </div>
@@ -391,14 +126,14 @@
                                 <span>For Sale</span>
                             </div>
                             <div class="list-price">
-                                <p>$945 679</p>
+                                <p>20,000￥</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>Villa in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                            <h5>コンシェリア西新宿タワーズウエスト</h5>
+                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -431,14 +166,14 @@
                                 <span>For Sale</span>
                             </div>
                             <div class="list-price">
-                                <p>$945 679</p>
+                                <p>20,000￥</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>Town House in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                            <h5>ツインプレックスSA</h5>
+                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -471,14 +206,14 @@
                                 <span>For Sale</span>
                             </div>
                             <div class="list-price">
-                                <p>$945 679</p>
+                                <p>20,000￥</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>Town House in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                            <h5>ツインプレックスSA</h5>
+                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -511,14 +246,14 @@
                                 <span>For Sale</span>
                             </div>
                             <div class="list-price">
-                                <p>$945 679</p>
+                                <p>20,000￥</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>Villa in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                            <h5>コンシェリア西新宿タワーズウエスト</h5>
+                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -551,14 +286,14 @@
                                 <span>For Sale</span>
                             </div>
                             <div class="list-price">
-                                <p>$945 679</p>
+                                <p>20,000￥</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>Town House in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                            <h5>ツインプレックスSA</h5>
+                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -591,14 +326,14 @@
                                 <span>For Sale</span>
                             </div>
                             <div class="list-price">
-                                <p>$945 679</p>
+                                <p>20,000￥</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>Town House in Los Angeles</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                            <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada.</p>
+                            <h5>ツインプレックスSA</h5>
+                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -695,33 +430,308 @@
     </section>
     <!-- ##### Testimonials Area End ##### -->
 
-    <!-- ##### Editor Area Start ##### -->
-    <section class="south-editor-area d-flex align-items-center">
-        <!-- Editor Content -->
-        <div class="editor-content-area">
-            <!-- Section Heading -->
-            <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
-                <img src="img/icons/prize.png" alt="">
-                <h2>jeremy Scott</h2>
-                <p>Realtor</p>
-            </div>
-            <p class="wow fadeInUp" data-wow-delay="500ms">Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis lectus, id iaculis risus tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna vehicula.</p>
-            <div class="address wow fadeInUp" data-wow-delay="750ms">
-                <h6><img src="img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
-                <h6><img src="img/icons/envelope.png" alt=""> office@template.com</h6>
-            </div>
-            <div class="signature mt-50 wow fadeInUp" data-wow-delay="1000ms">
-                <img src="img/core-img/signature.png" alt="">
-            </div>
-        </div>
+    <!-- ##### About Content Wrapper Start ##### -->
+    <section class="about-content-wrapper section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="section-heading text-left wow fadeInUp" data-wow-delay="250ms">
+                        <h2>鉄筋コンクリート造 地上44階 地下階建</h2>
+                        <p>Suspendisse dictum enim sit amet libero</p>
+                    </div>
+                    <div class="about-content">
+                        <img class="wow fadeInUp" data-wow-delay="350ms" src="img/bg-img/about.jpg" alt="">
+                        <p class="wow fadeInUp" data-wow-delay="450ms">駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。 Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis lectus, id iaculis risus tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna vehicula.</p>
+                    </div>
+                </div>
 
-        <!-- Editor Thumbnail -->
-        <div class="editor-thumbnail">
-            <img src="img/bg-img/editor.jpg" alt="">
+                <div class="col-12 col-lg-4">
+                    <div class="section-heading text-left wow fadeInUp" data-wow-delay="250ms">
+                        <h2>鉄筋コンクリート造 地上</h2>
+                        <p>Suspendisse dictum enim sit amet libero</p>
+                    </div>
+
+                    <div class="featured-properties-slides owl-carousel wow fadeInUp" data-wow-delay="350ms">
+
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="img/bg-img/feature1.jpg" alt="">
+
+                                <div class="tag">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>20,000￥</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>コンシェリア西新宿タワーズウエスト</h5>
+                                <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                                <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
+                                <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                    <div class="new-tag">
+                                        <img src="img/icons/new.png" alt="">
+                                    </div>
+                                    <div class="bathroom">
+                                        <img src="img/icons/bathtub.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="garage">
+                                        <img src="img/icons/garage.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="space">
+                                        <img src="img/icons/space.png" alt="">
+                                        <span>120 sq ft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="img/bg-img/feature2.jpg" alt="">
+
+                                <div class="tag">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>20,000￥</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>ツインプレックスSA</h5>
+                                <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                                <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
+                                <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                    <div class="new-tag">
+                                        <img src="img/icons/new.png" alt="">
+                                    </div>
+                                    <div class="bathroom">
+                                        <img src="img/icons/bathtub.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="garage">
+                                        <img src="img/icons/garage.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="space">
+                                        <img src="img/icons/space.png" alt="">
+                                        <span>120 sq ft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="img/bg-img/feature3.jpg" alt="">
+
+                                <div class="tag">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>20,000￥</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>コンシェリア西新宿タワーズウエスト</h5>
+                                <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                                <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
+                                <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                    <div class="new-tag">
+                                        <img src="img/icons/new.png" alt="">
+                                    </div>
+                                    <div class="bathroom">
+                                        <img src="img/icons/bathtub.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="garage">
+                                        <img src="img/icons/garage.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="space">
+                                        <img src="img/icons/space.png" alt="">
+                                        <span>120 sq ft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Slide -->
+                        <div class="single-featured-property">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img src="img/bg-img/feature4.jpg" alt="">
+
+                                <div class="tag">
+                                    <span>For Sale</span>
+                                </div>
+                                <div class="list-price">
+                                    <p>20,000￥</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5>ツインプレックスSA</h5>
+                                <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                                <p>駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。駅が開発されている武蔵境の駅から6分の物件です。</p>
+                                <div class="property-meta-data d-flex align-items-end justify-content-between">
+                                    <div class="new-tag">
+                                        <img src="img/icons/new.png" alt="">
+                                    </div>
+                                    <div class="bathroom">
+                                        <img src="img/icons/bathtub.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="garage">
+                                        <img src="img/icons/garage.png" alt="">
+                                        <span>2</span>
+                                    </div>
+                                    <div class="space">
+                                        <img src="img/icons/space.png" alt="">
+                                        <span>120 sq ft</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- ##### Editor Area End ##### -->
+    <!-- ##### About Content Wrapper End ##### -->
 
+    <!-- ##### Meet The Team Area Start ##### -->
+    <section class="meet-the-team-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Về chúng tôi</h2>
+                        <p>Suspendisse dictum enim sit amet libero</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="250ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="img/bg-img/team3.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="img/icons/prize.png" alt="">
+                                <h2>Mr. Vu Nguyen Van</h2>
+                                <p>Realtor</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> office@template.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="img/blog-img/c-1.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="img/icons/prize.png" alt="">
+                                <h2>Mrs. Thanh Tran Hoai</h2>
+                                <p>Realtor</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> office@template.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="750ms">
+                        <!-- Team Member Thumb -->
+                        <div class="team-member-thumb">
+                            <img src="img/blog-img/c-3.jpg" alt="">
+                        </div>
+                        <!-- Team Member Info -->
+                        <div class="team-member-info">
+                            <div class="section-heading">
+                                <img src="img/icons/prize.png" alt="">
+                                <h2>Mr. Tuan Trinh Van</h2>
+                                <p>Realtor</p>
+                            </div>
+                            <div class="address">
+                                <h6><img src="img/icons/phone-call.png" alt=""> +45 677 8993000 223</h6>
+                                <h6><img src="img/icons/envelope.png" alt=""> office@template.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Meet The Team Area End ##### -->
+    
+    <!-- ##### Contact Start ##### -->
+    <section class="south-contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-heading">
+                        <h6>Liên hệ với chúng tôi</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Contact Form Area -->
+                <div class="col-12">
+                    <div class="contact-form">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="text" id="contact-name" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="number" id="contact-number" placeholder="Your Phone">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" id="contact-email" placeholder="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn south-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Contact End ##### -->
+    
+	</div>
+	<!-- #################### END CONTENT  #################### -->
+	
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/cta.jpg);">
         <!-- Main Footer Area -->

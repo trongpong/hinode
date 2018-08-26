@@ -150,9 +150,6 @@ img {
 
 .mb-100 {
   margin-bottom: 100px; }
-.menuhover{
-	background-color: var(--mainColor) !important;
-}
 .bg-img {
   background-position: center center;
   background-size: cover;
@@ -366,19 +363,54 @@ img {
   position: relative;
   z-index: 1;
   text-align: center;
-  margin-bottom: 100px; }
+  margin-bottom: 50px; }
   .section-heading img {
     margin-bottom: 10px; }
   .section-heading h2 {
     font-size: 30px;
     /*text-transform: uppercase;*/
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    background: #007563;
+    padding: 10px 0px;}
+  .section-heading h2::before{
+  	content: "";
+  	display: inline-block;
+  	position: absolute;
+  	top: 0;
+  	left: -40px;
+  	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 40px 56px 0;
+	border-color: transparent var(--mainColorGreen) transparent transparent;
+  }
+  .section-heading h2::after{
+  	content: "";
+  	display: inline-block;
+  	position: absolute;
+  	top: 0;
+  	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 56px 40px 0 0;
+	border-color: var(--mainColorGreen) transparent transparent transparent;
+  }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .section-heading h2 {
         font-size: 24px; } }
     @media only screen and (max-width: 767px) {
-      .section-heading h2 {
-        font-size: 24px; } }
+      	.section-heading h2 {
+        	font-size: 24px; } 
+   		.section-heading h2::after{
+   			border-width: 48px 40px 0 0;
+   		}
+   		.section-heading h2::before{
+   			border-width: 0 40px 48px 0;
+   		}
+   	}
   .section-heading p {
     color: var(--mainColor);
     font-size: 14px;
@@ -444,7 +476,11 @@ img {
   /*background-color: var(--mainColor);*/ }
   @media only screen and (max-width: 767px) {
     .top-header-area {
-      height: auto; } }
+      height: auto; } 
+    .img-feature{
+    	display: none;
+    }
+  }
   .top-header-area .email-address {
     padding-left: 60px;
     line-height: 1; }
@@ -506,12 +542,16 @@ img {
     /*padding: .5em 60px;*/ 
   }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .main-header-area .classy-navbar {
-        height: 70px; } }
+      	.main-header-area .classy-navbar {
+        	height: 70px; } }
     @media only screen and (max-width: 767px) {
-      .main-header-area .classy-navbar {
-        height: 70px;
-        padding: 0.5em 30px; } }
+      	.main-header-area .classy-navbar {
+        	height: 70px;
+        	padding: 0.5em 30px; }
+      	ul.dropdown{
+			background-color: var(--mainColor) !important;
+		}
+    }
   .main-header-area .classynav ul li {
   	height: var(--menuHeight);
   }
@@ -523,8 +563,12 @@ img {
   	margin-top: 18px;
   }
   .main-header-area .classynav ul li a {
+  	display: inline-block;
+  	background-color: transparent !important;
     color: #ffffff;
     margin-top: 18px;
+    width: 100%;
+    border-bottom: none !important;
     text-transform: uppercase;
     font-weight: 600; }
   .dark .classynav ul li .dropdown li a {
@@ -533,7 +577,8 @@ img {
     display: inline-block;
   }
   .main-header-area .nav-brand {
-    line-height: 1; }
+    line-height: 1; 
+    z-index: 9999;}
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .main-header-area .nav-brand {
         margin-right: 0; } }
@@ -858,6 +903,18 @@ img {
     .south-search-area .advanced-search-form .search-form-second-steps {
       display: none; }
 
+/* :: TEAM */
+.team-member{
+	position: relative;
+}
+.team-member .team-info span{
+	color: var(--mainColorGreen);
+	font-size: 24px;
+	font-weight: normal;
+}
+.owl-theme .owl-nav [class*=owl-] {
+	background: var(--mainColor) !important;
+}
 /* :: 11.0 Single Property Area CSS */
 .single-featured-property {
   position: relative;
@@ -867,7 +924,19 @@ img {
   overflow: hidden; }
   .single-featured-property .property-thumb {
     position: relative;
+    overflow: hidden;
     z-index: 1; }
+    .single-featured-property .property-thumb img{
+    	max-width: none;
+		transition: 0.3s;
+		will-change: transform;
+		width: 107%;
+		float: right;
+    }
+    .single-featured-property .property-thumb:hover img{
+    	-webkit-transform: translateX(4.5%);
+		transform: translateX(4.5%);
+    }
     .single-featured-property .property-thumb .tag span {
       height: 35px;
       padding: 0 20px;
@@ -885,20 +954,18 @@ img {
       -webkit-transition-duration: 500ms;
       transition-duration: 500ms; }
     .single-featured-property .property-thumb .list-price p {
-      background-color: #ffffff;
-      padding: 10px 20px;
-      color: var(--mainColor);
-      font-size: 24px;
-      font-weight: 600;
-      display: inline-block;
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      z-index: 10;
-      margin-bottom: 0;
-      line-height: 1;
-      -webkit-transition-duration: 500ms;
-      transition-duration: 500ms; }
+      	position: absolute;
+		bottom: 24px;
+		right: -8px;
+		padding: 5px 20px;
+		color: #fff;
+		font-size: 20px;
+		background-color: #eb3751;
+      	-webkit-transition-duration: 0.3s;
+      	transition-duration: 0.3s; }
+     .single-featured-property .property-thumb:hover .list-price p{
+     	padding-right: 50px;
+     }
   .single-featured-property .property-content {
     padding: 30px;
     border: 1px solid #e1dddd; }
@@ -929,12 +996,6 @@ img {
           margin-right: 0; } }
   .single-featured-property:hover, .single-featured-property:focus {
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.1); }
-    .single-featured-property:hover .tag span, .single-featured-property:focus .tag span {
-      background-color: var(--mainColorDark);
-      color: #ffffff; }
-    .single-featured-property:hover .list-price p, .single-featured-property:focus .list-price p {
-      background-color: var(--mainColor);
-      color: #ffffff; }
 
 /* :: 12.0 Testimonials Area CSS */
 .testimonials-slides {
@@ -945,20 +1006,20 @@ img {
     z-index: 1;
     -webkit-transform: scale(0.8);
     transform: scale(0.8); }
-    .testimonials-slides .single-testimonial-slide h5 {
+  .testimonials-slides .single-testimonial-slide h5 {
       margin-bottom: 60px;
       color: #7d7d7d; }
-    .testimonials-slides .single-testimonial-slide .testimonial-author-info {
+  .testimonials-slides .single-testimonial-slide .testimonial-author-info {
       margin-top: 50px; }
-      .testimonials-slides .single-testimonial-slide .testimonial-author-info img {
+  .testimonials-slides .single-testimonial-slide .testimonial-author-info img {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         margin: 0 auto 20px; }
-      .testimonials-slides .single-testimonial-slide .testimonial-author-info p {
+  .testimonials-slides .single-testimonial-slide .testimonial-author-info p {
         margin-bottom: 0;
         color: #323232; }
-        .testimonials-slides .single-testimonial-slide .testimonial-author-info p span {
+  .testimonials-slides .single-testimonial-slide .testimonial-author-info p span {
           color: var(--mainColor); }
   .testimonials-slides .center .single-testimonial-slide {
     -webkit-transform: scale(1);
@@ -1050,13 +1111,13 @@ img {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 650px; }
+  height: 900px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .call-to-action-area {
-      height: 500px; } }
+      height: auto; } }
   @media only screen and (max-width: 767px) {
     .call-to-action-area {
-      height: 500px; } }
+      height: auto; } }
   .call-to-action-area .cta-content h2 {
     color: #ffffff;
     font-size: 48px;
@@ -1280,8 +1341,8 @@ img {
       width: 100%; }
   .single-team-member .team-member-info {
     text-align: center; }
-    .single-team-member .team-member-info .section-heading {
-      margin-bottom: 40px; }
+    .single-team-member .team-member-info .team-member-name {
+      margin-bottom: 10px; }
     .single-team-member .team-member-info .address h6 {
       margin-bottom: 15px;
       font-size: 14px; }
@@ -1669,9 +1730,12 @@ img {
   background-color: transparent;
   padding: 15px;
   border: 1px solid #e1dddd;
-  font-size: 12px;
+  font-size: 14px;
   font-style: italic;
   margin-bottom: 0 !important; }
+.south-contact-area .contact-form .form-control:focus{
+	border: 2px solid var(--mainColorGreen);
+}
 .leave-comment-area .comment-form textarea.form-control,
 .leave-comment-area .contact-form textarea.form-control,
 .south-contact-area .comment-form textarea.form-control,

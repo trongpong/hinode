@@ -135,6 +135,33 @@
             nav: true,
             navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>']
         });
+        
+        $(".language").click(function () {
+            var selectedOption = $(this).attr("data-value");
+            if (selectedOption != ''){
+                window.location.replace('index?lang=' + selectedOption);
+            }
+        });
+        $("#owl-carousel-team").owlCarousel({
+        	loop:true,
+            margin:10,
+            responsiveClass:true,
+            nav: false,
+            autoplay:true,
+            autoplayTimeout:2000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:4
+                }
+            }
+        });
     }
 
     // :: CounterUp Active Code

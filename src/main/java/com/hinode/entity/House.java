@@ -18,7 +18,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(schema="dbo", name="house")
+@Table(name="house")
 public class House {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -11,6 +11,6 @@ import com.hinode.entity.House;
 @Repository
 public interface IHouseDAO extends JpaRepository<House, String> {
 	
-	@Query(value="FROM House LIMIT 6")
+	@Query(nativeQuery=true, value="SELECT TOP 6 FROM house WHERE delFlg" )
 	public List<House> fetchTop6();
 }

@@ -23,6 +23,8 @@ public class MainController {
 		// Get top 6 new house
 		model.put("houseList", houseService.findTopNewHouse());
 		
+		House house = new House();
+		
 		return "public/index";
 	}
 
@@ -30,13 +32,19 @@ public class MainController {
 	public String list(Map<String, Object> model) {
 		return "public/listings";
 	}
-
-	@PostMapping("save")
+	
+	@GetMapping("/admin")
+	public String admin(Map<String, Object> model) {
+		model.put("house", new House());
+		return "public/admin";
+	}
+	
+	@PostMapping("/save")
 	public String save(@ModelAttribute House house) {
 
 		houseService.add(house);
 
-		return "public/admin";
+		return "redirect:/admin";
 	}
 
 }

@@ -322,7 +322,7 @@
     <!-- ##### Advance Search Area End ##### -->
 
     <!-- ##### Featured Properties Area Start ##### -->
-    <section id="recommend" class="featured-properties-area section-padding-100-50">
+    <section id="recommend" class="featured-properties-area section-padding-100-50" >
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -336,8 +336,8 @@
             <div class="row">
 
                 <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50" data-wow-delay="100ms">
+                <div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
+                    <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${obj}">
                         <!-- Property Thumbnail -->
                         <div class="property-thumb">
                             <img src="img/bg-img/noimage256.png" alt="">
@@ -345,13 +345,13 @@
                                 <span th:text="#{tag.gift}"></span>
                             </div>
                             <div class="list-price">
-                                <p>￥20,000</p>
+                                <p th:text="*{chinryo}">￥20,000</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5>コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <h5 th:text="*{meisho}">コンシェリア西新宿タワーズウエスト</h5>
+                            <p class="location" th:text="*{jusho}"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -366,209 +366,9 @@
                                 </div>
                                 <div class="space">
                                     <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
+                                    <span th:text="*{menseki}">120 sq ft</span>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="200ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/noimage256.png" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>￥20,000</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="300ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/noimage256.png" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>￥20,000</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="400ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/noimage256.png" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>￥20,000</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="500ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/noimage256.png" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>￥20,000</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                    </div>
-                </div>
-
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="600ms">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/noimage256.png" alt="">
-
-                            <div class="tag">
-                                <span>For Sale</span>
-                            </div>
-                            <div class="list-price">
-                                <p>￥20,000</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5>コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
-                            <div class="property-meta-data d-flex align-items-end justify-content-between">
-                                <div class="new-tag">
-                                    <img src="img/icons/new.png" alt="">
-                                </div>
-                                <div class="bathroom">
-                                    <img src="img/icons/bathtub.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="garage">
-                                    <img src="img/icons/garage.png" alt="">
-                                    <span>2</span>
-                                </div>
-                                <div class="space">
-                                    <img src="img/icons/space.png" alt="">
-                                    <span>120 sq ft</span>
-                                </div>
-                            </div>
+                            </div> 
                         </div>
                         <!-- Property Content -->
                     </div>

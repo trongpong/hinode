@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="#" th:action="@{/save}" th:object="${house}" method="post">
+		<div>Name: <input type="text" th:field="*{meisho}" /></div>
+		<div>Address: <input type="text" th:field="*{jusho}" /></div>
+		<div>Type: <input type="text" th:field="*{type}" /></div>
+		<div>Chinryo: <input type="text" th:field="*{chinryo}" /></div>
+		<div>Reikin: <input type="text" th:field="*{reikin}" /></div>
+		<div>Menseki: <input type="text" th:field="*{menseki}" /></div>
+		<div><input type="submit" value="Add"/>
+	</form>
+</body>
+</html>

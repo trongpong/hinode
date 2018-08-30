@@ -8,7 +8,7 @@
 
 <body>
     <div layout:fragment="content">
-    <div style="width: 100%; height: 70px; display: block;"></div>
+    <div style="width: 100%; height: 150px; display: block;"></div>
     <!-- ##### Advance Search Area Start ##### -->
     <div class="south-search-area">
         <div class="container">
@@ -17,10 +17,10 @@
                     <div class="advanced-search-form">
                         <!-- Search Title -->
                         <div class="search-title">
-                            <p>Search for your home</p>
+                            <p th:text="#{tag.headersearch}">Search for your home</p>
                         </div>
                         <!-- Search Form -->
-                        <form action="#" method="post" id="advanceSearch">
+                        <form action="" method="post" id="advanceSearch">
                             <div class="row">
 
                                 <div class="col-12 col-md-4 col-lg-3">
@@ -219,11 +219,11 @@
                                 <div class="col-12 d-flex justify-content-between align-items-end">
                                     <!-- More Filter -->
                                     <div class="more-filter">
-                                        <a href="#" id="moreFilter">+ More filters</a>
+                                        <a href="#" id="moreFilter" th:text="#{tag.filtersearch}">+ More filters</a>
                                     </div>
                                     <!-- Submit -->
                                     <div class="form-group mb-0">
-                                        <button type="submit" class="btn south-btn">Search</button>
+                                        <button type="submit" class="btn south-btn" th:text="#{btn.search}">Search</button>
                                     </div>
                                 </div>
                             </div>

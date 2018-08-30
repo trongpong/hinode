@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title th:text="#{project.title}"></title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+		<!-- Main Header Area -->
+        <div class="main-header-area" id="stickyHeader">
+            <div class="classy-nav-container breakpoint-off">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between container" id="southNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="index"><img class="ilogo" src="img/core-img/headlogo.png" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="#">QL Nhà</a></li>
+                                <li><a href="#">QL Trang</a></li>
+                                <li><a href="#">QL Người dùng</a></li>
+                                <li><a href="#">Xin chào, Admin</a>
+                                	<ul class="dropdown">
+                                        <li><a href="#">Tài khoản</a></li>
+                                        <li><a href="#">Đổi mật khẩu</a></li>
+                                        <li><a href="#">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- #################### START CONTENT  #################### -->
+    <div layout:fragment="content">
+    <div style="width: 100%; height: 70px; display: block;"></div>
+    	
+    	<!-- START TABLE -->
+    	<div class="limiter">
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<div class="table100 ver1 m-b-110">
+						<table data-vertable="ver1">
+							<thead>
+								<tr class="row100 head">
+									<th class="column100 column1" data-column="column1">ID</th>
+									<th class="column100 column2" data-column="column2">Tên nhà</th>
+									<th class="column100 column3" data-column="column3">Giá thuê</th>
+									<th class="column100 column4" data-column="column4">Địa chỉ</th>
+									<th class="column100 column8" data-column="column5">Thao tác</th>
+								</tr>
+							</thead>
+							<tbody th:each="obj : ${houseList}">
+								<tr class="row100" th:object="${obj}">
+									<td class="column100 column1" data-column="column1" th:text="*{id}"></td>
+									<td class="column100 column2" data-column="column2" th:text="*{meisho}"></td>
+									<td class="column100 column3" data-column="column3" th:text="*{chinryo}"></td>
+									<td class="column100 column4" data-column="column4" th:text="*{jusho}"></td>
+									<td class="column100 column5" data-column="column5">Xóa - Sửa</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+    
+    </div>
+	<!-- #################### END CONTENT  #################### -->
+	
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="js/classy-nav.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <!-- Active js -->
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hinode.entity.House;
 import com.hinode.service.HouseService;
@@ -28,13 +29,20 @@ public class MainController {
 		return "public/index";
 	}
 
-	@GetMapping("/listings")
+	@RequestMapping("/listings")
 	public String list(Map<String, Object> model) {
 		return "public/listings";
 	}
 	
 	@GetMapping("/admin")
 	public String admin(Map<String, Object> model) {
+		// Get top 6 new house
+		model.put("houseList", houseService.findTopNewHouse());
+		return "admin/index";
+	}
+	
+	@GetMapping("/ainput")
+	public String ainput(Map<String, Object> model) {
 		model.put("house", new House());
 		return "public/admin";
 	}

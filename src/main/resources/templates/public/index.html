@@ -49,9 +49,9 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="#" th:text="#{menu.home}">Home</a></li>
-                                <li><a href="#" onclick="EPPZScrollTo.scrollVerticalToElementById('about', 20);" th:text="#{menu.about}">About Us</a></li>
-                                <li><a href="#" onclick="EPPZScrollTo.scrollVerticalToElementById('contact', 20);" th:text="#{menu.contact}">Contact</a></li>
+                                <li><a href="/index" th:text="#{menu.home}">Home</a></li>
+                                <li><a href="/index#about" onclick="EPPZScrollTo.scrollVerticalToElementById('about', 20);" th:text="#{menu.about}">About Us</a></li>
+                                <li><a href="/index#contact" onclick="EPPZScrollTo.scrollVerticalToElementById('contact', 20);" th:text="#{menu.contact}">Contact</a></li>
                                 <li><a href="#" th:text="#{menu.language}">Language</a>
                                     <ul class="dropdown">
                                         <li><a href="#" th:text="#{lang.ja}" class="language" data-value="ja">日本語</a></li>
@@ -106,7 +106,7 @@
                             <p th:text="#{tag.headersearch}"></p>
                         </div>
                         <!-- Search Form -->
-                        <form action="#" method="post" id="advanceSearch">
+                        <form action="/listings" method="post" id="advanceSearch">
                             <div class="row">
 
                                 <div class="col-12 col-md-4 col-lg-3">
@@ -345,7 +345,7 @@
                                 <span th:text="#{tag.gift}"></span>
                             </div>
                             <div class="list-price">
-                                <p th:text="*{chinryo}">￥20,000</p>
+                                <p th:text="￥+*{chinryo}">￥20,000</p>
                             </div>
                         </div>
                         <!-- Property Content -->

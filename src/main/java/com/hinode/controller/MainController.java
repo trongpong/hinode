@@ -34,10 +34,15 @@ public class MainController {
 		return "public/listings";
 	}
 	
+	@RequestMapping("/single")
+	public String single(Map<String, Object> model) {
+		return "public/single-listings";
+	}
+	
 	@GetMapping("/admin")
 	public String admin(Map<String, Object> model) {
-		// Get top 6 new house
-		model.put("houseList", houseService.findTopNewHouse());
+		// Get top 10 new house
+		model.put("houseList", houseService.findTop10House());
 		return "admin/index";
 	}
 	
@@ -51,7 +56,6 @@ public class MainController {
 	public String save(@ModelAttribute House house) {
 
 		houseService.add(house);
-
 		return "redirect:/admin";
 	}
 

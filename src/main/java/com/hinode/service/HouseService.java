@@ -26,4 +26,8 @@ public class HouseService{
 	public List<House> findTopNewHouse() {
 		return houseDAO.fetchTop6();
 	}
+	
+	public List<House> findTop10House() {
+		return houseDAO.fetchTop10();
+	}
 }

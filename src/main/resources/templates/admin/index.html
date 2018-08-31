@@ -67,37 +67,117 @@
 
     <!-- #################### START CONTENT  #################### -->
     <div layout:fragment="content">
-    <div style="width: 100%; height: 70px; display: block;"></div>
-    	
-    	<!-- START TABLE -->
-    	<div class="limiter">
-			<div class="container-table100">
-				<div class="wrap-table100">
-					<div class="table100 ver1 m-b-110">
-						<table data-vertable="ver1">
-							<thead>
-								<tr class="row100 head">
-									<th class="column100 column1" data-column="column1">ID</th>
-									<th class="column100 column2" data-column="column2">Tên nhà</th>
-									<th class="column100 column3" data-column="column3">Giá thuê</th>
-									<th class="column100 column4" data-column="column4">Địa chỉ</th>
-									<th class="column100 column8" data-column="column5">Thao tác</th>
-								</tr>
-							</thead>
-							<tbody th:each="obj : ${houseList}">
-								<tr class="row100" th:object="${obj}">
-									<td class="column100 column1" data-column="column1" th:text="*{id}"></td>
-									<td class="column100 column2" data-column="column2" th:text="*{meisho}"></td>
-									<td class="column100 column3" data-column="column3" th:text="*{chinryo}"></td>
-									<td class="column100 column4" data-column="column4" th:text="*{jusho}"></td>
-									<td class="column100 column5" data-column="column5">Xóa - Sửa</td>
-								</tr>
-							</tbody>
-						</table>
+	    <div style="width: 100%; height: 100px; display: block;"></div>
+	    <div class="container">
+	    	<!-- HEADER TITLE -->
+	    	<div class="col-12">
+	    		<!-- PAGINATION -->
+		    	<nav>
+		    		<!-- TITLE -->
+	    			<h2 class="headTitle">Danh sách nhà</h2>
+	    			
+				  <ul class="pagination">
+				    <li class="page-item">
+				      <a class="page-link" href="#" aria-label="Previous">
+				        <span aria-hidden="true">&laquo;</span>
+				        <span class="sr-only">Previous</span>
+				      </a>
+				    </li>
+				    <li class="page-item"><a class="page-link" href="#">1</a></li>
+				    <li class="page-item"><a class="page-link" href="#">2</a></li>
+				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <li class="page-item">
+				      <a class="page-link" href="#" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				        <span class="sr-only">Next</span>
+				      </a>
+				    </li>
+				  </ul>
+				  <div class="clearfix"></div>
+				</nav>
+				<!-- PAGINATION -->
+			</div>
+			<!-- HEADER TITLE -->
+			
+	    	<!-- START TABLE -->
+	    	<div class="col-12">
+				<div class="container-table100">
+					<div class="wrap-table100">
+						<div class="table100 ver1 mb-15">
+							<table data-vertable="ver1">
+								<thead>
+									<tr class="row100 head">
+										<th class="column100 column1" data-column="column1">ID</th>
+										<th class="column100 column2" data-column="column2">Tên nhà</th>
+										<th class="column100 column3" data-column="column3">Giá thuê</th>
+										<th class="column100 column4" data-column="column4">Địa chỉ</th>
+										<th class="column100 column8" data-column="column5">Thao tác</th>
+									</tr>
+								</thead>
+								<tbody th:each="obj : ${houseList}">
+									<tr class="row100" th:object="${obj}">
+										<td class="column100 column1" data-column="column1" th:text="*{id}"></td>
+										<td class="column100 column2" data-column="column2" th:text="*{meisho}"></td>
+										<td class="column100 column3" data-column="column3" th:text="*{chinryo}"></td>
+										<td class="column100 column4" data-column="column4" th:text="*{jusho}"></td>
+										<td class="column100 column5" data-column="column5">
+											<button type="button" class="btn btn-warning">Sửa</button>
+											<button type="button" class="btn btn-danger">Xóa</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
-    
+	    	<!-- END TABLE -->
+	    	
+	    	<!-- HEADER TITLE -->
+	    	<div class="col-12">
+		   		<!-- TITLE -->
+	  			<h2 class="headTitle">Chỉnh sửa / Thêm mới</h2>
+			  	<div class="clearfix"></div>
+			</div>
+			<!-- HEADER TITLE -->
+	    	
+	    	<!-- FORM -->
+	    	<div class="col-12">
+		    	<div class="adminForm">
+			        <form action="#" th:action="@{/save}" method="post">
+			            <div class="form-group">
+			            	<label for="meisho">Tên nhà</label>
+			                <input type="text" class="form-control" name="meisho" id="meisho" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="jusho">Địa chỉ</label>
+			                <input type="text" class="form-control" name="jusho" id="jusho" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="type">Loại</label>
+			                <input type="email" class="form-control" name="type" id="type" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="chinryo">Chinryo</label>
+			                <input type="email" class="form-control" name="chinryo" id="chinryo" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="renkin">Renkin</label>
+			                <input type="email" class="form-control" name="renkin" id="renkin" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="menseki">Loại</label>
+			                <input type="email" class="form-control" name="menseki" id="menseki" placeholder="Chưa nhập...">
+			            </div>
+			            <button type="button" class="btn btn-primary">Làm mới</button>
+			            <button type="button" class="btn btn-success">Thêm mới</button>
+			            <button type="button" class="btn btn-info">Chỉnh sửa</button>
+			        </form>
+		        </div>
+	        </div>
+			<!-- FORM -->	
+		</div>
+		
     </div>
 	<!-- #################### END CONTENT  #################### -->
 	
@@ -108,6 +188,7 @@
     <!-- Bootstrap js -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Plugins js -->
+    <script src="js/plugins.js"></script>
     <script src="js/classy-nav.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/select2.min.js"></script>

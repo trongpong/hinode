@@ -31,6 +31,8 @@ public class MainController {
 
 	@RequestMapping("/listings")
 	public String list(Map<String, Object> model) {
+		// Get top 6 new house
+		model.put("houseList", houseService.findTopNewHouse());
 		return "public/listings";
 	}
 	
@@ -44,6 +46,11 @@ public class MainController {
 		// Get top 10 new house
 		model.put("houseList", houseService.findTop10House());
 		return "admin/index";
+	}
+	
+	@GetMapping("/page")
+	public String page(Map<String, Object> model) {
+		return "admin/pages";
 	}
 	
 	@GetMapping("/ainput")

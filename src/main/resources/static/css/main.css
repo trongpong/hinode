@@ -126,14 +126,9 @@ th, td {
 }
 
 .column100 {
-  width: 130px;
-  padding-left: 25px;
+  padding-left: 10px;
 }
 
-.column100.column1 {
-  /*width: 265px;*/
-  padding-left: 42px;
-}
 
 .row100.head th {
   padding-top: 24px;
@@ -188,6 +183,11 @@ th, td {
     padding: 12px;
 	font-size: 20px;
 	border-left: 8px solid green;
+}
+.headButton{
+	display: inline-block;
+	float: right;
+	padding: 12px;
 }
 
 .adminForm{

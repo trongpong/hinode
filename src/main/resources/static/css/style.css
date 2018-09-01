@@ -783,7 +783,7 @@ img {
     background-color: var(--mainColorDark); }
 
 /* :: 10.0 Advanced Search Area */
-.form-control-contact {
+.form-control-index {
   background-color: transparent;
   width: 100%;
   height: 38px;
@@ -794,7 +794,7 @@ img {
   font-weight: 500;
   padding: 0 15px;
   border: 1px solid #e1dddd; }
-  .form-control-contact:hover, .form-control-contact:focus {
+  .form-control-index:hover, .form-control-index:focus {
     background-color: transparent;
     outline: none;
     box-shadow: none;
@@ -1458,7 +1458,6 @@ img {
       .listings-content .property-meta-data img {
         margin-right: 0; } }
   .listings-content .listings-core-features {
-    padding: 70px 0;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
     .listings-content .listings-core-features li {
@@ -1527,7 +1526,7 @@ img {
         padding: 0 30px 40px; } }
     .contact-realtor-wrapper .realtor--contact-form .form-group {
       margin-bottom: 15px; }
-    .contact-realtor-wrapper .realtor--contact-form .form-control-contact {
+    .contact-realtor-wrapper .realtor--contact-form .form-control-index {
       border: 1px solid #e1dddd;
       height: 45px;
       background-color: #ffffff;
@@ -1535,7 +1534,7 @@ img {
       font-style: italic;
       font-size: 12px;
       margin-bottom: 15px; }
-    .contact-realtor-wrapper .realtor--contact-form textarea.form-control-contact {
+    .contact-realtor-wrapper .realtor--contact-form textarea.form-control-index {
       height: 100px;
       padding: 15px; }
 
@@ -1723,10 +1722,10 @@ img {
 .south-contact-area .comment-form .form-group,
 .south-contact-area .contact-form .form-group {
   margin-bottom: 10px; }
-.leave-comment-area .comment-form .form-control-contact,
-.leave-comment-area .contact-form .form-control-contact,
-.south-contact-area .comment-form .form-control-contact,
-.south-contact-area .contact-form .form-control-contact {
+.leave-comment-area .comment-form .form-control-index,
+.leave-comment-area .contact-form .form-control-index,
+.south-contact-area .comment-form .form-control-index,
+.south-contact-area .contact-form .form-control-index {
   width: 100%;
   height: 43px;
   background-color: transparent;
@@ -1735,13 +1734,13 @@ img {
   font-size: 14px;
   font-style: italic;
   margin-bottom: 0 !important; }
-.south-contact-area .contact-form .form-control-contact:focus{
+.south-contact-area .contact-form .form-control-index:focus{
 	border: 2px solid var(--mainColorGreen);
 }
-.leave-comment-area .comment-form textarea.form-control-contact,
-.leave-comment-area .contact-form textarea.form-control-contact,
-.south-contact-area .comment-form textarea.form-control-contact,
-.south-contact-area .contact-form textarea.form-control-contact {
+.leave-comment-area .comment-form textarea.form-control-index,
+.leave-comment-area .contact-form textarea.form-control-index,
+.south-contact-area .comment-form textarea.form-control-index,
+.south-contact-area .contact-form textarea.form-control-index {
   height: 200px !important; }
 .leave-comment-area .comment-form button[type=submit],
 .leave-comment-area .contact-form button[type=submit],
@@ -1903,3 +1902,12 @@ img {
   color: #7d7d7d; }
 
 /*# sourceMappingURL=style.css.map */
+.flg{
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	content: '';
+}
+.flg-japan{
+	background-image: "img/icons/japan.png";
+}

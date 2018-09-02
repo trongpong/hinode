@@ -42,5 +42,34 @@
 		$(table2).find("."+column).removeClass('hov-column-'+ verTable);
 		$(table1).find(".row100.head ."+column).removeClass('hov-column-head-'+ verTable);
 	});
-    
+	
+	// :: Image upload
+	var notifyOptions = {
+	        iconButtons: {
+	            className: 'fa fa-question about',
+	            method: function (e, modal) {
+	                ssi_modal.closeAll('notify');
+	                var btn = $(this).addClass('disabled');
+	                ssi_modal.dialog({
+	                    onClose: function () {
+	                        btn.removeClass('disabled')
+	                    },
+	                    onShow: function () {
+	                    },
+	                    okBtn: {className: 'btn btn-primary btn-sm'},
+	                    title: 'ssi-modal',
+	                    content: 'ssi-modal is an open source modal window plugin that only depends on jquery. It has many options and it\'s super flexible, maybe the most flexible modal out there... For more details click <a class="sss" href="http://ssbeefeater.github.io/#ssi-modal" target="_blank">here</a>',
+	                    sizeClass: 'small',
+	                    animation: true
+	                });
+	            }
+	        }
+	    };
+
+	    // option 1
+	    $('#ssi-upload').ssi_uploader({
+	        url: 'http://localhost:3300/upload',
+	        inForm:true
+	    });
+	    
 })(jQuery);

@@ -2,7 +2,7 @@
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost/dbo
+    url: jdbc:mysql://hinode.crkrwn8xrnxz.us-east-2.rds.amazonaws.com/dbo?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: hinode2018
   jpa:

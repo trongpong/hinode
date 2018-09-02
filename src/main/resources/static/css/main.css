@@ -196,6 +196,7 @@ th, td {
 	padding: 10px;
 }
 
-.adminForm .form-control{
-	
+.modal{
+	top: 80px !important;
+	z-index: 99999 !important;
 }

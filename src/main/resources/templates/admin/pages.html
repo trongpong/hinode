@@ -16,7 +16,7 @@
 		    	<nav>
     				<!-- TITLE -->
     				<h2 class="headTitle">Slider header</h2>
-    				<button type="button" class="headButton btn btn-primary">Thêm mới</button>
+    				<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
 				<!-- PAGINATION -->
@@ -42,8 +42,7 @@
 										<td width="20%" class="column100 column1" data-column="column1">1</td>
 										<td class="column100 column2" data-column="column2"><img src="img/bg-img/hero1.png"></td>
 										<td width="20%" class="column100 column3" data-column="column3">hero1.png</td>
-										<td width="20%" class="column100 column5" data-column="column4">
-											<button type="button" class="btn btn-warning">Sửa</button>
+										<td width="10%" class="column100 column4" data-column="column4">
 											<button type="button" class="btn btn-danger">Xóa</button>
 										</td>
 									</tr>
@@ -51,8 +50,7 @@
 										<td width="20%" class="column100 column1" data-column="column1">2</td>
 										<td class="column100 column2" data-column="column2"><img src="img/bg-img/hero2.png"></td>
 										<td width="20%" class="column100 column3" data-column="column3">hero2.png</td>
-										<td width="20%" class="column100 column5" data-column="column4">
-											<button type="button" class="btn btn-warning">Sửa</button>
+										<td width="10%" class="column100 column4" data-column="column4">
 											<button type="button" class="btn btn-danger">Xóa</button>
 										</td>
 									</tr>
@@ -60,8 +58,7 @@
 										<td width="20%" class="column100 column1" data-column="column1">3</td>
 										<td class="column100 column2" data-column="column2"><img src="img/bg-img/hero3.png"></td>
 										<td width="20%" class="column100 column3" data-column="column3">hero3.png</td>
-										<td width="20%" class="column100 column5" data-column="column4">
-											<button type="button" class="btn btn-warning">Sửa</button>
+										<td width="10%" class="column100 column4" data-column="column4">
 											<button type="button" class="btn btn-danger">Xóa</button>
 										</td>
 									</tr>
@@ -73,13 +70,15 @@
 			</div>
 	    	<!-- END TABLE -->
 	    	
+	    	
+			
 	    	<!-- STAFF HEADER TITLE -->
 	    	<div class="col-12">
 	    		<!-- PAGINATION -->
 		    	<nav>
     				<!-- TITLE -->
     				<h2 class="headTitle">Danh sách nhân viên</h2>
-	    			<button type="button" class="headButton btn btn-primary">Thêm mới</button>
+	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
 				<!-- PAGINATION -->
@@ -106,7 +105,7 @@
 										<td width="20%" class="column100 column1" data-column="column1">1</td>
 										<td class="column100 column2" data-column="column2"><img src="img/bg-img/noimage256.png"></td>
 										<td width="20%" class="column100 column3" data-column="column3">Nguyen Van A</td>
-										<td width="20%" class="column100 column3" data-column="column4">Giam Doc</td>
+										<td width="20%" class="column100 column4" data-column="column4">Giam Doc</td>
 										<td width="20%" class="column100 column5" data-column="column5">
 											<button type="button" class="btn btn-warning">Sửa</button>
 											<button type="button" class="btn btn-danger">Xóa</button>
@@ -116,7 +115,7 @@
 										<td width="20%" class="column100 column1" data-column="column1">2</td>
 										<td class="column100 column2" data-column="column2"><img src="img/bg-img/noimage256.png"></td>
 										<td width="20%" class="column100 column3" data-column="column3">Nguyen Van B</td>
-										<td width="20%" class="column100 column3" data-column="column4">Kế toán</td>
+										<td width="20%" class="column100 column4" data-column="column4">Kế toán</td>
 										<td width="20%" class="column100 column5" data-column="column5">
 											<button type="button" class="btn btn-warning">Sửa</button>
 											<button type="button" class="btn btn-danger">Xóa</button>
@@ -126,7 +125,7 @@
 										<td width="20%" class="column100 column1" data-column="column1">3</td>
 										<td class="column100 column2" data-column="column2"><img src="img/bg-img/noimage256.png"></td>
 										<td width="20%" class="column100 column3" data-column="column3">Nguyen Van C</td>
-										<td width="20%" class="column100 column3" data-column="column4">Nhân viênc</td>
+										<td width="20%" class="column100 column4" data-column="column4">Nhân viênc</td>
 										<td width="20%" class="column100 column5" data-column="column5">
 											<button type="button" class="btn btn-warning">Sửa</button>
 											<button type="button" class="btn btn-danger">Xóa</button>
@@ -146,7 +145,7 @@
 		    	<nav>
     				<!-- TITLE -->
     				<h2 class="headTitle">Ý kiến khách hàng</h2>
-	    			<button type="button" class="headButton btn btn-primary">Thêm mới</button>
+	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
 				<!-- PAGINATION -->
@@ -186,6 +185,28 @@
 				</div>
 			</div>
 	    	<!-- END TABLE -->
+	    	
+	    	<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Thêm mới</h5>
+			      </div>
+			      <div class="modal-body">
+			        	<form action="#" method="post">
+			        		<div class="form-group">
+				                <input type="file" name="ssi-upload" multiple id="ssi-upload"/>
+				            </div>
+			            </form>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+			        <button type="button" class="btn btn-primary">Lưu</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 	    	
     	<!-- CONTENT HERE -->
     	</div>

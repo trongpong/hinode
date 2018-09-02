@@ -67,26 +67,9 @@
 	    };
 
 	    // option 1
-
-
 	    $('#ssi-upload').ssi_uploader({
 	        url: 'http://localhost:3300/upload',
 	        inForm:true
-	    });
-
-	    // option 2
-
-	    var uploader = $('#ssi-upload').ssi_uploader({
-	        url: 'http://localhost:3300/upload'
-	    });
-
-	    $( "#myForm" ).on( "submit", function( event ) {
-	        event.preventDefault();
-	        uploader.data('ssi_upload').uploadFiles();
-	        uploader.on('onUpload.ssi-uploader',function(){
-	            console.log('complete');
-	            $( "#myForm" ).submit();
-	        });
 	    });
 	    
 })(jQuery);

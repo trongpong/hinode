@@ -345,13 +345,13 @@
                                 <span th:text="#{tag.gift}"></span>
                             </div>
                             <div class="list-price">
-                                <p th:text="￥+*{chinryo}">￥20,000</p>
+                                <p th:text="￥+*{rentFee}">￥20,000</p>
                             </div>
                         </div>
                         <!-- Property Content -->
                         <div class="property-content">
-                            <h5 th:text="*{meisho}">コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location" th:text="*{jusho}"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
+                            <h5 th:text="*{name}">コンシェリア西新宿タワーズウエスト</h5>
+                            <p class="location" th:text="*{address}"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
                             <div class="property-meta-data d-flex align-items-end justify-content-between">
                                 <div class="new-tag">
                                     <img src="img/icons/new.png" alt="">
@@ -366,7 +366,7 @@
                                 </div>
                                 <div class="space">
                                     <img src="img/icons/space.png" alt="">
-                                    <span th:text="*{menseki}">120 sq ft</span>
+                                    <span th:text="*{area}">120 sq ft</span>
                                 </div>
                             </div> 
                         </div>

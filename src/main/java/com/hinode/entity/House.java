@@ -1,17 +1,12 @@
 package com.hinode.entity;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,38 +19,45 @@ public class House {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="meisho", length=50, nullable=true)
-	private String meisho;
+	@Column(name="name", length=50, nullable=true)
+	private String name;
 	
-	@Column(name="jusho", length=100, nullable=true)
-	private String jusho;
+	@Column(name="address", length=100, nullable=true)
+	private String address;
 	
-	@Column(name="type", nullable=true)
-	private String type;
+	@Column(name="house_type", nullable=true)
+	private String houseType;
 	
-	@Column(name="chinryo", nullable=true)
-	private int chinryo;
+	@Column(name="room_type", nullable=true)
+	private String roomType;
 	
-	@Column(name="henkoryo", nullable=true)
-	private int henkoryo;
+	@Column(name="rent_fee", nullable=true)
+	private int rentFee;
 	
-	@Column(name="shikikin", nullable=true)
-	private int shikikin;
+	@Column(name="deposite_fee", nullable=true)
+	private int depositeFee;
 	
-	@Column(name="reikin", nullable=true)
-	private int reikin;
+	@Column(name="guarantee_fee", nullable=true)
+	private int guaranteeFee;
 	
-	@Column(name="menseki", nullable=true)
-	private double menseki;
+	@Column(name="area", nullable=true)
+	private double area;
 	
-	@Column(name="delFlg", length = 1)
+	@Column(name="contract_duration", nullable=true)
+	private int contractDuration;
+	
+	@Column(name="build_from", nullable=true)
+	private Date buildFrom;
+	
+	@Column(name="movable_date", nullable=true)
+	private Date movableDate;
+	
+	@Column(name="status", nullable=true, length=20)
+	private String status;
+	
+	@Column(name="other", nullable=true)
+	private String other;
+	
+	@Column(name="del_flg", length = 1)
 	private String delFlg;
-	
-	@ManyToMany(cascade= {CascadeType.ALL})
-	@JoinTable(
-		name = "houseStation",
-		joinColumns = {@JoinColumn(name="houseId")},
-		inverseJoinColumns = {@JoinColumn(name="stationId")}
-	)
-	Set<RailwayStation> stationList = new HashSet<>();
 }

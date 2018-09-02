@@ -523,7 +523,6 @@ img {
   width: 100%;
   height: var(--menuHeight);
   position: fixed;
-  z-index: 1;
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms; 
   z-index: 10000 !important;

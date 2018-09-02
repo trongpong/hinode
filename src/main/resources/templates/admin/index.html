@@ -17,10 +17,9 @@
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" href="ssi-uploader/styles/ssi-uploader.css"/>
 </head>
 
 <body>
@@ -47,10 +46,8 @@
                             <ul>
                                 <li><a href="/admin">QL Nhà</a></li>
                                 <li><a href="/page">QL Trang</a></li>
-                                <li><a href="#">QL Người dùng</a></li>
                                 <li><a href="#">Xin chào, Admin</a>
                                 	<ul class="dropdown">
-                                        <li><a href="#">Tài khoản</a></li>
                                         <li><a href="#">Đổi mật khẩu</a></li>
                                         <li><a href="#">Đăng xuất</a></li>
                                     </ul>
@@ -111,16 +108,16 @@
 										<th class="column100 column2" data-column="column2">Tên nhà</th>
 										<th class="column100 column3" data-column="column3">Giá thuê</th>
 										<th class="column100 column4" data-column="column4">Địa chỉ</th>
-										<th class="column100 column8" data-column="column5">Thao tác</th>
+										<th class="column100 column5" data-column="column5">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody th:each="obj : ${houseList}">
 									<tr class="row100" th:object="${obj}">
-										<td class="column100 column1" data-column="column1" th:text="*{id}"></td>
-										<td class="column100 column2" data-column="column2" th:text="*{meisho}"></td>
-										<td class="column100 column3" data-column="column3" th:text="*{chinryo}"></td>
-										<td class="column100 column4" data-column="column4" th:text="*{jusho}"></td>
-										<td class="column100 column5" data-column="column5">
+										<td width="10%" class="column100 column1" data-column="column1" th:text="*{id}"></td>
+										<td width="20%" class="column100 column2" data-column="column2" th:text="*{meisho}"></td>
+										<td width="20%" class="column100 column3" data-column="column3" th:text="*{chinryo}"></td>
+										<td width="30%" class="column100 column4" data-column="column4" th:text="*{jusho}"></td>
+										<td width="20%" class="column100 column5" data-column="column5">
 											<button type="button" class="btn btn-warning">Sửa</button>
 											<button type="button" class="btn btn-danger">Xóa</button>
 										</td>
@@ -145,33 +142,49 @@
 	    	<div class="col-12">
 		    	<div class="adminForm">
 			        <form action="#" th:action="@{/save}" method="post">
-			            <div class="form-group">
-			            	<label for="meisho">Tên nhà</label>
-			                <input type="text" class="form-control" name="meisho" id="meisho" placeholder="Chưa nhập...">
+			        	<div class="form-row">
+			        		<div class="form-group col-md-6">
+				            	<label for="meisho">Tên nhà</label>
+				                <input type="text" class="form-control" name="meisho" id="meisho" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="jusho">Địa chỉ</label>
+				                <input type="text" class="form-control" name="jusho" id="jusho" placeholder="Chưa nhập...">
+				            </div>
 			            </div>
-			            <div class="form-group">
-			            	<label for="jusho">Địa chỉ</label>
-			                <input type="text" class="form-control" name="jusho" id="jusho" placeholder="Chưa nhập...">
+			            
+			            <div class="form-row">
+				            <div class="form-group col-md-6">
+				            	<label for="type">Loại</label>
+				                <input type="email" class="form-control" name="type" id="type" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="chinryo">Chinryo</label>
+				                <input type="email" class="form-control" name="chinryo" id="chinryo" placeholder="Chưa nhập...">
+				            </div>
 			            </div>
-			            <div class="form-group">
-			            	<label for="type">Loại</label>
-			                <input type="email" class="form-control" name="type" id="type" placeholder="Chưa nhập...">
-			            </div>
-			            <div class="form-group">
-			            	<label for="chinryo">Chinryo</label>
-			                <input type="email" class="form-control" name="chinryo" id="chinryo" placeholder="Chưa nhập...">
-			            </div>
-			            <div class="form-group">
-			            	<label for="renkin">Renkin</label>
-			                <input type="email" class="form-control" name="renkin" id="renkin" placeholder="Chưa nhập...">
-			            </div>
-			            <div class="form-group">
-			            	<label for="menseki">Loại</label>
-			                <input type="email" class="form-control" name="menseki" id="menseki" placeholder="Chưa nhập...">
-			            </div>
-			            <button type="button" class="btn btn-primary">Làm mới</button>
-			            <button type="button" class="btn btn-success">Thêm mới</button>
-			            <button type="button" class="btn btn-info">Chỉnh sửa</button>
+			            
+			            <div class="form-row">
+				            <div class="form-group col-md-6">
+				            	<label for="renkin">Renkin</label>
+				                <input type="email" class="form-control" name="renkin" id="renkin" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="menseki">Loại</label>
+				                <input type="email" class="form-control" name="menseki" id="menseki" placeholder="Chưa nhập...">
+				            </div>
+			        	</div> 
+			        	
+			        	<div class="form-row">
+			        		<div class="form-group col-md-12">
+				            	<label for="ssi-upload">Hình ảnh</label>
+				                <input type="file" name="ssi-upload" multiple id="ssi-upload"/>
+				            </div>
+			        	</div>
+			        	
+			            <button type="button" class="btn btn-secondary">Làm mới</button>
+			            <button type="button" class="btn btn-primary">Thêm</button>
+			            <button type="button" class="btn btn-info">Lưu</button>
 			        </form>
 		        </div>
 	        </div>
@@ -192,8 +205,10 @@
     <script src="js/classy-nav.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/select2.min.js"></script>
+    <script src="ssi-uploader/js/ssi-uploader.min.js"></script>
     <!-- Active js -->
     <script src="js/admin.js"></script>
+    
 
 </body>
 

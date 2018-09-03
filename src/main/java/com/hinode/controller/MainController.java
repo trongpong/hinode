@@ -24,8 +24,6 @@ public class MainController {
 		// Get top 6 new house
 		model.put("houseList", houseService.findTopNewHouse());
 		
-		House house = new House();
-		
 		return "public/index";
 	}
 

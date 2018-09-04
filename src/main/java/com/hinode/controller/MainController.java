@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hinode.entity.House;
 import com.hinode.service.HouseService;
@@ -34,15 +35,18 @@ public class MainController {
 		return "public/listings";
 	}
 	
-	@RequestMapping("/single")
-	public String single(Map<String, Object> model) {
+	@GetMapping("/single")
+	public String single(Map<String, Object> model, @RequestParam int id) {
+		//Put house
+		model.put("house", houseService.getById(id));
 		return "public/single-listings";
 	}
 	
 	@GetMapping("/admin")
 	public String admin(Map<String, Object> model) {
 		// Get top 10 new house
-		model.put("houseList", houseService.findTop10House());
+		model.put("houseList", houseService.findLast10House());
+		model.put("house", new House());
 		return "admin/index";
 	}
 	
@@ -51,17 +55,16 @@ public class MainController {
 		return "admin/pages";
 	}
 	
-	@GetMapping("/ainput")
-	public String ainput(Map<String, Object> model) {
-		model.put("house", new House());
-		return "public/admin";
-	}
-	
 	@PostMapping("/save")
 	public String save(@ModelAttribute House house) {
-
 		houseService.add(house);
 		return "redirect:/admin";
 	}
+	
+	@GetMapping("/gethouse")
+	public House getHouse(@RequestParam int id) {
+		return houseService.getById(id);
+	}
+	
 
 }

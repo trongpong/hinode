@@ -73,3 +73,13 @@
 	    });
 	    
 })(jQuery);
+
+//:: Date picker
+$('#moveabledate').datepicker({
+	inline: true,
+	dateFormat: 'dd/mm/yy'
+});
+$('#buildfrom').datepicker({
+	inline: true,
+	dateFormat: 'dd/mm/yy'
+});

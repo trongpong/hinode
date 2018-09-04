@@ -91,22 +91,24 @@
                 <!-- Single Featured Property -->
                 <div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
                     <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${obj}">
-                        <!-- Property Thumbnail -->
-                        <div class="property-thumb">
-                            <img src="img/bg-img/noimage256.png" alt="">
-                            <div class="tag">
-                                <span th:text="#{tag.gift}"></span>
-                            </div>
-                            <div class="list-price">
-                                <p th:text="￥+*{rentFee}">￥20,000</p>
-                            </div>
-                        </div>
-                        <!-- Property Content -->
-                        <div class="property-content">
-                            <h5 th:text="*{name}">コンシェリア西新宿タワーズウエスト</h5>
-                            <p class="location" th:text="*{address}"><img src="img/icons/location.png" alt="">東京都武蔵野市境1-22-9</p>
-                        </div>
-                        <!-- Property Content -->
+                    	<a th:href="@{/single(id=${obj.id})}">
+	                        <!-- Property Thumbnail -->
+	                        <div class="property-thumb">
+	                            <img src="img/bg-img/noimage256.png" alt="">
+	                            <div class="tag">
+	                                <span th:text="#{tag.gift}"></span>
+	                            </div>
+	                            <div class="list-price">
+	                                <p th:text="￥+*{rentFee}">￥20,000</p>
+	                            </div>
+	                        </div>
+	                        <!-- Property Content -->
+	                        <div class="property-content">
+	                            <h5><i class="fa fa-home fa-2x" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
+	                            <p class="location"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
+	                        </div>
+	                        <!-- Property Content -->
+                        </a>
                     </div>
                 </div>
             </div>

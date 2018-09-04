@@ -1431,23 +1431,24 @@ img {
 
 .listings-content {
   margin-top: 70px; }
-  .listings-content .list-price p {
-    margin-bottom: 0;
+  .listings-content p.list-price {
     font-size: 24px;
     font-weight: 600;
     color: var(--mainColor); }
   .listings-content h5 {
     font-size: 30px;
     margin-bottom: 10px; }
+  .listings-content i {
+    width: 30px;
+    text-align: center;
+    margin-right: 10px; }
     @media only screen and (max-width: 767px) {
       .listings-content h5 {
         font-size: 20px; } }
   .listings-content .location {
-    margin-bottom: 40px; }
-    .listings-content .location img {
-      margin-right: 15px; }
-  .listings-content p {
-    margin-bottom: 40px; }
+    margin: 0px;
+    font-size: 20px;
+     }
   .listings-content .property-meta-data div {
     margin-right: 15px; }
   .listings-content .property-meta-data span {

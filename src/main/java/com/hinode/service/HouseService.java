@@ -2,7 +2,6 @@ package com.hinode.service;
 
 import java.util.List;
 
-import org.hibernate.criterion.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,12 @@ public class HouseService{
 		return houseDAO.fetchTop6();
 	}
 	
-	public List<House> findTop10House() {
-		return houseDAO.fetchTop10();
+	public List<House> findLast10House() {
+		return houseDAO.fetchLast10();
+	}
+	
+	// .:NhanTV:. FindbyId
+	public House getById(int id) {
+		return houseDAO.getById(id);
 	}
 }

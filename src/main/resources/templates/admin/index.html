@@ -17,6 +17,7 @@
     <!-- Style CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" href="ssi-uploader/styles/ssi-uploader.css"/>
@@ -177,39 +178,83 @@
 	    	<!-- FORM -->
 	    	<div class="col-12">
 		    	<div class="adminForm">
-			        <form action="#" th:action="@{/save}" method="post">
+			        <form th:action="@{/save}" th:object="${house}" method="post">
+			        	
+			            <div class="form-row">
+			            	<div class="form-group col-md-6">
+				            	<label for="name">Tên nhà</label>
+				                <input type="text" class="form-control" th:field="*{name}" name="name" id="name" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="buildfrom">Xây dựng từ</label>
+				                <input type="text" class="form-control" th:field="*{buildFrom}" name="buildfrom" id="buildfrom" placeholder="Chưa nhập...">
+				            </div>
+			            </div>
+			            
 			        	<div class="form-row">
 			        		<div class="form-group col-md-6">
-				            	<label for="meisho">Tên nhà</label>
-				                <input type="text" class="form-control" name="meisho" id="meisho" placeholder="Chưa nhập...">
+				            	<label for="address">Địa chỉ</label>
+				                <input type="text" class="form-control" th:field="*{address}" name="address" id="address" placeholder="Chưa nhập...">
 				            </div>
 				            <div class="form-group col-md-6">
-				            	<label for="jusho">Địa chỉ</label>
-				                <input type="text" class="form-control" name="jusho" id="jusho" placeholder="Chưa nhập...">
-				            </div>
-			            </div>
-			            
-			            <div class="form-row">
-				            <div class="form-group col-md-6">
-				            	<label for="type">Loại</label>
-				                <input type="email" class="form-control" name="type" id="type" placeholder="Chưa nhập...">
-				            </div>
-				            <div class="form-group col-md-6">
-				            	<label for="chinryo">Chinryo</label>
-				                <input type="email" class="form-control" name="chinryo" id="chinryo" placeholder="Chưa nhập...">
+				            	<label for="area">Diện tích</label>
+				                <input type="text" class="form-control" th:field="*{area}" name="area" id="area" placeholder="Chưa nhập...">
 				            </div>
 			            </div>
 			            
 			            <div class="form-row">
 				            <div class="form-group col-md-6">
-				            	<label for="renkin">Renkin</label>
-				                <input type="email" class="form-control" name="renkin" id="renkin" placeholder="Chưa nhập...">
+				            	<label for="roomtype">Loại phòng</label>
+				                <input type="text" class="form-control" th:field="*{roomType}" name="roomtype" id="roomtype" placeholder="Chưa nhập...">
 				            </div>
 				            <div class="form-group col-md-6">
-				            	<label for="menseki">Loại</label>
-				                <input type="email" class="form-control" name="menseki" id="menseki" placeholder="Chưa nhập...">
+				            	<label for="rentfee">Phí thuê nhà</label>
+				                <input type="number" class="form-control" th:field="*{rentFee}" name="rentfee" id="rentfee" placeholder="Chưa nhập...">
+				            </div>
+			        	</div>
+			            
+			            <div class="form-row">
+				            <div class="form-group col-md-6">
+				            	<label for="depositefee">Phí tiền gửi</label>
+				                <input type="number" class="form-control" th:field="*{depositeFee}" name="depositefee" id="deposietfee" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="guaranteefee">Phí bảo lãnh</label>
+				                <input type="number" class="form-control" th:field="*{guaranteeFee}" name="guaranteefee" id="guaranteefee" placeholder="Chưa nhập...">
 				            </div>
 			        	</div> 
+			        	
+			        	<div class="form-row">
+				            <div class="form-group col-md-6">
+				            	<label for="housetype">Loại nhà</label>
+				                <input type="text" class="form-control" th:field="*{houseType}" name="housetype" id="housetype" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="moveabledate">Thời gian chuyển đến</label>
+				                <input type="text" class="form-control" th:field="*{movableDate}" name="moveabledate" id="moveabledate" placeholder="Chưa nhập...">
+				            </div>
+			        	</div>
+			        	<div class="form-row">
+				            <div class="form-group col-md-6">
+				            	<label for="contractduration">Thời hạn hợp đồng</label>
+				                <input type="text" class="form-control" th:field="*{contractDuration}" name="contractduration" id="contractduration" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="other">Ghi chú</label>
+				                <input type="text" class="form-control" th:field="*{other}" name="other" id="other" placeholder="Chưa nhập...">
+				            </div>
+			        	</div>
+			        	
+			        	<div class="form-row">
+				            <div class="form-group col-md-6">
+				            	<label for="delflag">Del flag</label>
+				                <input type="text" class="form-control" th:field="*{delFlg}" name="delflag" id="delflag" placeholder="Chưa nhập...">
+				            </div>
+				            <div class="form-group col-md-6">
+				            	<label for="status">Trạng thái</label>
+				                <input type="text" class="form-control" th:field="*{status}" name="status" id="status" placeholder="Chưa nhập...">
+				            </div>
+			        	</div>
 			        	
 			        	<div class="form-row">
 			        		<div class="form-group col-md-12">
@@ -219,7 +264,7 @@
 			        	</div>
 			        	
 			            <button type="button" class="btn btn-secondary">Làm mới</button>
-			            <button type="button" class="btn btn-primary">Thêm</button>
+			            <button type="submit" class="btn btn-primary">Thêm</button>
 			            <button type="button" class="btn btn-info">Lưu</button>
 			            <div class="clearfix"></div>
 			        </form>

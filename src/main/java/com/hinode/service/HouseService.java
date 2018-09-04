@@ -2,7 +2,6 @@ package com.hinode.service;
 
 import java.util.List;
 
-import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

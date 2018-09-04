@@ -32,9 +32,8 @@ public class MainController {
 
 	@RequestMapping("/listings")
 	public String list(Map<String, Object> model, @ModelAttribute HouseSearchCondition condition) {
-		
 		model.put("houseList", houseService.findByCondition(condition));
-		
+		model.put("condition", new HouseSearchCondition());
 		return "public/listings";
 	}
 	
@@ -63,11 +62,5 @@ public class MainController {
 		houseService.add(house);
 		return "redirect:/admin";
 	}
-	
-	@GetMapping("/gethouse")
-	public House getHouse(@RequestParam int id) {
-		return houseService.getById(id);
-	}
-	
 
 }

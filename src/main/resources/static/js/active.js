@@ -190,6 +190,13 @@
     if ($window.width() > 767) {
         new WOW().init();
     }
+    
+    // :: Toogle contact single
+    var options = {};
+    $("#toggleContact").on('click', function () {
+    	$('#contact-form-single').toggle("blind", options, 500);
+    	EPPZScrollTo.scrollVerticalToElementById('contact-form-single', 20);
+    });
 
     // :: Slider Range
     $('.slider-range-price').each(function () {
@@ -209,6 +216,6 @@
                 t.closest('.slider-range').find('.range').html(result);
             }
         });
-    })
-
+    });
+    
 })(jQuery);

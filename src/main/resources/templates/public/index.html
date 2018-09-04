@@ -107,6 +107,20 @@
                         </div>
                         <!-- Search Form -->
                         <form th:action="@{/listings}" method="post" id="advanceSearch" th:object="${condition}">
+                        	<div class="row">
+                            	<div class="col-12 col-md-4 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="srchStation" th:placeholder="#{search.station}">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 col-md-4 col-lg-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="srchLine" th:placeholder="#{search.line}">
+                                    </div>
+                                </div>
+                                <input type="hidden" id="iptStation" name="station" th:field="*{station}">
+                            </div>
                             <div class="row">
                             	<div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
@@ -122,7 +136,12 @@
                                 
                                 <div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="srchRoomtype" th:placeholder="#{search.roomtype}" th:field="*{roomType}">
+                                        <select th:field="*{roomType}" class="form-control" name="srchRoomtype" id="srchRoomtype">
+                                            <option th:value="#{search.roomtype}" th:text="#{search.roomtype}" ></option>
+                                            <option value="1K">1K</option>
+                                            <option value="1LK">1LK</option>
+                                            <option value="1LDK">1LDK</option>
+                                        </select>
                                     </div>
                                 </div>
                                 

@@ -800,7 +800,12 @@ img {
     border: 1px solid #e1dddd; }
 
 .nice-select {
-  line-height: 34px; }
+  line-height: 25px; 
+  border: 1px solid #ced4da;
+  font-size: 1rem;
+  height: auto;
+  width: 100%;
+  }
   .nice-select .list {
     left: 0 !important;
     right: 0 !important;

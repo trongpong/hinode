@@ -218,4 +218,12 @@
         });
     });
     
+    // :: Station get value
+    $("input[name='srchStation']").on('change', function () {
+    	$("#iptStation").val($(this).val()+ ' ' + $("input[name='srchLine']").val());
+    });
+    $("input[name='srchLine']").on('change', function () {
+    	$("#iptStation").val($("input[name='srchStation']").val() + ' ' + $(this).val());
+    });
+    
 })(jQuery);

@@ -58,6 +58,9 @@ public class House {
 	@Column(name="other", nullable=true)
 	private String other;
 	
+	@Column(name="station", nullable=true)
+	private String station;
+	
 	@Column(name="del_flg", length = 1)
 	private String delFlg;
 }

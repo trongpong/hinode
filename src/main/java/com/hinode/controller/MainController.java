@@ -1,5 +1,6 @@
 package com.hinode.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,9 @@ import com.hinode.service.HouseService;
 
 @Controller
 public class MainController {
-
+	
+	private final int MAX_INT = 999999999;
+	
 	@Autowired
 	private HouseService houseService;
 
@@ -33,7 +36,26 @@ public class MainController {
 	@RequestMapping("/listings")
 	public String list(Map<String, Object> model, @ModelAttribute HouseSearchCondition condition) {
 		
-		model.put("houseList", houseService.findByCondition(condition));
+		// Pre search
+		if (condition.getAreaTo() == 0) {
+			condition.setAreaTo(MAX_INT);
+		}
+		
+		if  (condition.getRentFeeTo() == 0) {
+			condition.setRentFeeTo(MAX_INT);
+		}
+		
+		if (condition.getDepositeFeeTo() == 0) {
+			condition.setDepositeFeeTo(MAX_INT);
+		}
+		
+		if (condition.getGuaranteeFeeTo() == 0) {
+			condition.setGuaranteeFeeTo(MAX_INT);
+		}
+		
+		List<House> houseList = houseService.findByCondition(condition);
+		
+		model.put("houseList", houseList);
 		
 		return "public/listings";
 	}

@@ -2,7 +2,6 @@ package com.hinode.service;
 
 import java.util.List;
 
-import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +21,10 @@ public class HouseService{
 	
 	public List<House> findByCondition(HouseSearchCondition condition) {
 		
-		return null;
+		return houseDAO.findByCondition(condition.getStation(), condition.getName(), condition.getAddress(), condition.getRoomType()
+				, condition.getRentFeeFrom(), condition.getRentFeeTo(), condition.getDepositeFeeFrom()
+				, condition.getDepositeFeeTo(), condition.getGuaranteeFeeFrom(), condition.getGuaranteeFeeTo()
+				, condition.getAreaFrom(), condition.getAreaTo());
 	}
 	
 	public List<House> findTopNewHouse() {

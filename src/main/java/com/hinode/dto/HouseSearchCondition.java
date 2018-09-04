@@ -4,7 +4,9 @@ import lombok.Data;
 
 @Data
 public class HouseSearchCondition {
-
+	
+	private String station;
+	
 	private String name;
 
 	private String address;

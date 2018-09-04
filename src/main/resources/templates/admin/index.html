@@ -65,7 +65,43 @@
     <!-- #################### START CONTENT  #################### -->
     <div layout:fragment="content">
 	    <div style="width: 100%; height: 100px; display: block;"></div>
+	    
 	    <div class="container">
+	    	<!-- FORM -->
+	    	<div class="col-12">
+		    	<div class="adminForm">
+			        <form action="" method="post">
+	        			<div class="row">
+                            <div class="col-12 col-md-4 col-lg-3">
+                                <div class="form-group">
+                                	<label for="srchID">ID</label>
+                                    <input type="text" class="form-control" name="srchID" placeholder="Chưa nhập...">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-4 col-lg-3">
+                                <div class="form-group">
+                                	<label for="srchAddress">Địa chỉ</label>
+                                    <input type="text" class="form-control" name="srchAddress" placeholder="Chưa nhập...">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-4 col-lg-3">
+                                <div class="form-group">
+                                	<label for="srchName">Tên nhà</label>
+                                    <input type="text" class="form-control" name="srchName" placeholder="Chưa nhập...">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-3">
+                                 <button type="submit" class="btn south-btn" style="margin-top: 20px; width: 100%;">Tìm kiếm</button>
+                            </div>
+                        </div>
+			        </form>
+		        </div>
+	        </div>
+			<!-- FORM -->
+	    
 	    	<!-- HEADER TITLE -->
 	    	<div class="col-12">
 	    		<!-- PAGINATION -->
@@ -114,9 +150,9 @@
 								<tbody th:each="obj : ${houseList}">
 									<tr class="row100" th:object="${obj}">
 										<td width="10%" class="column100 column1" data-column="column1" th:text="*{id}"></td>
-										<td width="20%" class="column100 column2" data-column="column2" th:text="*{meisho}"></td>
-										<td width="20%" class="column100 column3" data-column="column3" th:text="*{chinryo}"></td>
-										<td width="30%" class="column100 column4" data-column="column4" th:text="*{jusho}"></td>
+										<td width="20%" class="column100 column2" data-column="column2" th:text="*{name}"></td>
+										<td width="20%" class="column100 column3" data-column="column3" th:text="*{rentFee}"></td>
+										<td width="30%" class="column100 column4" data-column="column4" th:text="*{address}"></td>
 										<td width="20%" class="column100 column5" data-column="column5">
 											<button type="button" class="btn btn-warning">Sửa</button>
 											<button type="button" class="btn btn-danger">Xóa</button>
@@ -185,6 +221,7 @@
 			            <button type="button" class="btn btn-secondary">Làm mới</button>
 			            <button type="button" class="btn btn-primary">Thêm</button>
 			            <button type="button" class="btn btn-info">Lưu</button>
+			            <div class="clearfix"></div>
 			        </form>
 		        </div>
 	        </div>

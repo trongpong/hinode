@@ -971,6 +971,12 @@ img {
     border: 1px solid #e1dddd; }
     .single-featured-property .property-content h5 {
       font-size: 18px; }
+    .single-featured-property .property-content i {
+        margin-right: 10px;
+	    display: inline-block;
+	    width: 30px;
+	    /* height: 30px; */
+	    text-align: center;}
     .single-featured-property .property-content p {
       margin-bottom: 30px; }
     .single-featured-property .property-content .location {
@@ -1664,7 +1670,7 @@ img {
   line-height: 30px;
   color: #323232;
   border: none;
-  width: 50px;
+  width: 48px;
   height: 50px;
   background-color: var(--mainColor);
   font-size: 13px;

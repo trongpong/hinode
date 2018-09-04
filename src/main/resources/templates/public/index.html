@@ -106,12 +106,12 @@
                             <p th:text="#{tag.headersearch}"></p>
                         </div>
                         <!-- Search Form -->
-                        <form action="/listings" method="post" id="advanceSearch">
+                        <form th:action="@{/listings}" method="post" id="advanceSearch" th:object="${condition}">
                             <div class="row">
                                 <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
                                     	<label for="srchAddress"  th:text="#{search.address}">address</label>
-                                        <input type="text" class="form-control-index" name="srchAddress" placeholder="...">
+                                        <input type="text" class="form-control-index" name="srchAddress" placeholder="..." th:field="*{address}">
                                     </div>
                                 </div>
                                 
@@ -132,14 +132,14 @@
                                 <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
                                     	<label for="srchHometype"  th:text="#{search.hometype}">hometype</label>
-                                        <input type="text" class="form-control-index" name="srchHometype" placeholder="...">
+                                        <input type="text" class="form-control-index" name="srchHometype" placeholder="..." th:field="*{houseType}">
                                     </div>
                                 </div>
                                 
                                 <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
                                     	<label for="srchRoomtype"  th:text="#{search.roomtype}">roomtype</label>
-                                        <input type="text" class="form-control-index" name="srchRoomtype" placeholder="...">
+                                        <input type="text" class="form-control-index" name="srchRoomtype" placeholder="..." th:field="*{roomType}">
                                     </div>
                                 </div>
                                 

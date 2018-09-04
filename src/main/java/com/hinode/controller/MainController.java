@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
 import com.hinode.service.HouseService;
 
@@ -24,14 +25,16 @@ public class MainController {
 		
 		// Get top 6 new house
 		model.put("houseList", houseService.findTopNewHouse());
+		model.put("condition", new HouseSearchCondition());
 		
 		return "public/index";
 	}
 
 	@RequestMapping("/listings")
-	public String list(Map<String, Object> model) {
-		// Get top 6 new house
-		model.put("houseList", houseService.findTopNewHouse());
+	public String list(Map<String, Object> model, @ModelAttribute HouseSearchCondition condition) {
+		
+		model.put("houseList", houseService.findByCondition(condition));
+		
 		return "public/listings";
 	}
 	

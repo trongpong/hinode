@@ -4,22 +4,28 @@ import lombok.Data;
 
 @Data
 public class HouseSearchCondition {
-	
-	private String meisho;
-	
-	private String jusho;
-	
-	private String type;
-	
-	private int chinryoFrom;
-	
-	private int chinryoTo;
-	
-	private int henkoryoFrom;
-	
-	private int henkoryoTo;
-	
-	private int shikikinFrom;
-	
-	private int shikikinTo;
+
+	private String name;
+
+	private String address;
+
+	private String roomType;
+
+	private String houseType;
+
+	private int rentFeeFrom;
+
+	private int rentFeeTo;
+
+	private int depositeFeeFrom;
+
+	private int depositeFeeTo;
+
+	private int guaranteeFeeFrom;
+
+	private int guaranteeFeeTo;
+
+	private double areaFrom;
+
+	private double areaTo;
 }

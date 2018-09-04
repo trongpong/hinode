@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.hinode.entity.House;
 
 @Repository
-public interface IHouseDAO extends JpaRepository<House, String> {
+public interface IHouseDAO extends JpaRepository<House, Integer> {
 	
 	@Query(nativeQuery=true, value="SELECT * FROM house WHERE del_Flg = '0' ORDER BY id DESC LIMIT 6" )
 	public List<House> fetchTop6();
@@ -17,6 +17,6 @@ public interface IHouseDAO extends JpaRepository<House, String> {
 	@Query(nativeQuery=true, value="SELECT * FROM house WHERE del_Flg = '0' ORDER BY id DESC LIMIT 10" )
 	public List<House> fetchLast10();
 	
-	@Query(nativeQuery=true, value="SELECT * FROM house WHERE id =  ?1")
-	public House getById(int id);
+	@Query(nativeQuery=true, value="SELECT * FROM house WHERE del_Flg = '0' ")
+	public List<House> findByCondition();
 }

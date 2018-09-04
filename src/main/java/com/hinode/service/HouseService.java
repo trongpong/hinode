@@ -2,10 +2,12 @@ package com.hinode.service;
 
 import java.util.List;
 
+import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hinode.dao.IHouseDAO;
+import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
 
 @Service
@@ -18,7 +20,8 @@ public class HouseService{
 		houseDAO.save(house);
 	}
 	
-	public List<House> findByCondition(String name) {
+	public List<House> findByCondition(HouseSearchCondition condition) {
+		
 		return null;
 	}
 	
@@ -30,8 +33,7 @@ public class HouseService{
 		return houseDAO.fetchLast10();
 	}
 	
-	// .:NhanTV:. FindbyId
 	public House getById(int id) {
-		return houseDAO.getById(id);
+		return houseDAO.getOne(id);
 	}
 }

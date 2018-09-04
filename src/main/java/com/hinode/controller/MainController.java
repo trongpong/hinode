@@ -35,7 +35,7 @@ public class MainController {
 
 	@RequestMapping("/listings")
 	public String list(Map<String, Object> model, @ModelAttribute HouseSearchCondition condition) {
-		
+		model.put("houseList", houseService.findByCondition(condition));
 		// Pre search
 		if (condition.getAreaTo() == 0) {
 			condition.setAreaTo(MAX_INT);
@@ -56,7 +56,7 @@ public class MainController {
 		List<House> houseList = houseService.findByCondition(condition);
 		
 		model.put("houseList", houseList);
-		
+		model.put("condition", new HouseSearchCondition());
 		return "public/listings";
 	}
 	
@@ -85,11 +85,5 @@ public class MainController {
 		houseService.add(house);
 		return "redirect:/admin";
 	}
-	
-	@GetMapping("/gethouse")
-	public House getHouse(@RequestParam int id) {
-		return houseService.getById(id);
-	}
-	
 
 }

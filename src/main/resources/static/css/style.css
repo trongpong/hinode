@@ -1908,12 +1908,15 @@ img {
   color: #7d7d7d; }
 
 /*# sourceMappingURL=style.css.map */
-.flg{
-	width: 24px;
-	height: 24px;
-	display: inline-block;
-	content: '';
+#advanceSearch .input-group-text{
+	min-width: 140px;
 }
-.flg-japan{
-	background-image: "img/icons/japan.png";
+
+.form-control{
+    border-radius: 0;
 }
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid var(--mainColorGreen);}

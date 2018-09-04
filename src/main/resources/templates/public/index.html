@@ -108,53 +108,76 @@
                         <!-- Search Form -->
                         <form th:action="@{/listings}" method="post" id="advanceSearch" th:object="${condition}">
                             <div class="row">
-                                <div class="col-12 col-md-4 col-lg-4">
+                            	<div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
-                                    	<label for="srchAddress"  th:text="#{search.address}">address</label>
-                                        <input type="text" class="form-control-index" name="srchAddress" placeholder="..." th:field="*{address}">
+                                        <input type="text" class="form-control" name="srchName" th:placeholder="#{search.name}" th:field="*{name}">
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 col-md-4 col-lg-4">
+                                <div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
-                                    	<label for="srchArea"  th:text="#{search.area}">area</label>
-                                        <input type="text" class="form-control-index" name="srchArea" placeholder="...">
+                                        <input type="text" class="form-control" name="srchAddress" th:placeholder="#{search.address}" th:field="*{address}">
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 col-md-4 col-lg-4">
+                                <div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
-                                    	<label for="srchBuildfrom"  th:text="#{search.buildfrom}">build from</label>
-                                        <input type="text" class="form-control-index" name="srchBuildfrom" placeholder="...">
+                                        <input type="text" class="form-control" name="srchRoomtype" th:placeholder="#{search.roomtype}" th:field="*{roomType}">
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 col-md-4 col-lg-4">
+                                <div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
-                                    	<label for="srchHometype"  th:text="#{search.hometype}">hometype</label>
-                                        <input type="text" class="form-control-index" name="srchHometype" placeholder="..." th:field="*{houseType}">
+                                        <input type="text" class="form-control" name="srchHometype" th:placeholder="#{search.housetype}" th:field="*{houseType}">
                                     </div>
                                 </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                    	<label for="srchRoomtype"  th:text="#{search.roomtype}">roomtype</label>
-                                        <input type="text" class="form-control-index" name="srchRoomtype" placeholder="..." th:field="*{roomType}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-4">
-                                    <div class="form-group">
-                                    	<label for="srchRentfee"  th:text="#{search.rentfee}">rentfee</label>
-                                        <input type="text" class="form-control-index" name="srchRentfee" placeholder="...">
-                                    </div>
-                                </div>
-
+                            </div>
+                            <div class="search-form-second-steps">
+	                           	<div class="row">
+	                                <!-- From to -->
+	                                <div class="input-group form-group col-md-6">
+									  <div class="input-group-prepend">
+									    <span class="input-group-text" th:text="#{search.depositefee}"></span>
+									  </div>
+									  <input type="text" class="form-control" name="srchDepositeFeeFrom" th:placeholder="#{search.from}" th:field="*{depositeFeeFrom}">
+									  <input type="text" class="form-control" name="srchDepositeFeeTo" th:placeholder="#{search.to}" th:field="*{depositeFeeTo}">
+									</div>
+									
+									<div class="input-group form-group col-md-6">
+									  <div class="input-group-prepend">
+									    <span class="input-group-text" th:text="#{search.rentfee}"></span>
+									  </div>
+									  <input type="text" class="form-control" name="srchRentFeeFrom" th:placeholder="#{search.from}" th:field="*{rentFeeFrom}">
+									  <input type="text" class="form-control" name="srchRentFeeTo" th:placeholder="#{search.to}" th:field="*{rentFeeTo}">
+									</div>
+								</div>	
+								
+								<div class="row">
+	                                <!-- From to -->
+									<div class="input-group form-group col-md-6">
+									  <div class="input-group-prepend">
+									    <span class="input-group-text" th:text="#{search.guaranteefee}"></span>
+									  </div>
+									  <input type="text" class="form-control" name="srchGuaranteeFeeFrom" th:placeholder="#{search.from}" th:field="*{guaranteeFeeFrom}">
+									  <input type="text" class="form-control" name="srchGuaranteeFeeTo" th:placeholder="#{search.to}" th:field="*{guaranteeFeeTo}">
+									</div>
+									
+									<div class="input-group form-group col-md-6">
+									  <div class="input-group-prepend">
+									    <span class="input-group-text" th:text="#{search.area}"></span>
+									  </div>
+									  <input type="text" class="form-control" name="srchAreaFrom" th:placeholder="#{search.from}" th:field="*{areaFrom}">
+									  <input type="text" class="form-control" name="srchAreaTo" th:placeholder="#{search.to}" th:field="*{areaTo}">
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
                                 <div class="col-12 d-flex justify-content-between align-items-end">
-                                    <!-- More Filter 
+                                    <!-- More Filter -->
                                     <div class="more-filter">
                                         <a href="#" th:text="#{tag.filtersearch}" id="moreFilter"></a>
-                                    </div> -->
+                                    </div> 
                                     <!-- Submit -->
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn south-btn" th:text="#{btn.search}"></button>

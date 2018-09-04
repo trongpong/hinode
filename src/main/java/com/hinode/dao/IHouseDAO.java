@@ -19,9 +19,9 @@ public interface IHouseDAO extends JpaRepository<House, Integer> {
 	public List<House> fetchLast10();
 	
 	@Query(nativeQuery=true, value="SELECT * FROM house WHERE del_Flg = '0' "
-			+ "AND station LIKE CONCAT('%',:station,'%') "
-			+ "AND name LIKE CONCAT('%',:name,'%') "
-			+ "AND address LIKE CONCAT('%',:address,'%') "
+			+ "AND station LIKE CONCAT('%',TRIM(:station),'%') "
+			+ "AND name LIKE CONCAT('%',TRIM(:name),'%') "
+			+ "AND address LIKE CONCAT('%',TRIM(:address),'%') "
 			+ "AND room_type LIKE CONCAT('%',:roomType,'%') "
 			+ "AND rent_fee BETWEEN :rentFeeFrom AND :rentFeeTo "
 			+ "AND deposite_fee BETWEEN :depositeFeeFrom AND :depositeFeeTo "

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,7 +36,7 @@ public class MainController {
 
 	@RequestMapping("/listings")
 	public String list(Map<String, Object> model, @ModelAttribute HouseSearchCondition condition) {
-		model.put("houseList", houseService.findByCondition(condition));
+
 		// Pre search
 		if (condition.getAreaTo() == 0) {
 			condition.setAreaTo(MAX_INT);
@@ -70,7 +71,7 @@ public class MainController {
 	@GetMapping("/admin")
 	public String admin(Map<String, Object> model) {
 		// Get top 10 new house
-		model.put("houseList", houseService.findLast10House());
+		model.put("houseList", houseService.findAll());
 		model.put("house", new House());
 		return "admin/index";
 	}
@@ -85,5 +86,11 @@ public class MainController {
 		houseService.add(house);
 		return "redirect:/admin";
 	}
-
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable int id) {
+		houseService.delete(id);
+		return "redirect:/admin";
+	}
+	
 }

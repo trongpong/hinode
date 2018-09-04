@@ -27,7 +27,7 @@
                         <!-- Name -->
                         <h5><i class="fa fa-home" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
                         <!-- Price -->
-                        <p class="list-price mb-50"><i class="fa fa-money" aria-hidden="true"></i><span th:text="￥+*{rentFee}"></span></p>
+                        <p class="list-price mb-50"><i class="fa fa-money" aria-hidden="true"></i><span th:text="|¥*{rentFee}|"></span></p>
                         
                         <!-- Address -->
                         <p class="location"><i class="fa fa-map-marker" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
@@ -43,7 +43,7 @@
                         <!-- Listings Btn Groups -->
                         <div class="listings-btn-groups">
                             <a href="#" id="toggleContact" class="btn south-btn" th:text="#{btn.tocontact}"></a>
-                            <a href="#" class="btn south-btn active" th:text="#{btn.back}"></a>
+                            <a th:href="@{/listings}" class="btn south-btn active" th:text="#{btn.back}"></a>
                         </div>
                     </div>
                  </div>

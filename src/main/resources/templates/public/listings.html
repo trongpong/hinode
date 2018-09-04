@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{public/index}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{public/index}">
 
 <head>
     <!-- Title  -->
@@ -51,7 +51,7 @@
                                 <div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <select th:field="*{roomType}" class="form-control" name="srchRoomtype" id="srchRoomtype">
-                                            <option th:value="#{search.roomtype}" th:text="#{search.roomtype}" ></option>
+                                            <option value="" th:text="#{search.roomtype}" ></option>
                                             <option value="1K">1K</option>
                                             <option value="1LK">1LK</option>
                                             <option value="1LDK">1LDK</option>
@@ -140,7 +140,7 @@
 	                                <span th:text="#{tag.gift}"></span>
 	                            </div>
 	                            <div class="list-price">
-	                                <p th:text="￥+*{rentFee}">￥20,000</p>
+	                                <p th:text="|\*{rentFee}|"></p>
 	                            </div>
 	                        </div>
 	                        <!-- Property Content -->

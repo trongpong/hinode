@@ -156,7 +156,7 @@
 										<td width="30%" class="column100 column4" data-column="column4" th:text="*{address}"></td>
 										<td width="20%" class="column100 column5" data-column="column5">
 											<button type="button" class="btn btn-warning">Sửa</button>
-											<button type="button" class="btn btn-danger">Xóa</button>
+											<a th:href="@{/delete/{id}(id=*{id})}" type="button" class="btn btn-danger">Xóa</a>
 										</td>
 									</tr>
 								</tbody>

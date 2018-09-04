@@ -6,14 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hinode.dao.IHouseDAO;
+import com.hinode.dao.IImageDAO;
 import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
+import com.hinode.entity.Image;
 
 @Service
 public class HouseService{
 
 	@Autowired
 	private IHouseDAO houseDAO;
+	
+	@Autowired
+	private IImageDAO imageDAO;
 	
 	public void add(House house) {
 		houseDAO.save(house);
@@ -37,5 +42,17 @@ public class HouseService{
 	
 	public House getById(int id) {
 		return houseDAO.getOne(id);
+	}
+	
+	public List<Image> findAllImageByHouseId(int houseId) {
+		return imageDAO.findAllByHouseId(houseId);
+	}
+	
+	public List<House> findAll() {
+		return houseDAO.findAll();
+	}
+	
+	public void delete(int id) {
+		houseDAO.delete(this.getById(id));
 	}
 }

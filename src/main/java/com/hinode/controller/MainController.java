@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
@@ -98,10 +97,9 @@ public class MainController {
 		return "redirect:/admin";
 	}
 	
-	@GetMapping("/findOne")
-	@ResponseBody
-	public House findOne(int id) {
-		return houseService.getById(id);
+	@PostMapping("saveImg")
+	public String saveImg() {
+		
+		return "redirect:/admin";
 	}
-	
 }

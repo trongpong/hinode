@@ -32,7 +32,7 @@
                         <!-- Address -->
                         <p class="location"><i class="fa fa-map-marker" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
                         <!-- Build from -->
-                        <p class="location"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><span  th:text="*{buildFrom}"></span></p>
+                        <p class="location"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><span  th:text="${#dates.format(house.buildFrom, 'yyyy-dd-MMM')}"></span></p>
                         <!-- Area -->
                         <p class="location"><i class="fa fa-map" aria-hidden="true"></i><span  th:text="*{area}"></span> m2</p>
                         <!-- Other -->

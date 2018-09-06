@@ -3,6 +3,9 @@ package com.hinode.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.hinode.dao.IHouseDAO;
@@ -48,8 +51,8 @@ public class HouseService{
 		return imageDAO.findAllByHouseId(houseId);
 	}
 	
-	public List<House> findAll() {
-		return houseDAO.findAll();
+	public Page<House> findAllPagination(int page, int size, Sort sort) {
+		return houseDAO.findAll(PageRequest.of(page, size, sort));
 	}
 	
 	public void delete(int id) {

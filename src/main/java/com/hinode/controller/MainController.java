@@ -4,13 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
@@ -69,10 +72,12 @@ public class MainController {
 	}
 	
 	@GetMapping("/admin")
-	public String admin(Map<String, Object> model) {
-		// Get top 10 new house
-		model.put("houseList", houseService.findAll());
-		model.put("house", new House());
+	public String admin(Model model,@RequestParam(defaultValue="0") int page) {
+		// Size of list
+		int size = 10;
+		model.addAttribute("houseList", houseService.findAllPagination(page, size, new Sort(Sort.Direction.DESC, "id")));
+		model.addAttribute("house", new House());
+		model.addAttribute("currentPage", page);
 		return "admin/index";
 	}
 	
@@ -91,6 +96,12 @@ public class MainController {
 	public String delete(@PathVariable int id) {
 		houseService.delete(id);
 		return "redirect:/admin";
+	}
+	
+	@GetMapping("/findOne")
+	@ResponseBody
+	public House findOne(int id) {
+		return houseService.getById(id);
 	}
 	
 }

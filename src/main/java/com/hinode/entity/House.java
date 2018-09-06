@@ -9,11 +9,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
 @Data
 @Table(name="house")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class House {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

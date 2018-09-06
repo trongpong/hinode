@@ -72,14 +72,56 @@
 	        inForm:true
 	    });
 	    
+	    // :: Form Edit Add
+	    $('.eBtn').on('click', function(event){
+	    	event.preventDefault();
+	    	$('.refreshBtn').click();
+	    	var href = $(this).attr('href');
+	    	$.get(href, function(house,status){
+	    		$('.adminForm #id').val(house.id);
+	    		$('.adminForm #name').val(house.name);
+	    		$('.adminForm #address').val(house.address);
+	    		$('.adminForm #houseType').val(house.houseType);
+	    		$('.adminForm #roomType').val(house.roomType);
+	    		$('.adminForm #rentFee').val(house.rentFee);
+	    		$('.adminForm #depositeFee').val(house.depositeFee);
+	    		$('.adminForm #guaranteeFee').val(house.guaranteeFee);
+	    		$('.adminForm #area').val(house.area);
+	    		$('.adminForm #contractDuration').val(house.contractDuration);
+	    		$('.adminForm #buildFrom').val(house.buildFrom);
+	    		$('.adminForm #movableDate').val(house.movableDate);
+	    		$('.adminForm #status').val(house.status);
+	    		$('.adminForm #other').val(house.other);
+	    		$('.adminForm #station').val(house.station);
+	    	});
+	    });
+	    
+	    $('.refreshBtn').on('click',function(){
+	    	$('.adminForm #id').val('');
+    		$('.adminForm #name').val('');
+    		$('.adminForm #address').val('');
+    		$('.adminForm #houseType').val('');
+    		$('.adminForm #roomType').val('');
+    		$('.adminForm #rentFee').val('');
+    		$('.adminForm #depositeFee').val('');
+    		$('.adminForm #guaranteeFee').val('');
+    		$('.adminForm #area').val('');
+    		$('.adminForm #contractDuration').val('');
+    		$('.adminForm #buildFrom').val('');
+    		$('.adminForm #movableDate').val('');
+    		$('.adminForm #status').val('');
+    		$('.adminForm #other').val('');
+    		$('.adminForm #station').val('');
+	    });
+	    
 })(jQuery);
 
 //:: Date picker
-$('#moveabledate').datepicker({
+$('#movableDate').datepicker({
 	inline: true,
 	dateFormat: 'dd/mm/yy'
 });
-$('#buildfrom').datepicker({
+$('#buildFrom').datepicker({
 	inline: true,
 	dateFormat: 'dd/mm/yy'
 });

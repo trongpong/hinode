@@ -28,9 +28,6 @@ public class House {
 	@Column(name="address", length=100, nullable=true)
 	private String address;
 	
-	@Column(name="house_type", nullable=true)
-	private String houseType;
-	
 	@Column(name="room_type", nullable=true)
 	private String roomType;
 	
@@ -43,11 +40,11 @@ public class House {
 	@Column(name="guarantee_fee", nullable=true)
 	private int guaranteeFee;
 	
+	@Column(name="manage_fee", nullable=true)
+	private int manageFee;
+	
 	@Column(name="area", nullable=true)
 	private double area;
-	
-	@Column(name="contract_duration", nullable=true)
-	private int contractDuration;
 	
 	@Column(name="build_from", nullable=true)
 	private Date buildFrom;
@@ -63,6 +60,12 @@ public class House {
 	
 	@Column(name="station", nullable=true)
 	private String station;
+	
+	@Column(name="person_in_charge", nullable=true)
+	private String personInCharge;
+	
+	@Column(name="staff_contact", nullable=true)
+	private String staffContact;
 	
 	@Column(name="del_flg", length = 1)
 	private String delFlg;

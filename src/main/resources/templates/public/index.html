@@ -52,13 +52,10 @@
                                 <li><a href="/index" th:text="#{menu.home}">Home</a></li>
                                 <li><a href="/index#about" onclick="EPPZScrollTo.scrollVerticalToElementById('about', 20);" th:text="#{menu.about}">About Us</a></li>
                                 <li><a href="/index#contact" onclick="EPPZScrollTo.scrollVerticalToElementById('contact', 20);" th:text="#{menu.contact}">Contact</a></li>
-                                <li><a href="#" th:text="#{menu.language}">Language</a>
-                                    <ul class="dropdown">
-                                        <li><a href="#" th:text="#{lang.ja}" class="language" data-value="ja">日本語</a></li>
-                                        <li><a href="#" th:text="#{lang.en}" class="language" data-value="en">English</a></li>
-                                        <li><a href="#" th:text="#{lang.vi}" class="language" data-value="vi">Tiếng Việt</a></li>
-                                    </ul>
-                                </li>
+                                <li class="v-spread"><a href="#">|</a></li>
+                                <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.ja}"><a href="#" class="language flg flg-japan" data-value="ja">JP</a></li>
+                                <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.en}"title="Tooltip on bottom"><a href="#" class="language flg flg-eng" data-value="en">EN</a></li>
+                                <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.vi}"title="Tooltip on bottom"><a href="#" class="language flg flg-vietnam" data-value="vi">VI</a></li>
                             </ul>
                         </div>
                         <!-- Nav End -->

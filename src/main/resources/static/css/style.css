@@ -558,6 +558,9 @@ img {
   	background-color: var(--mainColor);
   	cursor: pointer;
   }
+  .main-header-area .classynav ul li.v-spread:hover{
+  	background-color: var(--mainColorDark) !important;
+  }
   .main-header-area .classynav ul li .dd-arrow{
   	margin-top: 18px;
   }
@@ -1925,3 +1928,18 @@ img {
     outline: none;
     box-shadow: none;
     border: 1px solid var(--mainColorGreen);}
+
+.flg{
+	background-repeat: no-repeat;
+    background-position: 35px center;
+    width: 65px !important;
+} 
+.flg-japan{
+    background-image: url(../img/icons/japan.png);
+}
+.flg-eng{
+    background-image: url(../img/icons/united-states.png);
+}
+.flg-vietnam{
+    background-image: url(../img/icons/vietnam.png);
+}

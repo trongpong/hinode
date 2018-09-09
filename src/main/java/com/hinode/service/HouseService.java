@@ -23,8 +23,8 @@ public class HouseService{
 	@Autowired
 	private IImageDAO imageDAO;
 	
-	public void add(House house) {
-		houseDAO.save(house);
+	public House add(House house) {
+		return houseDAO.save(house);
 	}
 	
 	public List<House> findByCondition(HouseSearchCondition condition) {
@@ -57,5 +57,9 @@ public class HouseService{
 	
 	public void delete(int id) {
 		houseDAO.delete(this.getById(id));
+	}
+	
+	public Image addImg(Image image) {
+		return imageDAO.save(image);
 	}
 }

@@ -166,7 +166,7 @@
 	    	<!-- FORM -->
 	    	<div class="col-12">
 		    	<div class="adminForm">
-			        <form th:action="@{/save}" th:object="${house}" method="post">
+			        <form th:action="@{/save}" th:object="${house}" method="post" enctype="multipart/form-data">
 			        	<input type="hidden" name="id" id="id" th:field="*{id}">
 			            <div class="form-row">
 			            	<div class="form-group col-md-6">

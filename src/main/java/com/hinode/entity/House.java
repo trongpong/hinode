@@ -1,6 +1,6 @@
 package com.hinode.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,16 +41,16 @@ public class House {
 	private int guaranteeFee;
 	
 	@Column(name="manage_fee", nullable=true)
-	private int manageFee;
+	private int manageFee = 0;
 	
 	@Column(name="area", nullable=true)
 	private double area;
 	
 	@Column(name="build_from", nullable=true)
-	private Date buildFrom;
+	private LocalDate buildFrom;
 	
 	@Column(name="movable_date", nullable=true)
-	private Date movableDate;
+	private LocalDate movableDate;
 	
 	@Column(name="status", nullable=true, length=20)
 	private String status;

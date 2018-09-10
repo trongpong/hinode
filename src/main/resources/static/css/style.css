@@ -1147,9 +1147,14 @@ img {
     @media only screen and (max-width: 767px) {
       .call-to-action-area .cta-content h2 {
         font-size: 24px; } }
-  .call-to-action-area .cta-content h6 {
+  .call-to-action-area .cta-content h5 {
     font-size: 30px;
     font-style: italic;
+    color: #ffffff; }
+    .call-to-action-area .cta-content h6 {
+    font-size: 30px;
+    font-style: italic;
+    text-align: justify;
     color: #ffffff; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .call-to-action-area .cta-content h6 {
@@ -1942,4 +1947,19 @@ img {
 }
 .flg-vietnam{
     background-image: url(../img/icons/vietnam.png);
+}
+
+.beforeFooter{
+	width: 100%;
+	background-color: #F0F0F0;
+	padding: 20px 0px;
+}
+
+.beforeFooter h1{
+	text-align: center;
+    color: red;
+    font-size: 3rem;
+}
+.call-to-action-area{
+	height: auto !important;
 }

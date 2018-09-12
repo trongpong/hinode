@@ -81,15 +81,15 @@
 	    		$('.adminForm #id').val(house.id);
 	    		$('.adminForm #name').val(house.name);
 	    		$('.adminForm #address').val(house.address);
-	    		$('.adminForm #houseType').val(house.houseType);
+	    		$('.adminForm #manageFee').val(house.manageFee);
 	    		$('.adminForm #roomType').val(house.roomType);
 	    		$('.adminForm #rentFee').val(house.rentFee);
 	    		$('.adminForm #depositeFee').val(house.depositeFee);
 	    		$('.adminForm #guaranteeFee').val(house.guaranteeFee);
 	    		$('.adminForm #area').val(house.area);
-	    		$('.adminForm #contractDuration').val(house.contractDuration);
+	    		$('.adminForm #personInCharge').val(house.personInCharge);
 	    		$('.adminForm #buildFrom').val(house.buildFrom);
-	    		$('.adminForm #movableDate').val(house.movableDate);
+	    		$('.adminForm #staffContact').val(house.staffContact);
 	    		$('.adminForm #status').val(house.status);
 	    		$('.adminForm #other').val(house.other);
 	    		$('.adminForm #station').val(house.station);
@@ -100,13 +100,13 @@
 	    	$('.adminForm #id').val('');
     		$('.adminForm #name').val('');
     		$('.adminForm #address').val('');
-    		$('.adminForm #houseType').val('');
+    		$('.adminForm #manageFee').val('');
     		$('.adminForm #roomType').val('');
     		$('.adminForm #rentFee').val('');
     		$('.adminForm #depositeFee').val('');
     		$('.adminForm #guaranteeFee').val('');
     		$('.adminForm #area').val('');
-    		$('.adminForm #contractDuration').val('');
+    		$('.adminForm #personInCharge').val('');
     		$('.adminForm #buildFrom').val('');
     		$('.adminForm #movableDate').val('');
     		$('.adminForm #status').val('');
@@ -119,9 +119,9 @@
 //:: Date picker
 $('#movableDate').datepicker({
 	inline: true,
-	dateFormat: 'dd/mm/yy'
+	dateFormat: 'yy-mm-dd'
 });
 $('#buildFrom').datepicker({
 	inline: true,
-	dateFormat: 'dd/mm/yy'
+	dateFormat: 'yy-mm-dd'
 });

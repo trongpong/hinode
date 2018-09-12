@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -80,6 +81,15 @@ public class MainController {
 	public String single(Map<String, Object> model, @RequestParam int id) {
 		// Put house
 		model.put("house", houseService.getById(id));
+		
+		List<Image> imgList = houseService.findAllImageByHouseId(id);
+		
+		List<String> imgStrData = new ArrayList<>();
+		for(Image img : imgList) {
+			imgStrData.add(Base64.getEncoder().encodeToString(img.getImageData()));
+		}
+		
+		model.put("imgList", imgStrData);
 		return "public/single-listings";
 	}
 
@@ -105,7 +115,7 @@ public class MainController {
 		@SuppressWarnings("unused")
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		House house = new House();
 		Class<?> c = house.getClass();
 		List<Image> imgList = new ArrayList<>();
@@ -137,7 +147,16 @@ public class MainController {
 					LocalDate date = LocalDate.parse(value, format);
 					field.setAccessible(true);
 					field.set(house, date);
-				} else {
+				} 
+				else if (field.getType().getName().equals("int")) {
+					field.setAccessible(true);
+					field.setInt(house, Integer.valueOf(value));
+				}
+				else if (field.getType().getName().equals("double")) {
+					field.setAccessible(true);
+					field.setDouble(house, Double.valueOf(value));
+				}
+				else {
 					field.setAccessible(true);
 					field.set(house, value);
 				}

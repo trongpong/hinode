@@ -1443,7 +1443,7 @@ img {
     visibility: visible; }
 
 .listings-content {
-  margin-top: 70px; }
+  /*margin-top: 70px;*/ }
   .listings-content p.list-price {
     font-size: 24px;
     font-weight: 600;
@@ -1949,17 +1949,45 @@ img {
     background-image: url(../img/icons/vietnam.png);
 }
 
-.beforeFooter{
+.topFooter{
 	width: 100%;
 	background-color: #F0F0F0;
 	padding: 20px 0px;
 }
 
-.beforeFooter h1{
+.topFooter h1{
 	text-align: center;
     color: red;
-    font-size: 3rem;
+}
+@media only screen and (max-width: 768px) {
+	.topFooter h1 {
+		font-size: 20px !important;
+	}
 }
 .call-to-action-area{
 	height: auto !important;
+}
+.table td, .table th {
+	border-top: none;
+	border-bottom: 2px dotted #CACACA;
+	vertical-align: middle;
+}
+.table th {
+	background-color: #F2F2F2;
+	width: 30%;
+}
+.table td p{
+	color: #C40721;
+	display: inline-block;
+}
+.table td p.tdRenFee{
+	font-size: 35px;
+	font-weight: 600;
+	padding-right: 5px;
+	margin-bottom: 0 !important;
+}
+.table td p.tdMoney{
+	font-size: 25px;
+	font-weight: 400;
+	margin-bottom: 0 !important;
 }

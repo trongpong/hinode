@@ -144,7 +144,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 col-md-4 col-lg-3">
+                                <div class="col-12 col-md-4 col-lg-6">
                                     <div class="form-group">
                                         <select th:field="*{roomType}" class="form-control" name="srchRoomtype" id="srchRoomtype">
                                             <option value="" th:text="#{search.roomtype}" ></option>
@@ -152,12 +152,6 @@
                                             <option value="1LK">1LK</option>
                                             <option value="1LDK">1LDK</option>
                                         </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchHometype" th:placeholder="#{search.housetype}" th:field="*{houseType}">
                                     </div>
                                 </div>
                             </div>
@@ -246,7 +240,7 @@
 	                                <span th:text="#{tag.gift}"></span>
 	                            </div>
 	                            <div class="list-price">
-	                                <p th:text="￥+*{rentFee}">￥20,000</p>
+	                                <p th:text="*{rentFee}+' 円'">￥20,000</p>
 	                            </div>
 	                        </div>
 	                        <!-- Property Content -->
@@ -416,16 +410,16 @@
                     <div class="contact-form">
                         <form action="#" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control-index" name="text" id="contact-name" placeholder="Your Name">
+                                <input type="text" class="form-control-index" name="text" id="contact-name" th:placeholder="#{tag.contact.formName}">
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control-index" name="number" id="contact-number" placeholder="Your Phone">
+                                <input type="number" class="form-control-index" name="number" id="contact-number" th:placeholder="#{tag.contact.formPhone}">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control-index" name="email" id="contact-email" placeholder="Your Email">
+                                <input type="email" class="form-control-index" name="email" id="contact-email" th:placeholder="#{tag.contact.formEmail}">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control-index" name="message" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+                                <textarea class="form-control-index" name="message" id="message" cols="30" rows="10" th:placeholder="#{tag.contact.formMessage}"></textarea>
                             </div>
                             <button type="submit" class="btn south-btn" th:text="#{btn.sendmessage}">Send Message</button>
                         </form>
@@ -436,7 +430,7 @@
         </div>
     </section>
     <!-- ##### Contact End ##### -->
-    <section class="beforeFooter mt-30">
+    <section class="topFooter mt-30">
     	<div class="container">
     		<h1>TEL: 03-6907-2663 .:. FAX: 03-6907-2664</h1>
     	</div>

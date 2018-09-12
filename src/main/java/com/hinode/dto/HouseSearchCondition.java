@@ -13,8 +13,6 @@ public class HouseSearchCondition {
 
 	private String roomType;
 
-	private String houseType;
-
 	private int rentFeeFrom;
 
 	private int rentFeeTo;

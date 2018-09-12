@@ -15,7 +15,7 @@
             <div class="row justify-content-center">
             	<div class="col-12 col-lg-6">
                     <!-- Single Listings Slides -->
-                    <div class="listings-content single-listings-sliders owl-carousel">
+                    <div class="listings-content single-listings-sliders owl-carousel mt-70">
                         <!-- Single Slide -->
                         <img src="img/bg-img/noimage256.png" alt="">
                         <!-- Single Slide -->
@@ -23,27 +23,54 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <div class="listings-content" th:object="${house}">
-                        <!-- Name -->
-                        <h5><i class="fa fa-home" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
-                        <!-- Price -->
-                        <p class="list-price mb-50"><i class="fa fa-money" aria-hidden="true"></i><span th:text="|¥*{rentFee}|"></span></p>
-                        
-                        <!-- Address -->
-                        <p class="location"><i class="fa fa-map-marker" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
-                        <!-- Build from -->
-                        <p class="location"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><span  th:text="${#dates.format(house.buildFrom, 'yyyy-dd-MMM')}"></span></p>
-                        <!-- Area -->
-                        <p class="location"><i class="fa fa-map" aria-hidden="true"></i><span  th:text="*{area}"></span> m2</p>
-                        <!-- Other -->
-                        <p class="location"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span th:text="*{other}"></span></p>
-                     </div>
-                     
-                     <div class="listings-content">
+                    <table class="table mt-70" th:object="${house}">
+						  <tbody>
+						    <tr>
+						      <th scope="row" th:text="#{search.rentfee}"></th>
+						      <td><p  class="tdRenFee" th:text="*{rentFee}"></p><p class="tdMoney">円</p></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.depositefee}"></th>
+						      <td th:text="|*{depositeFee} 円|"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.guaranteefee}"></th>
+						      <td th:text="|*{guaranteeFee} 円|"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.station}"></th>
+						      <td th:text="*{station}"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.name}"></th>
+						      <td th:text="*{name}"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.address}"></th>
+						      <td th:text="*{address}"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.roomtype}"></th>
+						      <td th:text="*{roomType}"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.area}"></th>
+						      <td th:text="*{area}"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.buildfrom}"></th>
+						      <td th:text="*{buildFrom}"></td>
+						    </tr>
+						    <tr>
+						      <th scope="row" th:text="#{search.other}"></th>
+						      <td th:text="*{other}"></td>
+						    </tr>
+						  </tbody>
+					</table>   
+                    <div class="listings-content">
                         <!-- Listings Btn Groups -->
-                        <div class="listings-btn-groups">
-                            <a href="#" id="toggleContact" class="btn south-btn" th:text="#{btn.tocontact}"></a>
-                            <a th:href="@{/listings}" class="btn south-btn active" th:text="#{btn.back}"></a>
+                        <div class="listings-btn-groups mt-15">
+                            <a style="margin: 0 auto 15px;" href="#" id="toggleContact" class="btn south-btn" th:text="#{btn.tocontact}"></a>
                         </div>
                     </div>
                  </div>
@@ -59,18 +86,18 @@
                             <div class="realtor--contact-form">
                                 <form action="#" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="realtor-name" placeholder="Your Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="number" class="form-control" id="realtor-number" placeholder="Your Number">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="enumber" class="form-control" id="realtor-email" placeholder="Your Mail">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="message" class="form-control" id="realtor-message" cols="30" rows="10" placeholder="Your Message"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn south-btn" th:text="#{btn.sendmessage}">Send Message</button>
+		                                <input type="text" class="form-control" name="text" id="contact-name" th:placeholder="#{tag.contact.formName}">
+		                            </div>
+		                            <div class="form-group">
+		                                <input type="number" class="form-control" name="number" id="contact-number" th:placeholder="#{tag.contact.formPhone}">
+		                            </div>
+		                            <div class="form-group">
+		                                <input type="email" class="form-control" name="email" id="contact-email" th:placeholder="#{tag.contact.formEmail}">
+		                            </div>
+		                            <div class="form-group">
+		                                <textarea class="form-control" name="message" id="message" cols="30" rows="10" th:placeholder="#{tag.contact.formMessage}"></textarea>
+		                            </div>
+		                            <button type="submit" class="btn south-btn" th:text="#{btn.sendmessage}">Send Message</button>
                                 </form>
                             </div>
                         </div>

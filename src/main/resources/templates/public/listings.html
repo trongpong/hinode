@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col-12 col-md-4 col-lg-3">
+                                <div class="col-12 col-md-4 col-lg-6">
                                     <div class="form-group">
                                         <select th:field="*{roomType}" class="form-control" name="srchRoomtype" id="srchRoomtype">
                                             <option value="" th:text="#{search.roomtype}" ></option>
@@ -56,12 +56,6 @@
                                             <option value="1LK">1LK</option>
                                             <option value="1LDK">1LDK</option>
                                         </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchHometype" th:placeholder="#{search.housetype}" th:field="*{houseType}">
                                     </div>
                                 </div>
                             </div>
@@ -140,7 +134,7 @@
 	                                <span th:text="#{tag.gift}"></span>
 	                            </div>
 	                            <div class="list-price">
-	                                <p th:text="|\*{rentFee}|"></p>
+	                                <p th:text="*{rentFee}+' 円'">￥20,000</p>
 	                            </div>
 	                        </div>
 	                        <!-- Property Content -->

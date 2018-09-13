@@ -13,13 +13,9 @@
 
     <!-- Favicon  -->
     <link rel="icon" href="img/core-img/favicon.ico">
-
+    
     <!-- Style CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Owl Stylesheets -->
-    <link rel="stylesheet" href="owlcarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlcarousel/assets/owl.theme.default.min.css">
 </head>
 
 <body>
@@ -50,8 +46,8 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="/index" th:text="#{menu.home}">Home</a></li>
-                                <li><a href="/index#about" onclick="EPPZScrollTo.scrollVerticalToElementById('about', 20);" th:text="#{menu.about}">About Us</a></li>
-                                <li><a href="/index#contact" onclick="EPPZScrollTo.scrollVerticalToElementById('contact', 20);" th:text="#{menu.contact}">Contact</a></li>
+                                <li><a href="/index#about" th:text="#{menu.about}">About Us</a></li>
+                                <li><a href="/index#contact" th:text="#{menu.contact}">Contact</a></li>
                                 <li class="v-spread"><a href="#">|</a></li>
                                 <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.ja}"><a href="#" class="language flg flg-japan" data-value="ja">JP</a></li>
                                 <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.en}"title="Tooltip on bottom"><a href="#" class="language flg flg-eng" data-value="en">EN</a></li>
@@ -151,6 +147,12 @@
                                             <option value="1K">1K</option>
                                             <option value="1LK">1LK</option>
                                             <option value="1LDK">1LDK</option>
+                                            <option value="2K">2K</option>
+                                            <option value="2LK">2LK</option>
+                                            <option value="2LDK">2LDK</option>
+                                            <option value="3K">3K</option>
+                                            <option value="3LK">3LK</option>
+                                            <option value="3LDK">3LDK</option>
                                         </select>
                                     </div>
                                 </div>
@@ -258,28 +260,77 @@
     <!-- ##### Featured Properties Area End ##### -->
 
     <!-- ##### Call To Action Area Start ##### -->
-    <section id="about" class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/cta.jpg)">
+    <div id="about" class="container" style="display: block; width: 100%; height: 50px;"></div>
+    <section class="call-to-action-area bg-fixed bg-overlay-black" style="background-image: url(img/bg-img/cta.jpg)">
         <div class="container h-100">
-           <div class="row align-items-center h-100">
-               <div class="col-12">
-                   <div class="cta-content text-center">
+           	<div class="row align-items-center h-100">
+               	<div class="col-12">
+                  	<div class="cta-content text-center">
                        <h2 th:text="#{tag.about}"></h2>
                        <h5 th:text="#{tag.about.text}"></h5>
-                       <h6 class="wow fadeInUp" data-wow-delay="400ms">
-                       		<hr>・不動産<br>
-							日本での新生活をスタートする際、最初につまづくのが「物件探し」。<br>
-							外国人だからと断られたり、うまく日本語で交渉できなかったりと、様々な理由で物件探しは難航するものです。<br>
-							当社では外国人向けに日本の住宅情報を提供するHINODE.<br>
-							入居前から入居中、退去時まで、<br>
-							当社のサービスは日本で生活している間ずっとご利用いただけます。<br>
-							<hr>・貿易<br>
-							http://hinode-vn.vn/
-							<hr>・有料職業紹介<br>
-							有料職業紹介許可　１１―ユー３００６７０
-                       </h6>
-                   </div>
-               </div>
-           </div>
+                       <h6 class="mt-30">株式会社HINODE</h6>
+                       	<table class="table mt-15" style="text-align: left;">
+						  <tbody>
+						    <tr>
+						      <th scope="row" style="width: 154px;">会社名</th>
+						      <td>株式会社HINODE </td>
+						    </tr>
+						    <tr>
+						      <th scope="row">代表者</th>
+						      <td>フォン　ミン　ホアン </td>
+						    </tr>
+						    <tr>
+						      <th scope="row">設立年月日</th>
+						      <td>2017年 8月 28日 </td>
+						    </tr>
+						    <tr>
+						      <th scope="row">所在地</th>
+						      <td>〒170-0013<br>東京都豊島区東池袋３－９－１２ニットービル４０１　
+							  </td>
+						    </tr>
+						    <tr>
+						      <th scope="row">資本金</th>
+						      <td>500万円</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">免許番号</th>
+						      <td>東京都知事（１）102441号 </td>
+						    </tr>
+						    <tr>
+						      <th scope="row">メールアドレス</th>
+						      <td>sale.hinode@gmail.com</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">TEL</th>
+						      <td>03-6907-2663 </td>
+						    </tr>
+						    <tr>
+						      <th scope="row">FAX</th>
+						      <td>03-6907-2664</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">営業時間</th>
+						      <td>10:00-19:00</td>
+						    </tr>
+						    <tr>
+						      <th scope="row">事業内容</th>
+						      <td>・不動産<br>
+								日本での新生活をスタートする際、最初につまづくのが「物件探し」。<br>
+								外国人だからと断られたり、うまく日本語で交渉できなかったりと、様々な理由で物件探しは難航するものです。<br>
+								当社では外国人向けに日本の住宅情報を提供するHINODE.<br>
+								入居前から入居中、退去時まで、<br>
+								当社のサービスは日本で生活している間ずっとご利用いただけます。<br>
+								・貿易<br>
+								http://hinode-vn.vn/<br>
+								・有料職業紹介<br>
+								有料職業紹介許可　１１―ユー３００６７０<br>
+							  </td>
+						    </tr>
+						  </tbody>
+						</table> 
+                	</div>
+              	</div>
+           	</div>
         </div>
     </section>
     <!-- ##### Call To Action Area End ##### -->
@@ -430,14 +481,13 @@
         </div>
     </section>
     <!-- ##### Contact End ##### -->
-    <section class="topFooter mt-30">
-    	<div class="container">
-    		<h1>TEL: 03-6907-2663 .:. FAX: 03-6907-2664</h1>
-    	</div>
-    </section>
 	</div>
 	<!-- #################### END CONTENT  #################### -->
-	
+	<section class="topFooter mt-30">
+    	<div class="container">
+    		<h1>TEL: 03-6907-2663</h1>
+    	</div>
+    </section>
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/cta.jpg);">
         <!-- Main Footer Area -->
@@ -550,8 +600,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery-ui.min.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <!-- Owlcarousel -->
-    <script src="owlcarousel/owl.carousel.js"></script>
     <!-- EPPZ Scroll -->
     <script src="js/eppzscroll.js"></script>
 

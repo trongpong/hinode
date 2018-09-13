@@ -808,6 +808,7 @@ img {
   font-size: 1rem;
   height: auto;
   width: 100%;
+  margin-bottom: 15px;
   }
   .nice-select .list {
     left: 0 !important;
@@ -816,7 +817,7 @@ img {
 
 .south-search-area {
   position: relative;
-  z-index: 1; }
+  z-index: 2; }
   .south-search-area .advanced-search-form {
     position: relative;
     z-index: 1;
@@ -1150,12 +1151,14 @@ img {
   .call-to-action-area .cta-content h5 {
     font-size: 30px;
     font-style: italic;
-    color: #ffffff; }
+    color: var(--mainColor); }
     .call-to-action-area .cta-content h6 {
     font-size: 30px;
     font-style: italic;
     text-align: justify;
-    color: #ffffff; }
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--mainColor);
+    color: white; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .call-to-action-area .cta-content h6 {
         font-size: 24px; } }
@@ -1429,7 +1432,7 @@ img {
     margin-top: -19px;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
-    background-color: var(--mainColor);
+    background-color: var(--mainColor) !important;
     font-size: 13px;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.15); }
     .single-listings-sliders .owl-prev:hover,
@@ -1961,7 +1964,7 @@ img {
 }
 @media only screen and (max-width: 768px) {
 	.topFooter h1 {
-		font-size: 20px !important;
+		font-size: 30px !important;
 	}
 }
 .call-to-action-area{
@@ -1972,21 +1975,30 @@ img {
 	border-bottom: 2px dotted #CACACA;
 	vertical-align: middle;
 }
-.table th {
+.table th{
 	background-color: #F2F2F2;
+}
+.table td{
+	color: white;
+}
+table.tblsingle td{
+	color: #000000 !important;
+}
+table.tblsingle th {
 	width: 30%;
 }
-.table td p{
-	color: #C40721;
+
+table.tblsingle td p{
+	color: #C40721 !important;
 	display: inline-block;
 }
-.table td p.tdRenFee{
+table.tblsingle td p.tdRenFee{
 	font-size: 35px;
 	font-weight: 600;
 	padding-right: 5px;
 	margin-bottom: 0 !important;
 }
-.table td p.tdMoney{
+table.tblsingle td p.tdMoney{
 	font-size: 25px;
 	font-weight: 400;
 	margin-bottom: 0 !important;

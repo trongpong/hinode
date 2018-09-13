@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -143,7 +144,7 @@ public class MainController {
 				String value = Streams.asString(stream);
 				Field field = c.getDeclaredField(name);
 
-				if (field.getType().getName().equals("java.time.LocalDate")) {
+				if (!StringUtils.isEmpty(value) && field.getType().getName().equals("java.time.LocalDate")) {
 					LocalDate date = LocalDate.parse(value, format);
 					field.setAccessible(true);
 					field.set(house, date);

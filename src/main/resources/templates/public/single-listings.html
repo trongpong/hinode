@@ -15,8 +15,8 @@
             <div class="row justify-content-center">
             	<div class="col-12 col-lg-6">
                     <!-- Single Listings Slides -->
-                    <div class="listings-content single-listings-sliders owl-carousel mt-70" th:each="img : ${imgList}">
-                        <img src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${img}" alt="">
+                    <div class="listings-content single-listings-sliders owl-carousel mt-70">
+                        <img  th:each="img : ${imgList}" src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${img}" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">

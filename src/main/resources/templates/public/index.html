@@ -237,7 +237,7 @@
                     	<a th:href="@{/single(id=${obj.id})}">
 	                        <!-- Property Thumbnail -->
 	                        <div class="property-thumb">
-	                            <img src="img/bg-img/noimage256.png" alt="">
+	                            <img src="img/bg-img/noimage256.png" alt="" th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}" class="main-img">
 	                            <div class="tag">
 	                                <span th:text="#{tag.gift}"></span>
 	                            </div>

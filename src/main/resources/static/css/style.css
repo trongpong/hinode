@@ -936,11 +936,12 @@ img {
     overflow: hidden;
     z-index: 1; }
     .single-featured-property .property-thumb img{
-    	max-width: none;
+    	max-width: 100%;
 		transition: 0.3s;
 		will-change: transform;
-		width: 107%;
-		float: right;
+		width: 330px;
+		height: 300px;
+		/* float: right; */
     }
     .single-featured-property .property-thumb:hover img{
     	-webkit-transform: translateX(4.5%);
@@ -2002,4 +2003,12 @@ table.tblsingle td p.tdMoney{
 	font-size: 25px;
 	font-weight: 400;
 	margin-bottom: 0 !important;
+}
+
+.owl-carousel .owl-item img.single-img{
+	max-width: 100%;
+	transition: 0.3s;
+	will-change: transform;
+	width: 630px;
+	height: 600px;
 }

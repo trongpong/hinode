@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,9 +46,20 @@ public class MainController {
 	public String init(Map<String, Object> model) {
 
 		// Get top 6 new house
+		List<House> houseList = houseService.findTopNewHouse();
+		
+		Map<Integer, String> imgMap = new HashMap<>();
+		for (House house : houseList) {
+			List<Image> imgList = houseService.findAllImageByHouseId(house.getId());
+			if (!imgList.isEmpty()) {
+				imgMap.put(house.getId(), Base64.getEncoder().encodeToString(imgList.get(0).getImageData()));
+			}
+		}
+		
 		model.put("houseList", houseService.findTopNewHouse());
 		model.put("condition", new HouseSearchCondition());
-
+		model.put("imgMap", imgMap);
+		
 		return "public/index";
 	}
 

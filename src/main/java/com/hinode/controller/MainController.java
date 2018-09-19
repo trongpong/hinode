@@ -18,6 +18,7 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +39,8 @@ import com.hinode.service.HouseService;
 public class MainController {
 
 	private final int MAX_INT = 999999999;
+	private final int LIST_SIZE = 9;
+	private final int LIST_ADMIN_SIZE = 10;
 
 	@Autowired
 	private HouseService houseService;
@@ -64,7 +67,7 @@ public class MainController {
 	}
 
 	@RequestMapping("/listings")
-	public String list(Map<String, Object> model, @ModelAttribute HouseSearchCondition condition) {
+	public String list(Model model, @ModelAttribute HouseSearchCondition condition, @RequestParam(defaultValue = "0") int page) {
 
 		// Pre search
 		if (condition.getAreaTo() == 0) {
@@ -83,10 +86,19 @@ public class MainController {
 			condition.setGuaranteeFeeTo(MAX_INT);
 		}
 
-		List<House> houseList = houseService.findByCondition(condition);
-
-		model.put("houseList", houseList);
-		model.put("condition", new HouseSearchCondition());
+		Page<House> houseList = houseService.findByConditionPagination(condition, page, LIST_SIZE, new Sort(Sort.Direction.ASC, "id"));
+		Map<Integer, String> imgMap = new HashMap<>();
+		for (House house : houseList) {
+			List<Image> imgList = houseService.findAllImageByHouseId(house.getId());
+			if (!imgList.isEmpty()) {
+				imgMap.put(house.getId(), Base64.getEncoder().encodeToString(imgList.get(0).getImageData()));
+			}
+		}
+		
+		model.addAttribute("houseList", houseList);
+		model.addAttribute("condition", condition);
+		model.addAttribute("currentPage", page);
+		model.addAttribute("imgMap", imgMap);
 		return "public/listings";
 	}
 
@@ -108,10 +120,8 @@ public class MainController {
 
 	@GetMapping("/admin")
 	public String admin(Model model, @RequestParam(defaultValue = "0") int page) {
-		// Size of list
-		int size = 10;
 		model.addAttribute("houseList",
-				houseService.findAllPagination(page, size, new Sort(Sort.Direction.DESC, "id")));
+				houseService.findAllPagination(page, LIST_ADMIN_SIZE, new Sort(Sort.Direction.DESC, "id")));
 		model.addAttribute("house", new House());
 		model.addAttribute("currentPage", page);
 		return "admin/index";

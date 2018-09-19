@@ -135,7 +135,9 @@
                     	<a th:href="@{/single(id=${obj.id})}">
 	                        <!-- Property Thumbnail -->
 	                        <div class="property-thumb">
-	                            <img src="img/bg-img/noimage256.png" alt="">
+	                            <img alt="" 
+	                            th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}" class="main-img"
+	                            onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
 	                            <div class="tag">
 	                                <span th:text="#{tag.gift}"></span>
 	                            </div>
@@ -159,10 +161,10 @@
                     <div class="south-pagination d-flex justify-content-end">
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
-                                <li class="page-item"><a class="page-link active" href="#">01</a></li>
-                                <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            </ul>
+							    <li class="page-item" th:each="i : ${#numbers.sequence(0, houseList.totalPages - 1)}">
+							    	<a class="page-link" th:text="${(i+1)}" th:href="@{?(page=${i})}" th:classappend="${currentPage}==${i}?'active':''"></a>
+						    	</li>
+						  	</ul>
                         </nav>
                     </div>
                 </div>

@@ -936,12 +936,12 @@ img {
     overflow: hidden;
     z-index: 1; }
     .single-featured-property .property-thumb img{
-    	max-width: 100%;
+    	max-width: none;
 		transition: 0.3s;
 		will-change: transform;
-		width: 330px;
-		height: 300px;
-		/* float: right; */
+		width: 107%;
+		max-height: 374px;
+		float: right;
     }
     .single-featured-property .property-thumb:hover img{
     	-webkit-transform: translateX(4.5%);

@@ -62,4 +62,12 @@ public class HouseService{
 	public Image addImg(Image image) {
 		return imageDAO.save(image);
 	}
+	
+	// .:NhanTV:. Pagination List with Custom Query
+	public Page<House> findByConditionPagination(HouseSearchCondition condition, int page, int size, Sort sort){
+		return houseDAO.findByConditionPagination(condition.getStation(), condition.getName(), condition.getAddress(), condition.getRoomType()
+				, condition.getRentFeeFrom(), condition.getRentFeeTo(), condition.getDepositeFeeFrom()
+				, condition.getDepositeFeeTo(), condition.getGuaranteeFeeFrom(), condition.getGuaranteeFeeTo()
+				, condition.getAreaFrom(), condition.getAreaTo(), PageRequest.of(page, size, sort));
+	}
 }

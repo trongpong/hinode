@@ -2012,3 +2012,7 @@ table.tblsingle td p.tdMoney{
 	width: 630px;
 	height: 600px;
 }
+
+.table td {
+	color: black;
+} 

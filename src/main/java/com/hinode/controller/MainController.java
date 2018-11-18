@@ -157,9 +157,11 @@ public class MainController {
 	                b = stream.read();
 	            }
 	            data = serializedData.toByteArray();
-	            Image img = new Image();
-	            img.setImageData(data);
-	            imgList.add(img);
+	            if (data.length > 0) {
+		            Image img = new Image();
+		            img.setImageData(data);
+		            imgList.add(img);
+	            }
 	            
 			} else {
 				String name = item.getFieldName();

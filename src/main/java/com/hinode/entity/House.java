@@ -69,4 +69,10 @@ public class House {
 	
 	@Column(name="del_flg", length = 1)
 	private String delFlg;
+
+	public House() {
+		buildFrom = LocalDate.now();
+	}
+	
+	
 }

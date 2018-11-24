@@ -192,7 +192,7 @@ public class MainController {
 		@SuppressWarnings("unused")
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("yy/MM/dd");
 		House house = new House();
 		Class<?> c = house.getClass();
 		List<Image> imgList = new ArrayList<>();

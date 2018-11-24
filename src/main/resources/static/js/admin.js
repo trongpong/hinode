@@ -159,11 +159,7 @@
 })(jQuery);
 
 //:: Date picker
-$('#movableDate').datepicker({
-	inline: true,
-	dateFormat: 'yy-mm-dd'
-});
 $('#buildFrom').datepicker({
 	inline: true,
-	dateFormat: 'yy-mm-dd'
+	dateFormat: 'y/mm/dd'
 });

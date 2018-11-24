@@ -31,9 +31,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hinode.dto.HouseSearchCondition;
+import com.hinode.entity.Client;
 import com.hinode.entity.House;
 import com.hinode.entity.Image;
 import com.hinode.entity.Staff;
+import com.hinode.service.ClientService;
 import com.hinode.service.HouseService;
 import com.hinode.service.ImageService;
 import com.hinode.service.StaffService;
@@ -53,6 +55,9 @@ public class MainController {
 	
 	@Autowired
 	private StaffService staffService;
+	
+	@Autowired
+	private ClientService clientService;
 
 	@GetMapping({ "/", "/index" })
 	public String init(Map<String, Object> model) {
@@ -87,6 +92,9 @@ public class MainController {
 		
 		// Get Staff
 		model.put("staffList", staffService.getAll());
+		
+		// :: Client
+		model.put("clientList", clientService.getAll());
 		
 		return "public/index";
 	}
@@ -171,6 +179,9 @@ public class MainController {
 		Staff staff = new Staff();
 		model.addAttribute("staff", staff);
 		model.addAttribute("staffList", staffService.getAll());
+		
+		// :: Client
+		model.addAttribute("clientList", clientService.getAll());
 		
 		return "admin/pages";
 	}
@@ -319,11 +330,53 @@ public class MainController {
 			stream.close();
 		}
 		
-		staff.setSName(formMap.get("sName").toString());
-		staff.setSPosition(formMap.get("sPosition").toString());
-		staff.setSImage(formMap.get("sImage").toString());
-		staffService.add(staff);
+		int id = Integer.valueOf(formMap.get("id").toString());
+		if (id == 0) {
+			// :: New
+			if (!(formMap.get("sName") == null)) {
+				staff.setSName(formMap.get("sName").toString());
+			}
+			if (!(formMap.get("sPosition") == null)) {
+				staff.setSPosition(formMap.get("sPosition").toString());
+			}
+			if (!(formMap.get("sImage") == null)) {
+				staff.setSImage(formMap.get("sImage").toString());
+			}
+			staffService.add(staff);
+		} else {
+			// :: Update
+			staff = staffService.getOne(id);
+			if (!(formMap.get("sName") == null)) {
+				staff.setSName(formMap.get("sName").toString());
+			}
+			if (!(formMap.get("sPosition") == null)) {
+				staff.setSPosition(formMap.get("sPosition").toString());
+			}
+			if (!(formMap.get("sImage") == null)) {
+				staff.setSImage(formMap.get("sImage").toString());
+			}
+			staffService.add(staff);
+		}
 		
 		return "redirect:/page";
 	}
+	
+	@GetMapping("/deleteStaff/{id}")
+	public String deleteStaff(@PathVariable int id) {
+		staffService.delete(id);
+		return "redirect:/page";
+	}
+	
+	@PostMapping("/saveClient")
+	public String saveClient(Client client) {
+		clientService.add(client);
+		return "redirect:/page";
+	}
+	
+	@GetMapping("/deleteClient/{id}")
+	public String deleteClient(@PathVariable int id) {
+		clientService.delete(id);
+		return "redirect:/page";
+	}
+	
 }

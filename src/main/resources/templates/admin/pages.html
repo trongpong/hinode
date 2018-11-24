@@ -15,7 +15,7 @@
 	    		<!-- PAGINATION -->
 		    	<nav>
     				<!-- TITLE -->
-    				<h2 class="headTitle">Slider header</h2>
+    				<h2 id="headTitleSlider" class="headTitle">Slider header</h2>
     				<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal1">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
@@ -40,7 +40,7 @@
 									<tr class="row100" th:each="obj : ${imageSliderList}">
 										<td width="20%" class="column100 column1" data-column="column1" th:text="${obj.id}"></td>
 										<td class="column100 column2" data-column="column2">
-											<img th:src="'data:image/png;base64,' + ${imageSilderMap.get(obj.id)}">
+											<img th:src="'data:image/png;base64,' + ${imageSilderMap.get(obj.id)}" onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
 										</td>
 										<td width="10%" class="column100 column4" data-column="column4">
 											<a th:href="@{/deleteSlider/{id}(id=${obj.id})}"><button type="button" class="btn btn-danger">Xóa</button></a>
@@ -61,7 +61,7 @@
 	    		<!-- PAGINATION -->
 		    	<nav>
     				<!-- TITLE -->
-    				<h2 class="headTitle">Danh sách nhân viên</h2>
+    				<h2 id="headTitleStaff" class="headTitle">Danh sách nhân viên</h2>
 	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
@@ -88,13 +88,15 @@
 									<tr class="row100" th:each="staff : ${staffList}">
 										<td width="20%" class="column100 column1" data-column="column1" th:text="${staff.id}"></td>
 										<td class="column100 column2" data-column="column2">
-											<img th:src="'data:image/png;base64,' + ${staff.sImage}">
+											<img th:src="'data:image/png;base64,' + ${staff.sImage}" onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
 										</td>
 										<td width="20%" class="column100 column3" data-column="column3" th:text="${staff.sName}"></td>
 										<td width="20%" class="column100 column4" data-column="column4" th:text="${staff.sPosition}"></td>
 										<td width="20%" class="column100 column5" data-column="column5">
-											<button type="button" class="btn btn-warning">Sửa</button>
-											<button type="button" class="btn btn-danger">Xóa</button>
+											<a th:href="@{findOneStaff/(id=${staff.id})}" class="eBtnStaff" data-toggle="modal" data-target="#myModal2">
+												<button type="button" class="btn btn-warning" >Sửa</button>
+											</a>
+											<a th:href="@{/deleteStaff/{id}(id=${staff.id})}"><button type="button" class="btn btn-danger">Xóa</button></a>
 										</td>
 									</tr>
 								</tbody>
@@ -110,7 +112,7 @@
 	    		<!-- PAGINATION -->
 		    	<nav>
     				<!-- TITLE -->
-    				<h2 class="headTitle">Ý kiến khách hàng</h2>
+    				<h2 id="headTitleClient" class="headTitle">Ý kiến khách hàng</h2>
 	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal3">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
@@ -134,14 +136,16 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="row100">
-										<td width="20%" class="column100 column1" data-column="column1">1</td>
-										<td class="column100 column2" data-column="column2">Trần Văn C</td>
-										<td width="20%" class="column100 column3" data-column="column3">Yokohama</td>
-										<td width="20%" class="column100 column3" data-column="column4">Tôi thấy HInode có dịch vụ rất tốt</td>
+									<tr class="row100" th:each="client : ${clientList}">
+										<td width="20%" class="column100 column1" data-column="column1" th:text="${client.cid}">1</td>
+										<td class="column100 column2" data-column="column2" th:text="${client.cName}">Trần Văn C</td>
+										<td width="20%" class="column100 column3" data-column="column3" th:text="${client.cAddress}">Yokohama</td>
+										<td width="20%" class="column100 column3" data-column="column4" th:text="${client.cComment}">Tôi thấy HInode có dịch vụ rất tốt</td>
 										<td width="20%" class="column100 column5" data-column="column5">
-											<button type="button" class="btn btn-warning">Sửa</button>
-											<button type="button" class="btn btn-danger">Xóa</button>
+											<a th:href="@{findOneClient/(id=${client.cid})}" class="eBtnClient" data-toggle="modal" data-target="#myModal3">
+												<button type="button" class="btn btn-warning" >Sửa</button>
+											</a>
+											<a th:href="@{/deleteClient/{id}(id=${client.cid})}"><button type="button" class="btn btn-danger">Xóa</button></a>
 										</td>
 									</tr>
 								</tbody>
@@ -185,10 +189,10 @@
 			      <div class="modal-header">
 			        <h5 class="modal-title" id="modalAll2">Thêm mới nhân viên</h5>
 			      </div>
-			      	<form th:action="@{/saveStaff}" th:object="${staff}" method="post" enctype="multipart/form-data">
+			      	<form id="staffForm" th:action="@{/saveStaff}" th:object="${staff}" method="post" enctype="multipart/form-data">
 				      <div class="modal-body">
 				      	<div class="form-row">
-				            <input type='text' th:field="*{id}" name="sid" id="sid" hidden/>
+				            <input type='text' th:field="*{id}" name="sid" id="sid" value="" hidden/>
 				            <div class="form-group col-md-6" id="imagePreview2">
 			        			<input type='file' name="imageStaff" id="imageStaff" hidden/>
 			        			<div class="previewArea">
@@ -197,12 +201,11 @@
 				            </div>
 				            <div class="form-group col-md-6">
 				            	<label for="sname">Họ và Tên</label>
-				                <input th:field="*{sName}" type="text" class="form-control" name="sname" id="sname" placeholder="Chưa nhập...">
+				                <input th:field="*{sName}" type="text" value="" class="form-control" name="sname" id="sname" placeholder="Chưa nhập...">
 				            	<label for="sposition">Chức vụ</label>
-				                <input th:field="*{sPosition}" type="text" class="form-control" name="sposition" id="sposition" placeholder="Chưa nhập...">
+				                <input th:field="*{sPosition}" type="text" value="" class="form-control" name="sposition" id="sposition" placeholder="Chưa nhập...">
 				            </div>
 				      	</div>
-			            
 				      </div>
 			      	<div class="modal-footer">
 			      		<button style="display: block;" type="button" class="btn btn-warning" id="addImage2">Chọn ảnh</button>
@@ -220,19 +223,20 @@
 			      <div class="modal-header">
 			        <h5 class="modal-title" id="modalAll3">Thêm mới nhận xét</h5>
 			      </div>
-			      	<form th:action="@{/saveClient}" method="post">
+			      	<form id="clientForm" th:action="@{/saveClient}" method="post">
 				      <div class="modal-body">
+				      	<input type="text" id="cid" name="cid" value="0" hidden>
 			            <div class="form-group">
-			            	<label for="cname">Họ và Tên</label>
-			                <input type="text" class="form-control" name="cname" id="cname" placeholder="Chưa nhập...">
+			            	<label for="cName">Họ và Tên</label>
+			                <input type="text" value="" class="form-control" name="cName" id="cName" placeholder="Chưa nhập...">
 			            </div>
 			            <div class="form-group">
-			            	<label for="caddress">Nơi ở</label>
-			                <input type="text" class="form-control" name="caddress" id="caddress" placeholder="Chưa nhập...">
+			            	<label for="cAddress">Nơi ở</label>
+			                <input type="text" value="" class="form-control" name="cAddress" id="cAddress" placeholder="Chưa nhập...">
 			            </div>
 			            <div class="form-group">
-			            	<label for="ccomment">Nhận xét</label>
-			                <textarea id="ccomment" name="ccomment" rows="10" cols=""></textarea>
+			            	<label for="cComment">Nhận xét</label>
+			                <textarea id="cComment" name="cComment" rows="10" cols=""></textarea>
 			            </div>
 				      </div>
 			      	<div class="modal-footer">

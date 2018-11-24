@@ -126,6 +126,36 @@
 	            scrollTop: $("#" + id).offset().top
 	        }, 'slow');
 	    }
+	    
+	    // :: Form Staff Edit Add
+	    $('.eBtnStaff').on('click', function(event){
+	    	event.preventDefault();
+	    	var href = $(this).attr('href');
+	    	// :: Ajax
+	    	$.get(href, function(staff,status){
+	    		$('#staffForm #sid').attr('value',staff.id);
+	    		$('#staffForm #sname').attr('value',staff.sname);
+	    		$('#staffForm #sposition').attr('value',staff.sposition);
+	    		if (staff.simage !== null){
+	    			$('#staffForm #imagePreview2').find('img.previewImage').attr('src', 'data:image/png;base64,' + staff.simage);
+	    		} else {
+	    			$('#staffForm #imagePreview2').find('img.previewImage').attr('src', 'img/bg-img/noimage256.png');
+	    		}
+	    	});
+	    });
+	    
+	 // :: Form Client Edit Add
+	    $('.eBtnClient').on('click', function(event){
+	    	event.preventDefault();
+	    	var href = $(this).attr('href');
+	    	// :: Ajax
+	    	$.get(href, function(client,status){
+	    		$('#clientForm #cid').attr('value',client.cid);
+	    		$('#clientForm #cName').attr('value',client.cname);
+	    		$('#clientForm #cAddress').attr('value',client.caddress);
+	    		$('#clientForm #cComment').text(client.ccomment);
+	    	});
+	    });
 })(jQuery);
 
 //:: Date picker

@@ -13,19 +13,19 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="staff")
+@Table(name="client")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Staff {
+public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int cid;
 	
-	@Column(name="name")
-	private String sName;
+	@Column(name="cname")
+	private String cName;
 	
-	@Column(name="position")
-	private String sPosition;
+	@Column(name="caddress")
+	private String cAddress;
 	
-	@Column(name="image")
-	private String sImage;
+	@Column(name="ccomment")
+	private String cComment;
 }

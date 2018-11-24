@@ -356,35 +356,12 @@
                     <div class="testimonials-slides owl-carousel wow fadeInUp" data-wow-delay="500ms">
 
                         <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide text-center">
-                            <h5>Perfect Home for me</h5>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p>
-
+                        <div class="single-testimonial-slide text-center" th:each="client : ${clientList}">
+                            <h5 th:text="${client.cName}">Perfect Home for me</h5>
+                            <p th:text="${client.cComment}"></p>
                             <div class="testimonial-author-info">
-                                <img src="img/bg-img/noimage256.png" alt="">
-                                <p>Daiane Smith, <span>Customer</span></p>
-                            </div>
-                        </div>
-
-                        <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide text-center">
-                            <h5>Perfect Home for me</h5>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p>
-
-                            <div class="testimonial-author-info">
-                                <img src="img/bg-img/noimage256.png" alt="">
-                                <p>Daiane Smith, <span>Customer</span></p>
-                            </div>
-                        </div>
-
-                        <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide text-center">
-                            <h5>Perfect Home for me</h5>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna.</p>
-
-                            <div class="testimonial-author-info">
-                                <img src="img/bg-img/noimage256.png" alt="">
-                                <p>Daiane Smith, <span>Customer</span></p>
+                                <!-- img src="img/bg-img/noimage256.png" alt="" -->
+                                <p><span th:text="${client.cAddress}">Customer</span></p>
                             </div>
                         </div>
                     </div>

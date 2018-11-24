@@ -327,41 +327,13 @@
             </div>
             <div id="owl-carousel-team" class="owl-carousel owl-theme">
                 <!-- Single Team Member -->
-                <div class="team-member">
-                	<img alt="" src="img/bg-img/noimage256.png">
+                <div class="team-member" th:each="staff : ${staffList}">
+                	<img th:src="'data:image/png;base64,' + ${staff.sImage}">
                 	<div class="team-info">
-	                    <span>Name 1</span>
-	                    <p>Realth</p>
+	                    <span th:text="${staff.sName}"></span>
+	                    <p th:text="${staff.sPosition}"></p>
 	                </div>
                 </div> 
-                <div class="team-member">
-                	<img alt="" src="img/bg-img/noimage256.png">
-                	<div class="team-info">
-	                    <span>Name 2</span>
-	                    <p>Realth</p>
-	                </div>
-                </div>
-                <div class="team-member">
-                	<img alt="" src="img/bg-img/noimage256.png">
-                	<div class="team-info">
-	                    <span>Name 3</span>
-	                    <p>Realth</p>
-	                </div>
-                </div>
-                <div class="team-member">
-                	<img alt="" src="img/bg-img/noimage256.png">
-                	<div class="team-info">
-	                    <span>Name 4</span>
-	                    <p>Realth</p>
-	                </div>
-                </div>
-                <div class="team-member">
-                	<img alt="" src="img/bg-img/noimage256.png">
-                	<div class="team-info">
-	                    <span>Name 5</span>
-	                    <p>Realth</p>
-	                </div>
-                </div>
             </div>
         </div>
     </section>

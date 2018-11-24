@@ -33,8 +33,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
 import com.hinode.entity.Image;
+import com.hinode.entity.Staff;
 import com.hinode.service.HouseService;
 import com.hinode.service.ImageService;
+import com.hinode.service.StaffService;
 
 @Controller
 public class MainController {
@@ -48,6 +50,9 @@ public class MainController {
 	
 	@Autowired
 	private ImageService imageService;
+	
+	@Autowired
+	private StaffService staffService;
 
 	@GetMapping({ "/", "/index" })
 	public String init(Map<String, Object> model) {
@@ -79,6 +84,9 @@ public class MainController {
 		
 		model.put("imageSliderList", imageSliderList);
 		model.put("imageSilderMap",imgMapSlider);
+		
+		// Get Staff
+		model.put("staffList", staffService.getAll());
 		
 		return "public/index";
 	}
@@ -146,6 +154,7 @@ public class MainController {
 
 	@GetMapping("/page")
 	public String page(Model model) {
+		// :: IMAGE SLIDER
 		List<Image> imageSliderList;
 		Map<Integer, String> imgMap = new HashMap<>();
 		
@@ -157,6 +166,12 @@ public class MainController {
 		
 		model.addAttribute("imageSliderList", imageSliderList);
 		model.addAttribute("imageSilderMap",imgMap);
+		
+		// :: STAFF
+		Staff staff = new Staff();
+		model.addAttribute("staff", staff);
+		model.addAttribute("staffList", staffService.getAll());
+		
 		return "admin/pages";
 	}
 
@@ -257,6 +272,7 @@ public class MainController {
 		            imgList.add(img);
 	            }
 			}
+			stream.close();
 		}
 		for (Image img : imgList) {
 			img.setHouseId(0);
@@ -268,6 +284,46 @@ public class MainController {
 	@GetMapping("/deleteSlider/{id}")
 	public String deleteSlider(@PathVariable int id) {
 		imageService.delete(id);;
+		return "redirect:/page";
+	}
+	
+	@PostMapping("/saveStaff")
+	public String saveStaff(HttpServletRequest request) throws Exception {
+		Map<String, Object> formMap = new HashMap<String, Object>();
+		ServletFileUpload upload = new ServletFileUpload();
+		FileItemIterator iterStream = upload.getItemIterator(request);
+		Staff staff = new Staff();
+		
+		while (iterStream.hasNext()) {
+			FileItemStream item = iterStream.next();
+			InputStream stream = item.openStream();
+			if (!item.isFormField()) {
+				byte[] data = null;
+				final ByteArrayOutputStream serializedData = new ByteArrayOutputStream();
+	            int b = stream.read();
+	            while (b != -1) {
+	                serializedData.write(b);
+	                b = stream.read();
+	            }
+	            data = serializedData.toByteArray();
+	            if (data.length > 0) {
+	            	formMap.put("sImage", Base64.getEncoder().encodeToString(data));
+	            }
+			} else {
+				String name = item.getFieldName();
+				String value = Streams.asString(stream);
+				
+				formMap.put(name, value);
+			}
+			
+			stream.close();
+		}
+		
+		staff.setSName(formMap.get("sName").toString());
+		staff.setSPosition(formMap.get("sPosition").toString());
+		staff.setSImage(formMap.get("sImage").toString());
+		staffService.add(staff);
+		
 		return "redirect:/page";
 	}
 }

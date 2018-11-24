@@ -34,6 +34,7 @@ import com.hinode.dto.HouseSearchCondition;
 import com.hinode.entity.House;
 import com.hinode.entity.Image;
 import com.hinode.service.HouseService;
+import com.hinode.service.ImageService;
 
 @Controller
 public class MainController {
@@ -44,6 +45,9 @@ public class MainController {
 
 	@Autowired
 	private HouseService houseService;
+	
+	@Autowired
+	private ImageService imageService;
 
 	@GetMapping({ "/", "/index" })
 	public String init(Map<String, Object> model) {
@@ -62,6 +66,19 @@ public class MainController {
 		model.put("houseList", houseService.findTopNewHouse());
 		model.put("condition", new HouseSearchCondition());
 		model.put("imgMap", imgMap);
+		
+		// Get slider
+		List<Image> imageSliderList;
+		Map<Integer, String> imgMapSlider = new HashMap<>();
+		
+		imageSliderList = imageService.findSlider();
+		
+		for (Image img : imageSliderList) {
+			imgMapSlider.put(img.getId(), Base64.getEncoder().encodeToString(img.getImageData()));
+		}
+		
+		model.put("imageSliderList", imageSliderList);
+		model.put("imageSilderMap",imgMapSlider);
 		
 		return "public/index";
 	}
@@ -128,7 +145,18 @@ public class MainController {
 	}
 
 	@GetMapping("/page")
-	public String page(Map<String, Object> model) {
+	public String page(Model model) {
+		List<Image> imageSliderList;
+		Map<Integer, String> imgMap = new HashMap<>();
+		
+		imageSliderList = imageService.findSlider();
+		
+		for (Image img : imageSliderList) {
+			imgMap.put(img.getId(), Base64.getEncoder().encodeToString(img.getImageData()));
+		}
+		
+		model.addAttribute("imageSliderList", imageSliderList);
+		model.addAttribute("imageSilderMap",imgMap);
 		return "admin/pages";
 	}
 
@@ -204,5 +232,42 @@ public class MainController {
 	public String delete(@PathVariable int id) {
 		houseService.delete(id);
 		return "redirect:/admin";
+	}
+	
+	@PostMapping("/saveSlider")
+	public String saveSlider(HttpServletRequest request) throws Exception {
+		List<Image> imgList = new ArrayList<>();
+		ServletFileUpload upload = new ServletFileUpload();
+		FileItemIterator iterStream = upload.getItemIterator(request);
+		while (iterStream.hasNext()) {
+			FileItemStream item = iterStream.next();
+			InputStream stream = item.openStream();
+			if (!item.isFormField()) {
+				byte[] data = null;
+				final ByteArrayOutputStream serializedData = new ByteArrayOutputStream();
+	            int b = stream.read();
+	            while (b != -1) {
+	                serializedData.write(b);
+	                b = stream.read();
+	            }
+	            data = serializedData.toByteArray();
+	            if (data.length > 0) {
+		            Image img = new Image();
+		            img.setImageData(data);
+		            imgList.add(img);
+	            }
+			}
+		}
+		for (Image img : imgList) {
+			img.setHouseId(0);
+			houseService.addImg(img);
+		}
+		return "redirect:/page";
+	}
+	
+	@GetMapping("/deleteSlider/{id}")
+	public String deleteSlider(@PathVariable int id) {
+		imageService.delete(id);;
+		return "redirect:/page";
 	}
 }

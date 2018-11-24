@@ -77,6 +77,9 @@
 	    	event.preventDefault();
 	    	$('.refreshBtn').click();
 	    	var href = $(this).attr('href');
+	    	// :: Scroll
+	    	goToByScroll('editAddForm');
+	    	// :: Ajax
 	    	$.get(href, function(house,status){
 	    		$('.adminForm #id').val(house.id);
 	    		$('.adminForm #name').val(house.name);
@@ -114,6 +117,15 @@
     		$('.adminForm #station').val('');
 	    });
 	    
+	    // This is a functions that scrolls to #{blah}link
+	    function goToByScroll(id) {
+	        // Remove "link" from the ID
+	        id = id.replace("link", "");
+	        // Scroll
+	        $('html,body').animate({
+	            scrollTop: $("#" + id).offset().top
+	        }, 'slow');
+	    }
 })(jQuery);
 
 //:: Date picker

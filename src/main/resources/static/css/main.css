@@ -141,3 +141,13 @@ th, td {
 	top: 80px !important;
 	z-index: 99999 !important;
 }
+
+.previewArea {
+	padding: 0px 5px 5px 5px;
+	display: inline-block;
+}
+#ccomment {
+	display: block;
+	width: 100%;
+	border: 1px solid #CED4DA !important;
+}

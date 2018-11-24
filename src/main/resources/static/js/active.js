@@ -48,6 +48,11 @@
     if ($.fn.niceSelect) {
         $('select').niceSelect();
     }
+    
+    // :: Active hero slide text
+    $("div.hero-slides div.single-hero-slide:nth-child(2)").append('<div class="container h-100"> <div class="row h-100 align-items-center"> <div class="col-12"> <div class="hero-slides-content"> <h2 data-animation="fadeInUp" data-delay="300ms" class="textSlider"> Nhà HINODE - Ở là mê </h2> </div></div></div></div>');
+    $("div.hero-slides div.single-hero-slide:nth-child(3)").append('<div class="container h-100"> <div class="row h-100 align-items-center"> <div class="col-12"> <div class="hero-slides-content"> <h2 data-animation="fadeInUp" data-delay="300ms" class="textSlider"> TEL: 03-6907-2663 <br>FAX: 03-6907-2664 </h2> </div></div></div></div>');
+    
 
     // :: Owl Carousel Active Code
     if ($.fn.owlCarousel) {

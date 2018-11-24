@@ -69,34 +69,10 @@
     <section id="home" class="hero-area">
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero1.png);"></div>
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero2.png);">
-                <div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="100ms">NHÀ HINODE - Ở LÀ MÊ</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" style="background-image: url(/img/bg-img/hero3.png);">
-            	<div class="container h-100">
-                    <div class="row h-100 align-items-center">
-                        <div class="col-12">
-                            <div class="hero-slides-content">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">
-                                	TEL: 03-6907-2663
-                                	<br>FAX: 03-6907-2664
-                               	</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="single-hero-slide bg-img" 
+            	th:each="imageSlider : ${imageSliderList}"
+            	th:style="'background:url(data:image/png;base64,' + ${imageSilderMap.get(imageSlider.id)} +') 50% 50%;'">
+           	</div>
         </div>
     </section>
     <!-- ##### Hero Area End ##### -->

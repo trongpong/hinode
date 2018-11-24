@@ -16,7 +16,7 @@
 		    	<nav>
     				<!-- TITLE -->
     				<h2 class="headTitle">Slider header</h2>
-    				<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
+    				<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal1">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
 				<!-- PAGINATION -->
@@ -33,33 +33,17 @@
 									<tr class="row100 head">
 										<th class="column100 column1" data-column="column1">ID</th>
 										<th class="column100 column2" data-column="column2">Xem trước</th>
-										<th class="column100 column3" data-column="column3">Tên file</th>
 										<th class="column100 column8" data-column="column4">Thao tác</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="row100">
-										<td width="20%" class="column100 column1" data-column="column1">1</td>
-										<td class="column100 column2" data-column="column2"><img src="img/bg-img/hero1.png"></td>
-										<td width="20%" class="column100 column3" data-column="column3">hero1.png</td>
-										<td width="10%" class="column100 column4" data-column="column4">
-											<button type="button" class="btn btn-danger">Xóa</button>
+									<tr class="row100" th:each="obj : ${imageSliderList}">
+										<td width="20%" class="column100 column1" data-column="column1" th:text="${obj.id}"></td>
+										<td class="column100 column2" data-column="column2">
+											<img th:src="'data:image/png;base64,' + ${imageSilderMap.get(obj.id)}">
 										</td>
-									</tr>
-									<tr class="row100">
-										<td width="20%" class="column100 column1" data-column="column1">2</td>
-										<td class="column100 column2" data-column="column2"><img src="img/bg-img/hero2.png"></td>
-										<td width="20%" class="column100 column3" data-column="column3">hero2.png</td>
 										<td width="10%" class="column100 column4" data-column="column4">
-											<button type="button" class="btn btn-danger">Xóa</button>
-										</td>
-									</tr>
-									<tr class="row100">
-										<td width="20%" class="column100 column1" data-column="column1">3</td>
-										<td class="column100 column2" data-column="column2"><img src="img/bg-img/hero3.png"></td>
-										<td width="20%" class="column100 column3" data-column="column3">hero3.png</td>
-										<td width="10%" class="column100 column4" data-column="column4">
-											<button type="button" class="btn btn-danger">Xóa</button>
+											<a th:href="@{/deleteSlider/{id}(id=${obj.id})}"><button type="button" class="btn btn-danger">Xóa</button></a>
 										</td>
 									</tr>
 								</tbody>
@@ -78,7 +62,7 @@
 		    	<nav>
     				<!-- TITLE -->
     				<h2 class="headTitle">Danh sách nhân viên</h2>
-	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
+	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal2">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
 				<!-- PAGINATION -->
@@ -145,7 +129,7 @@
 		    	<nav>
     				<!-- TITLE -->
     				<h2 class="headTitle">Ý kiến khách hàng</h2>
-	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal">Thêm mới</button>
+	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal3">Thêm mới</button>
 			  	<div class="clearfix"></div>
 				</nav>
 				<!-- PAGINATION -->
@@ -186,24 +170,96 @@
 			</div>
 	    	<!-- END TABLE -->
 	    	
-	    	<!-- Modal -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	    	<!-- Modal -->			
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <h5 class="modal-title" id="exampleModalLabel">Thêm mới</h5>
+			        <h5 class="modal-title" id="modalAll1">Thêm mới slider</h5>
+			        
 			      </div>
-			      <div class="modal-body">
-			        	<form action="#" method="post">
-			        		<div class="form-group">
-				                <input type="file" name="ssi-upload" multiple id="ssi-upload"/>
-				            </div>
-			            </form>
+			      	<form th:action="@{/saveSlider}" method="post" enctype="multipart/form-data">
+				      <div class="modal-body">
+		        		<div class="form-group col-md-12" id="imagePreview1">
+		        			<input name="imgSlider" id="imgSlider" type='file' class="inputImage1" hidden/>
+		        			<div class="previewArea col-md-4">
+		        				<img class="previewImage" src="img/bg-img/noimage256.png"/>
+		        			</div>
+		        			<div class="previewArea col-md-4">
+		        				<img class="previewImage" src="img/bg-img/noimage256.png"/>
+		        			</div>
+			            </div>
+				      </div>
+			      	<div class="modal-footer">
+			      		<button type="button" class="btn btn-warning" id="addImage1">Chọn ảnh</button>
+			      		<button type="submit" class="btn btn-primary">Lưu</button>
+				        <button type="button" class="btn btn-secondary" id="cancelImage1" data-dismiss="modal">Hủy</button>
+			      	</div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="modalAll2">Thêm mới nhân viên</h5>
 			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-			        <button type="button" class="btn btn-primary">Lưu</button>
+			      	<form th:action="@{/saveStaff}" method="post" enctype="multipart/form-data">
+				      <div class="modal-body">
+		        		<div class="form-group col-md-12" id="imagePreview2">
+		        			<input type='file' class="inputImage2" hidden/>
+		        			<div class="previewArea">
+		        				<img class="previewImage" src="img/bg-img/noimage256.png"/>
+		        				<button style="display: block;" type="button" class="btn btn-warning" id="addImage2">Chọn ảnh</button>
+		        			</div>
+			            </div>
+			            <div class="form-group col-md-12">
+			            	<label for="sname">Họ và Tên</label>
+			                <input type="text" class="form-control" name="sname" id="sname" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group col-md-12">
+			            	<label for="sposition">Chức vụ</label>
+			                <input type="text" class="form-control" name="sposition" id="sposition" placeholder="Chưa nhập...">
+			            </div>
+				      </div>
+			      	<div class="modal-footer">
+			      		
+			      		<button type="submit" class="btn btn-primary">OK</button>
+				        <button type="button" class="btn btn-secondary" id="cancelImage2" data-dismiss="modal">Hủy</button>
+			      	</div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			
+			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="modalAll3">Thêm mới nhận xét</h5>
 			      </div>
+			      	<form th:action="@{/saveClient}" method="post">
+				      <div class="modal-body">
+			            <div class="form-group">
+			            	<label for="cname">Họ và Tên</label>
+			                <input type="text" class="form-control" name="cname" id="cname" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="caddress">Nơi ở</label>
+			                <input type="text" class="form-control" name="caddress" id="caddress" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="ccomment">Nhận xét</label>
+			                <textarea id="ccomment" name="ccomment" rows="10" cols=""></textarea>
+			            </div>
+				      </div>
+			      	<div class="modal-footer">
+			      		<button type="submit" class="btn btn-primary">OK</button>
+				        <button type="button" class="btn btn-secondary" id="cancelImage3" data-dismiss="modal">Hủy</button>
+			      	</div>
+			      </form>
 			    </div>
 			  </div>
 			</div>

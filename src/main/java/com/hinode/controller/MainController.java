@@ -160,8 +160,8 @@ public class MainController {
 		return "admin/index";
 	}
 
-	@GetMapping("/page")
-	public String page(Model model) {
+	@GetMapping("/slider")
+	public String slider(Model model) {
 		// :: IMAGE SLIDER
 		List<Image> imageSliderList;
 		Map<Integer, String> imgMap = new HashMap<>();
@@ -175,15 +175,26 @@ public class MainController {
 		model.addAttribute("imageSliderList", imageSliderList);
 		model.addAttribute("imageSilderMap",imgMap);
 		
+		return "admin/slider";
+	}
+	
+	
+	@GetMapping("/staff")
+	public String staff(Model model) {	
 		// :: STAFF
 		Staff staff = new Staff();
 		model.addAttribute("staff", staff);
 		model.addAttribute("staffList", staffService.getAll());
 		
+		return "admin/staff";
+	}
+	
+	@GetMapping("/client")
+	public String client(Model model) {	
 		// :: Client
 		model.addAttribute("clientList", clientService.getAll());
 		
-		return "admin/pages";
+		return "admin/client";
 	}
 
 	@PostMapping("/save")

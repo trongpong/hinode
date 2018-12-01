@@ -20,7 +20,6 @@
     <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" href="ssi-uploader/styles/ssi-uploader.css"/>
 
 </head>
 
@@ -47,11 +46,11 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="/admin">QL Nhà</a></li>
-                                <li><a href="/page">QL Trang</a>
+                                <li><a href="#">QL Trang</a>
                                 	<ul class="dropdown">
-                                        <li><a href="/page#headTitleSlider">Slider</a></li>
-                                        <li><a href="/page#headTitleStaff">Nhân viên</a></li>
-                                        <li><a href="/page#headTitleClient">Nhận xét KH</a></li>
+                                        <li><a href="/slider">Slider</a></li>
+                                        <li><a href="/staff">Nhân viên</a></li>
+                                        <li><a href="/client">Nhận xét KH</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Xin chào, Admin</a>
@@ -150,8 +149,12 @@
 										<td width="20%" class="column100 column3" data-column="column3" th:text="*{rentFee}"></td>
 										<td width="30%" class="column100 column4" data-column="column4" th:text="*{address}"></td>
 										<td width="20%" class="column100 column5" data-column="column5">
-											<a th:href="@{findOne/(id=${obj.id})}" class="eBtn"><button type="button" class="btn btn-warning">Sửa</button></a>
-											<a th:href="@{/delete/{id}(id=*{id})}"><button type="button" class="btn btn-danger">Xóa</button></a>
+											<a th:href="@{findOne/(id=${obj.id})}" th:attr="data-img=@{getImage/(houseId=${obj.id})}" class="eBtn">
+												<button type="button" class="btn btn-warning">Sửa</button>
+											</a>
+											<a th:href="@{/delete/{id}(id=*{id})}">
+												<button type="button" class="btn btn-danger">Xóa</button>
+											</a>
 										</td>
 									</tr>
 								</tbody>
@@ -222,7 +225,7 @@
 			        	<div class="form-row">
 				            <div class="form-group col-md-6">
 				            	<label for="manageFee">Tiền quản lý</label>
-				                <input type="text" class="form-control" name="manageFee" id="manageFee" th:field="*{manageFee}" placeholder="Chưa nhập...">
+				                <input type="number" class="form-control" name="manageFee" id="manageFee" th:field="*{manageFee}" placeholder="Chưa nhập...">
 				            </div>
 				            <div class="form-group col-md-6">
 				            	<label for="personInCharge">Nhân viên phụ trách</label>
@@ -232,7 +235,7 @@
 			        	<div class="form-row">
 				            <div class="form-group col-md-6">
 				            	<label for="staffContact">Liên hệ</label>
-				                <input type="number" class="form-control" name="staffContact" id="staffContact" th:field="*{staffContact}" placeholder="Chưa nhập...">
+				                <input type="text" class="form-control" name="staffContact" id="staffContact" th:field="*{staffContact}" placeholder="Chưa nhập...">
 				            </div>
 				            <div class="form-group col-md-6">
 				            	<label for="status">Trạng thái</label>
@@ -252,13 +255,18 @@
 			        	</div>
 			        	
 			        	<div class="form-row">
-			        		<div class="form-group col-md-12">
+			        	<!--<div class="form-group col-md-12">
 				            	<label for="ssi-upload">Hình ảnh</label>
 				                <input type="file" name="ssi-upload" multiple id="ssi-upload"/>
+				            </div>--> 
+				            <div class="form-group clrfix col-md-12" id="imageHouse">
+				            	<!-- IMAGE LOAD HERE -->
 				            </div>
+				            <input name="ssi-upload" id="imgHouse" type='file' multiple hidden/>
+				            
 			        	</div>
-			        	
-			            <button type="button" class="btn btn-secondary refreshBtn">Clear All</button>
+			        	<button type="button" class="btn btn-warning" id="addImage">Chọn ảnh</button>
+			            <button type="button" class="btn btn-secondary refreshBtn" id="cancelImage">Clear All</button>
 			            <button type="submit" class="btn btn-primary">OK</button>
 			        </form>
 		        </div>
@@ -280,7 +288,6 @@
     <script src="js/classy-nav.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/select2.min.js"></script>
-    <script src="ssi-uploader/js/ssi-uploader.min.js"></script>
    	<script src="js/imageUpload.js"></script>
     <!-- Active js -->
     <script src="js/admin.js"></script>

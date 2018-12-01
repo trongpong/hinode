@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{admin/index}">
+<head>
+    <!-- Title  -->
+    <title>Client | Admin page</title>
+</head>
+<body>
+    <div layout:fragment="content"><!-- DIV CONTENT -->
+    	<div style="width: 100%; height: 90px; display: block;"></div>
+    	<!-- CONTENT HERE -->
+    	<div class="container">
+    	
+    		<!-- CUSTOMER HEADER TITLE -->
+	    	<div class="col-12">
+	    		<!-- PAGINATION -->
+		    	<nav>
+    				<!-- TITLE -->
+    				<h2 id="headTitleClient" class="headTitle">Ý kiến khách hàng</h2>
+	    			<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal3">Thêm mới</button>
+			  	<div class="clearfix"></div>
+				</nav>
+				<!-- PAGINATION -->
+			</div>
+			<!-- HEADER TITLE -->
+			
+	    	<!-- START TABLE -->
+	    	<div class="col-12">
+				<div class="container-table100">
+					<div class="wrap-table100">
+						<div class="table100 ver1 mb-15">
+							<table data-vertable="ver1">
+								<thead>
+									<tr class="row100 head">
+										<th class="column100 column1" data-column="column1">ID</th>
+										<th class="column100 column2" data-column="column2">Tên KH</th>
+										<th class="column100 column3" data-column="column3">Nơi ở</th>
+										<th class="column100 column4" data-column="column4">Bình luận</th>
+										<th class="column100 column5" data-column="column5">Thao tác</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100" th:each="client : ${clientList}">
+										<td width="20%" class="column100 column1" data-column="column1" th:text="${client.cid}">1</td>
+										<td class="column100 column2" data-column="column2" th:text="${client.cName}">Trần Văn C</td>
+										<td width="20%" class="column100 column3" data-column="column3" th:text="${client.cAddress}">Yokohama</td>
+										<td width="20%" class="column100 column3" data-column="column4" th:text="${client.cComment}">Tôi thấy HInode có dịch vụ rất tốt</td>
+										<td width="20%" class="column100 column5" data-column="column5">
+											<a th:href="@{findOneClient/(id=${client.cid})}" class="eBtnClient" data-toggle="modal" data-target="#myModal3">
+												<button type="button" class="btn btn-warning" >Sửa</button>
+											</a>
+											<a th:href="@{/deleteClient/{id}(id=${client.cid})}"><button type="button" class="btn btn-danger">Xóa</button></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+	    	<!-- END TABLE -->
+	    	
+	    	<!-- Modal -->			
+			<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="modalAll3">Thêm mới/Chỉnh sửa nhận xét</h5>
+			      </div>
+			      	<form id="clientForm" th:action="@{/saveClient}" method="post">
+				      <div class="modal-body">
+				      	<input type="text" id="cid" name="cid" value="0" hidden>
+			            <div class="form-group">
+			            	<label for="cName">Họ và Tên</label>
+			                <input type="text" value="" class="form-control" name="cName" id="cName" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="cAddress">Nơi ở</label>
+			                <input type="text" value="" class="form-control" name="cAddress" id="cAddress" placeholder="Chưa nhập...">
+			            </div>
+			            <div class="form-group">
+			            	<label for="cComment">Nhận xét</label>
+			                <textarea id="cComment" name="cComment" rows="10" cols=""></textarea>
+			            </div>
+				      </div>
+			      	<div class="modal-footer">
+			      		<button type="submit" class="btn btn-primary">OK</button>
+				        <button type="button" class="btn btn-secondary" id="cancelImage3" data-dismiss="modal">Hủy</button>
+			      	</div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+	    	
+    	<!-- CONTENT HERE -->
+    	</div>
+	</div><!-- DIV CONTENT -->
+</body>
+</html>

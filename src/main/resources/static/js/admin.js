@@ -65,18 +65,13 @@
 	            }
 	        }
 	    };
-
-	    // option 1
-	    $('#ssi-upload').ssi_uploader({
-	        url: 'http://localhost:3300/upload',
-	        inForm:true
-	    });
 	    
 	    // :: Form Edit Add
 	    $('.eBtn').on('click', function(event){
 	    	event.preventDefault();
 	    	$('.refreshBtn').click();
-	    	var href = $(this).attr('href');
+	    	var href = $(this).attr('href'),
+	    		dataImg = $(this).attr('data-img');
 	    	// :: Scroll
 	    	goToByScroll('editAddForm');
 	    	// :: Ajax
@@ -97,6 +92,21 @@
 	    		$('.adminForm #other').val(house.other);
 	    		$('.adminForm #station').val(house.station);
 	    	});
+	    	
+	    	var strAppend = "", i = 0,
+	    		imagePrevew = $('#imageHouse');
+	    	
+	    	$.get(dataImg, function(image,status){
+	    		if (image.length > 0){
+	    			imagePrevew.find('previewAreaLoad').remove();
+	    			for (i = 1; i < image.length; i++){
+	    				// :: Create preview
+		    			strAppend = '<div class="previewAreaLoad col-md-3"><span class="imageClose" data-id="'+ image[i].id +'">Xóa</span><img class="previewImage" src="data:image/jpg;base64,'+ image[i].imageData +'"/></div>';
+		    			imagePrevew.append(strAppend);
+		    			strAppend = "";
+	    			}
+	    		}
+	    	});
 	    });
 	    
 	    $('.refreshBtn').on('click',function(){
@@ -115,7 +125,14 @@
     		$('.adminForm #status').val('');
     		$('.adminForm #other').val('');
     		$('.adminForm #station').val('');
+    		$('.adminForm #staffContact').val('');
 	    });
+	    
+	    $('#imageHouse').on('click', 'span.imageClose', function() {
+	    	var id = $(this).attr("data-id");
+	    	$(this).parent().remove();
+	    	$.ajax({url: '/deleteImage/' + id, success: function(result){}});
+		});
 	    
 	    // This is a functions that scrolls to #{blah}link
 	    function goToByScroll(id) {

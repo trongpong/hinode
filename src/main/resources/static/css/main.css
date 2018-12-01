@@ -142,10 +142,25 @@ th, td {
 	z-index: 99999 !important;
 }
 
-.previewArea {
-	padding: 0px 5px 5px 5px;
+.previewArea, .previewAreaLoad {
+	padding: 5px;
 	display: inline-block;
+	background: #f1f1f1 !important;
+	-webkit-box-shadow: 2px 2px 8px 0px rgba(176,176,176,1);
+	-moz-box-shadow: 2px 2px 8px 0px rgba(176,176,176,1);
+	box-shadow: 2px 2px 8px 0px rgba(176,176,176,1);
 }
+
+.imageClose{
+	cursor: pointer;
+    padding: 3px;
+    text-align: center;
+    width: 50px;
+    color: red;
+    display: inline-block;
+    font-weight: bold;
+}
+
 #cComment {
 	display: block;
 	width: 100%;

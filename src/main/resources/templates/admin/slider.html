@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{admin/index}">
+<head>
+    <!-- Title  -->
+    <title>Slider | Admin page</title>
+</head>
+<body>
+    <div layout:fragment="content"><!-- DIV CONTENT -->
+    	<div style="width: 100%; height: 90px; display: block;"></div>
+    	<!-- CONTENT HERE -->
+    	<div class="container">
+    	
+    		<!-- HEADER TITLE -->
+	    	<div class="col-12">
+	    		<!-- PAGINATION -->
+		    	<nav>
+    				<!-- TITLE -->
+    				<h2 id="headTitleSlider" class="headTitle">Slider header</h2>
+    				<button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModal1">Thêm mới</button>
+			  	<div class="clearfix"></div>
+				</nav>
+				<!-- PAGINATION -->
+			</div>
+			<!-- HEADER TITLE -->
+			
+	    	<!-- START TABLE -->
+	    	<div class="col-12">
+				<div class="container-table100">
+					<div class="wrap-table100">
+						<div class="table100 ver1 mb-15">
+							<table data-vertable="ver1">
+								<thead>
+									<tr class="row100 head">
+										<th class="column100 column1" data-column="column1">ID</th>
+										<th class="column100 column2" data-column="column2">Xem trước</th>
+										<th class="column100 column8" data-column="column4">Thao tác</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="row100" th:each="obj : ${imageSliderList}">
+										<td width="20%" class="column100 column1" data-column="column1" th:text="${obj.id}"></td>
+										<td class="column100 column2" data-column="column2">
+											<img th:src="'data:image/png;base64,' + ${imageSilderMap.get(obj.id)}" onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
+										</td>
+										<td width="10%" class="column100 column4" data-column="column4">
+											<a th:href="@{/deleteSlider/{id}(id=${obj.id})}"><button type="button" class="btn btn-danger">Xóa</button></a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+	    	<!-- END TABLE -->
+	    	
+	    	<!-- Modal -->			
+			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="modalAll1">Thêm mới/Chỉnh sửa slider</h5>
+			        
+			      </div>
+			      	<form th:action="@{/saveSlider}" method="post" enctype="multipart/form-data">
+				      <div class="modal-body">
+		        		<div class="form-group col-md-12" id="imagePreview1">
+		        			<input name="imgSlider" id="imgSlider" type='file' hidden/>
+		        			<div class="previewArea">
+		        				<img class="previewImage" src="img/bg-img/noimage256.png"/>
+		        			</div>
+			            </div>
+				      </div>
+			      	<div class="modal-footer">
+			      		<button type="button" class="btn btn-warning" id="addImage1">Chọn ảnh</button>
+			      		<button type="submit" class="btn btn-primary">Lưu</button>
+				        <button type="button" class="btn btn-secondary" id="cancelImage1" data-dismiss="modal">Hủy</button>
+			      	</div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			
+    	<!-- CONTENT HERE -->
+    	</div>
+	</div><!-- DIV CONTENT -->
+</body>
+</html>

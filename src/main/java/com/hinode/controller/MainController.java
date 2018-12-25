@@ -300,13 +300,13 @@ public class MainController {
 			img.setHouseId(0);
 			houseService.addImg(img);
 		}
-		return "redirect:/page";
+		return "redirect:/slider";
 	}
 	
 	@GetMapping("/deleteSlider/{id}")
 	public String deleteSlider(@PathVariable int id) {
 		imageService.delete(id);;
-		return "redirect:/page";
+		return "redirect:/slider";
 	}
 	
 	@PostMapping("/saveStaff")
@@ -369,25 +369,25 @@ public class MainController {
 			staffService.add(staff);
 		}
 		
-		return "redirect:/page";
+		return "redirect:/staff";
 	}
 	
 	@GetMapping("/deleteStaff/{id}")
 	public String deleteStaff(@PathVariable int id) {
 		staffService.delete(id);
-		return "redirect:/page";
+		return "redirect:/staff";
 	}
 	
 	@PostMapping("/saveClient")
 	public String saveClient(Client client) {
 		clientService.add(client);
-		return "redirect:/page";
+		return "redirect:/client";
 	}
 	
 	@GetMapping("/deleteClient/{id}")
 	public String deleteClient(@PathVariable int id) {
 		clientService.delete(id);
-		return "redirect:/page";
+		return "redirect:/client";
 	}
 	
 }

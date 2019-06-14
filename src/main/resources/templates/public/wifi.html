@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{public/index}">
+
+<head>
+    <!-- Title  -->
+    <title>South - Real Estate Agency Template | Listings</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+    <div style="width: 100%; height: 40px; display: block;"></div>
+    <!-- ##### Listings Content Area Start ##### -->
+    <section class="listings-content-wrapper">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9">
+                	<h1 class="mt-70" th:text="#{menu.wifiRental}"></h1>
+                	<h3>ﾎﾟｹｯﾄWIFI　月額利用料（税込み）</h3>
+                	<table class="table tblsingle-small">
+                		<tbody>
+						    <tr>
+						      <th scope="row">100 GB</th>
+						      <th scope="row">無制限</th>
+						    </tr>
+						    <tr class="dsWifi">
+						      <td  class="col-4">￥4,500</td>
+						      <td>￥5,400</td>
+						    </tr>
+						</tbody>
+                	</table>
+                    <table class="table tblsingle th-small">
+						  <tbody>
+						    <tr>
+						      <th scope="row" >申し込み日</th>
+						      <th scope="row" >プラン</th>
+						      <th scope="row" >当月料</th>
+						      <th scope="row" >手数料</th>
+						      <th scope="row" >代引手数料</th>
+						      <th scope="row" >本体料金</th>
+						      <th scope="row" >初期費用</th>
+						    </tr>
+						    <tr class="dsWifi">
+						      <td rowspan="2">1-10</td>
+						      <td>100 GB</td>
+						      <td>￥4,500</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥15,720</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <!-- <td>1-10</td> -->
+						      <td>無制限</td>
+						      <td>￥5,400</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥16,620</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <td rowspan="2">11-20</td>
+						      <td>100 GB</td>
+						      <td>￥2,500</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥13,720</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <!-- <td>11-20</td> -->
+						      <td>無制限</td>
+						      <td>￥3,000</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥14,220</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <td rowspan="2">21-25</td>
+						      <td>100 GB</td>
+						      <td>￥1,500</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥12,720</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <!-- <td>21-25</td> -->
+						      <td>無制限</td>
+						      <td>￥2,500</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥13,220</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						    	<td colspan="7">26日～３０日申し込みの場合、当月料金無料、翌月の料金を先に支払っていただきます。</td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <td rowspan="2">26-30</td>
+						      <td>100 GB</td>
+						      <td>￥4,500</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥15,720</b></td>
+						    </tr>
+						    <tr class="dsWifi">
+						      <!-- <td>26-30</td> -->
+						      <td>無制限</td>
+						      <td>￥5,400</td>
+						      <td>￥3,240</td>
+						      <td>￥1,500</td>
+						      <td>￥6,480</td>
+						      <td style="background-color:#eccec3;"><b style="color:red;">￥16,620</b></td>
+						    </tr>
+						  </tbody>
+					</table>
+					<h3>端末情報</h3>
+					<table class="table tblsingle-medium dsWifi">
+                		<tbody>
+						    <tr>
+						      <th scope="row" style="width:40%;">ブランド</th>
+						      <td>富士ソフト</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">商品重量</th>
+						      <td>272 g</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">梱包サイズ</th>
+						      <td>17.8 x 13.7 x 4.1 cm</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">電池:</th>
+						      <td>1 Lithium Polymer 電池</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">メーカー型番</th>
+						      <td>FS030WMB1</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">OS</th>
+						      <td>not_machine_specific</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">リチウム電池</th>
+						      <td>4 watt_hours</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">リチウム電池パック</th>
+						      <td>機器のバッテリー</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">リチウム電池重量</th>
+						      <td>1 g</td>
+						    </tr>
+						    <tr>
+						      <th scope="row" style="width:40%;">リチウムイオン電池数</th>
+						      <td>2</td>
+						    </tr>
+						</tbody>
+                	</table>
+					
+					<h4>※振り込み先:</h4>
+					<div>巣鴨信用金庫</div>
+					<div>本店営業部</div>
+					<div>普通　3377197</div>
+					<div>カ）ヒノデ</div>
+                 </div>
+            </div>
+            
+           
+        </div>
+    </section>
+    <!-- ##### Listings Content Area End ##### -->
+</div>
+</body>
+
+</html>

@@ -1989,6 +1989,18 @@ table.tblsingle th {
 	width: 30%;
 }
 
+table.tblsingle.th-small th {
+	width: 15%;
+}
+
+table.tblsingle-small {
+	width: 20%;
+}
+
+table.tblsingle-medium {
+	width: 60%;
+}
+
 table.tblsingle td p{
 	color: #C40721 !important;
 	display: inline-block;
@@ -2003,6 +2015,17 @@ table.tblsingle td p.tdMoney{
 	font-size: 25px;
 	font-weight: 400;
 	margin-bottom: 0 !important;
+}
+
+table.tblsingle.th-small td
+,table.tblsingle.th-small th
+,table.tblsingle-small th
+,table.tblsingle-small td {
+	border: solid 1px;
+}
+
+table tr.dsWifi, table.dsWifi td {
+	background-color: antiquewhite;
 }
 
 .owl-carousel .owl-item img.single-img{

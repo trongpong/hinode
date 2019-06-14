@@ -151,7 +151,7 @@ public class MainController {
 		return "public/single-listings";
 	}
 
-	@GetMapping("/admin")
+	@GetMapping("/hinodeAdmin")
 	public String admin(Model model, @RequestParam(defaultValue = "0") int page) {
 		model.addAttribute("houseList",
 				houseService.findAllPagination(page, LIST_ADMIN_SIZE, new Sort(Sort.Direction.DESC, "id")));
@@ -390,4 +390,9 @@ public class MainController {
 		return "redirect:/client";
 	}
 	
+	@GetMapping("/wifi")
+	public String wifi() {
+		
+		return "public/wifi";
+	}
 }

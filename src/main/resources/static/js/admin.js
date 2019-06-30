@@ -160,8 +160,27 @@
 	    		}
 	    	});
 	    });
+
+		// :: Form Product Edit Add
+		$('.eBtnProduct').on('click', function(event){
+			event.preventDefault();
+			var href = $(this).attr('href');
+			// :: Ajax
+			$.get(href, function(product,status){
+				console.log(product);
+				$('#productForm #id').attr('value',product.id);
+				$('#productForm #productName').attr('value',product.productName);
+				$('#productForm #price').attr('value',product.price);
+				$('#productForm #decscription').val(product.decscription);
+				if (product.images !== null){
+					$('#productForm #imagePreview3').find('img.previewImage').attr('src', 'data:image/png;base64,' + product.images);
+				} else {
+					$('#productForm #imagePreview3').find('img.previewImage').attr('src', 'img/bg-img/noimage256.png');
+				}
+			});
+		});
 	    
-	 // :: Form Client Edit Add
+	 	// :: Form Client Edit Add
 	    $('.eBtnClient').on('click', function(event){
 	    	event.preventDefault();
 	    	var href = $(this).attr('href');

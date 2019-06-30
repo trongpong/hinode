@@ -2,19 +2,12 @@ package com.hinode.controller;
 
 import java.util.List;
 
+import com.hinode.entity.*;
+import com.hinode.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.hinode.entity.Client;
-import com.hinode.entity.House;
-import com.hinode.entity.Image;
-import com.hinode.entity.Staff;
-import com.hinode.service.ClientService;
-import com.hinode.service.HouseService;
-import com.hinode.service.ImageService;
-import com.hinode.service.StaffService;
 
 @RestController
 public class JsonController {
@@ -27,6 +20,9 @@ public class JsonController {
 	
 	@Autowired
 	private ClientService clientService;
+
+	@Autowired
+	private ProductServcie productServcie;
 	
 	@Autowired
 	private ImageService imageService;
@@ -50,6 +46,11 @@ public class JsonController {
 	@GetMapping("/findOneStaff")
 	public Staff findOneStaff(int id) {
 		return staffService.getOne(id);
+	}
+
+	@GetMapping("/findOneProduct")
+	public Product findOneProduct(int id) {
+		return productServcie.getById(id);
 	}
 	
 	@GetMapping("/findOneClient")

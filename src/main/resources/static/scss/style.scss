@@ -2158,3 +2158,13 @@ img {
         color: $text-color;
     }
 }
+#product-list-box .product-list-decscript {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 25px !important;
+    -webkit-line-clamp: 2 !important;
+    height: 50px !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    color: #01A89E;
+}

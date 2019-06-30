@@ -1,0 +1,241 @@
+\<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title th:text="#{project.title}"></title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="south-load"></div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+    <!-- Main Header Area -->
+    <div class="main-header-area" id="stickyHeader">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between container" id="southNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="index"><img class="ilogo" src="img/core-img/headlogo.png" alt=""></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul>
+                            <li><a href="/index" th:text="#{menu.home}">Home</a></li>
+                            <li><a href="/index#about" th:text="#{menu.about}">About Us</a></li>
+                            <li><a href="/product" th:text="#{menu.product}">Products</a></li>
+                            <li><a href="/new" th:text="#{menu.news}">News</a></li>
+                            <li><a href="/index#contact" th:text="#{menu.contact}">Contact</a></li>
+                            <li><a href="/wifi" th:text="#{menu.wifiRental}">Pocket Wifi</a></li>
+                            <li class="v-spread"><a href="#">|</a></li>
+                            <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.ja}"><a href="#" class="language flg flg-japan" data-value="ja">JP</a></li>
+                            <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.en}"title="Tooltip on bottom"><a href="#" class="language flg flg-eng" data-value="en">EN</a></li>
+                            <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.vi}"title="Tooltip on bottom"><a href="#" class="language flg flg-vietnam" data-value="vi">VI</a></li>
+                        </ul>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- ##### Header Area End ##### -->
+
+<!-- #################### START CONTENT  #################### -->
+<div layout:fragment="content">
+    <div style="width: 100%; height: 70px; display: block;"></div>
+    <!-- ##### Hero Area Start ##### -->
+    <section id="home" class="hero-area">
+        <div class="hero-slides owl-carousel">
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide bg-img"
+                 th:each="imageSlider : ${imageSliderList}"
+                 th:style="'background:url(data:image/png;base64,' + ${imageSilderMap.get(imageSlider.id)} +') 50% 50%;'">
+            </div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Product Start ##### -->
+    <section id="contact" class="south-contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
+                        <h2 th:text="#{tag.new}"></h2>
+                        <p th:text="#{tag.new.text}"></p>
+                    </div>
+                </div>
+            </div>
+new
+            <div class="row">
+                <!-- Product List -->
+                <div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
+                    <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${obj}">
+                        <a th:href="@{/single(id=${obj.id})}">
+                            <!-- Property Thumbnail -->
+                            <div class="property-thumb">
+                                <img alt=""
+                                     th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}" class="main-img"
+                                     onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
+
+                                <div class="tag">
+                                    <span th:text="#{tag.gift}"></span>
+                                </div>
+                                <div class="list-price">
+                                    <p th:text="*{rentFee}+' 円'">￥20,000</p>
+                                </div>
+                            </div>
+                            <!-- Property Content -->
+                            <div class="property-content">
+                                <h5><i class="fa fa-home fa-2x" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
+                                <p class="location"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
+                            </div>
+                            <!-- Property Content -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ##### Product End ##### -->
+</div>
+
+<footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/cta.jpg);">
+    <!-- Main Footer Area -->
+    <div class="main-footer-area">
+        <div class="container">
+            <div class="row">
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="footer-widget-area mb-100">
+                        <!-- Widget Title -->
+                        <div class="widget-title">
+                            <h6 th:text="#{footer.about}">About Us</h6>
+                        </div>
+                        <div class="footer-logo my-4">
+                            <img src="img/core-img/logo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="footer-widget-area mb-100">
+                        <!-- Widget Title -->
+                        <div class="widget-title">
+                            <h6 th:text="#{footer.hour}">Hours</h6>
+                        </div>
+                        <!-- Office Hours -->
+                        <div class="weekly-office-hours">
+                            <ul>
+                                <li class="d-flex align-items-center justify-content-between"><span>Monday - Sunday</span> <span>10 AM - 19 PM</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><span>Day off</span> <span>夏休み - お正月</span></li>
+                            </ul>
+                        </div>
+                        <!-- Address -->
+                        <div class="address">
+                            <h6><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 03-6907-2663</h6>
+                            <h6><i class="fa fa-fax" aria-hidden="true"></i> 03-6907-2664</h6>
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> sale.hinode@gmail.com</h6>
+                            <h6><i class="fa fa-map-marker" aria-hidden="true"></i> 東京都豊島区東池袋３－９－１２<br>ニットービル 401</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="footer-widget-area mb-100">
+                        <!-- Widget Title -->
+                        <div class="widget-title">
+                            <h6 th:text="#{footer.useful}">Useful Links</h6>
+                        </div>
+                        <!-- MXH -->
+                        <div class="address">
+                            <h6><i class="fa fa-facebook-square" aria-hidden="true"></i> <a href="#">fanpageHinode</a></h6>
+                            <h6><i class="fa fa-twitter-square" aria-hidden="true"></i> <a href="#">twitterHinode</a></h6>
+                            <h6><i class="fa fa-instagram" aria-hidden="true"></i> <a href="#">instagramHinode</a></h6>
+                            <h6><i class="fa fa-linkedin-square" aria-hidden="true"></i> <a href="#">linkedinHinode</a></h6>
+                            <h6><i class="fa fa-google-plus-square" aria-hidden="true"></i> <a href="#">google+Hinode</a></h6>
+                            <h6><i class="fa fa-youtube-square" aria-hidden="true"></i> <a href="#">youtubeHinode</a></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Footer Widget -->
+                <div class="col-12 col-sm-6 col-xl-3">
+                    <div class="footer-widget-area mb-100">
+                        <!-- Widget Title -->
+                        <div class="widget-title">
+                            <h6 th:text="#{footer.feature}">Featured Properties</h6>
+                        </div>
+                        <!-- Featured Properties Slides -->
+                        <div class="featured-properties-slides owl-carousel">
+                            <!-- Single Slide -->
+                            <div class="single-featured-properties-slide">
+                                <a href="#"><img src="img/bg-img/feature1.png" alt=""></a>
+                            </div>
+                            <!-- Single Slide -->
+                            <div class="single-featured-properties-slide">
+                                <a href="#"><img src="img/bg-img/feature2.png" alt=""></a>
+                            </div>
+                            <!-- Single Slide -->
+                            <div class="single-featured-properties-slide">
+                                <a href="#"><img src="img/bg-img/feature3.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Copywrite Text -->
+    <div class="copywrite-text d-flex align-items-center justify-content-center">
+        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="#" target="_blank">TN</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    </div>
+</footer>
+<!-- ##### Footer Area End ##### -->
+
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugins js -->
+<script src="js/plugins.js"></script>
+<script src="js/classy-nav.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
+<!-- EPPZ Scroll -->
+<script src="js/eppzscroll.js"></script>
+</body>
+</html>

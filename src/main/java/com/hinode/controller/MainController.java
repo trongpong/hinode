@@ -13,6 +13,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.hinode.entity.*;
+import com.hinode.service.*;
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -23,22 +25,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.hinode.dto.HouseSearchCondition;
-import com.hinode.entity.Client;
-import com.hinode.entity.House;
-import com.hinode.entity.Image;
-import com.hinode.entity.Staff;
-import com.hinode.service.ClientService;
-import com.hinode.service.HouseService;
-import com.hinode.service.ImageService;
-import com.hinode.service.StaffService;
+import java.util.Date;
 
 @Controller
 public class MainController {
@@ -58,6 +48,12 @@ public class MainController {
 	
 	@Autowired
 	private ClientService clientService;
+
+	@Autowired
+	private ProductServcie productServcie;
+
+	@Autowired
+	private NewsService newsService;
 
 	@GetMapping({ "/", "/index" })
 	public String init(Map<String, Object> model) {
@@ -394,5 +390,141 @@ public class MainController {
 	public String wifi() {
 		
 		return "public/wifi";
+	}
+
+	@GetMapping("/product")
+	public String product(Map<String, Object> model) {
+		// Get slider
+		List<Image> imageSliderList;
+		Map<Integer, String> imgMapSlider = new HashMap<>();
+
+		imageSliderList = imageService.findSlider();
+
+		for (Image img : imageSliderList) {
+			imgMapSlider.put(img.getId(), Base64.getEncoder().encodeToString(img.getImageData()));
+		}
+
+		model.put("imageSliderList", imageSliderList);
+		model.put("imageSilderMap",imgMapSlider);
+
+
+		model.put("productList",productList());
+		return "public/product";
+	}
+
+	@GetMapping("/new")
+	public String news(Map<String, Object> model) {
+		// Get slider
+		List<Image> imageSliderList;
+		Map<Integer, String> imgMapSlider = new HashMap<>();
+
+		imageSliderList = imageService.findSlider();
+
+		for (Image img : imageSliderList) {
+			imgMapSlider.put(img.getId(), Base64.getEncoder().encodeToString(img.getImageData()));
+		}
+
+		model.put("imageSliderList", imageSliderList);
+		model.put("imageSilderMap",imgMapSlider);
+		return "public/new";
+	}
+
+	@GetMapping("/productForm")
+	public String ProductForm(Model model) {
+		Product product = new Product();
+		model.addAttribute("product", product);
+		model.addAttribute("productList", productList());
+		return "admin/productform";
+	}
+
+	@PostMapping("/saveProduct")
+	public String saveProduct(HttpServletRequest request) throws Exception {
+		Map<String, Object> formMap = new HashMap<String, Object>();
+		ServletFileUpload upload = new ServletFileUpload();
+		FileItemIterator iterStream = upload.getItemIterator(request);
+		Product product = new Product();
+
+		while (iterStream.hasNext()) {
+			FileItemStream item = iterStream.next();
+			InputStream stream = item.openStream();
+			if (!item.isFormField()) {
+				byte[] data = null;
+				final ByteArrayOutputStream serializedData = new ByteArrayOutputStream();
+				int b = stream.read();
+				while (b != -1) {
+					serializedData.write(b);
+					b = stream.read();
+				}
+				data = serializedData.toByteArray();
+				if (data.length > 0) {
+					formMap.put("images", Base64.getEncoder().encodeToString(data));
+				}
+			} else {
+				String name = item.getFieldName();
+				String value = Streams.asString(stream);
+
+				formMap.put(name, value);
+			}
+
+			stream.close();
+		}
+
+		int id = Integer.valueOf(formMap.get("id").toString());
+		if (id == 0) {
+			// :: New
+			if (!(formMap.get("productName") == null)) {
+				product.setProductName(formMap.get("productName").toString());
+			}
+			if (!(formMap.get("price") == null)) {
+				product.setPrice(formMap.get("price").toString());
+			}
+			if (!(formMap.get("decscription") == null)) {
+				product.setDecscription(formMap.get("decscription").toString());
+			}
+			if (!(formMap.get("images") == null)) {
+				product.setImages(formMap.get("images").toString());
+			}
+			product.setCreatedAt(new Date());
+			product.setUpdatedAt(new Date());
+			productServcie.add(product);
+		} else {
+			// :: Update
+			product = productServcie.getById(id);
+			if (!(formMap.get("productName") == null)) {
+				product.setProductName(formMap.get("productName").toString());
+			}
+			if (!(formMap.get("price") == null)) {
+				product.setPrice(formMap.get("price").toString());
+			}
+			if (!(formMap.get("decscription") == null)) {
+				product.setDecscription(formMap.get("decscription").toString());
+			}
+			if (!(formMap.get("images") == null)) {
+				product.setImages(formMap.get("images").toString());
+			}
+			product.setUpdatedAt(new Date());
+			productServcie.add(product);
+		}
+
+		return "redirect:/productForm";
+	}
+	@GetMapping("/delete/product/{id}")
+	public String deleteProduct(@PathVariable int id) {
+		productServcie.delete(id);
+		return "redirect:/productForm";
+	}
+
+	@GetMapping("/product-detail")
+	public String productDetail(Map<String, Object> model, @RequestParam int id) {
+		List<Product> productList = productServcie.getProductUpdatedAt();
+
+		model.put("productNew", productList.subList(0,5));
+		model.put("product", productServcie.getById(id));
+		return "public/product-detail";
+	}
+
+	private List<Product> productList(){
+		List<Product> productList = productServcie.getAllProduct();
+		return productList;
 	}
 }

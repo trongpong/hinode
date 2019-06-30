@@ -940,7 +940,7 @@ img {
 		transition: 0.3s;
 		will-change: transform;
 		width: 107%;
-		max-height: 374px;
+		max-height: 180px;
 		float: right;
     }
     .single-featured-property .property-thumb:hover img{
@@ -2039,3 +2039,67 @@ table tr.dsWifi, table.dsWifi td {
 .table td {
 	color: black;
 } 
+
+.price-produdct{
+  color: red !important;
+}
+.sidebar-left {
+  float: left;
+  padding: 0;
+}
+#box-prod-new {
+  display: flex !important;
+
+}
+.box {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+.header-product-new {
+  background-color: #01A89E;
+}
+.header-product-new h3 {
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px !important;
+}
+.pro-new-title h3 {
+  font-size: 14px !important;
+}
+.pro-new-img  {
+  max-height: 50px;
+}
+.header-product-new p {
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  padding: 12px;
+}
+#box-prod-new {
+  margin: 50px 0px;
+}
+.box-detail-product {
+  padding-top: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.decscription-product {
+  border-top: 1px solid #ccc;
+  margin-top: 30px;
+  padding: 20px;
+}
+#product-list-box .product-list-decscript {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 25px !important;
+  -webkit-line-clamp: 2 !important;
+  height: 50px !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  color: #01A89E;
+}
+#product-list-box .property-content {
+  padding: 20px !important;
+}

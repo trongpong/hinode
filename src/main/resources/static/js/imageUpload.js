@@ -13,10 +13,16 @@
 		inputImage2 = $("#imageStaff"),
 		imagePrevew2 = $("#imagePreview2"),
 		cancelImage2 = $("#cancelImage2");
+
+	var addImage3 = $("#addImage3"),
+		inputImage3 = $("#imageProdduct"),
+		imagePrevew3 = $("#imagePreview3"),
+		cancelImage3 = $("#cancelImage3");
 	
 	initImagePreview(addImage, inputImage, imagePrevew, cancelImage);
 	initImagePreview(addImage1, inputImage1, imagePrevew1, cancelImage1);
 	initImagePreview(addImage2, inputImage2, imagePrevew2, cancelImage2);
+	initImagePreview(addImage3, inputImage3, imagePrevew3, cancelImage3);
 	
 	//:: Init image review
 	function initImagePreview(addImage, inputImage, imagePrevew, cancelImage){

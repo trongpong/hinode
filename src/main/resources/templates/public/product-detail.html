@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{public/index}">
+
+<head>
+    <!-- Title  -->
+    <title>South - Real Estate Agency Template | Listings</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div style="width: 100%; height: 70px; display: block;"></div>
+    <!-- ##### Listings Content Area Start ##### -->
+    <section class="listings-content-wrapper">
+        <div class="container">
+            <div class="row" id="box-prod-new">
+                <div class="col-3 sidebar-left">
+
+                    <!--Product-->
+                    <div style="margin: 0 10px;border: 1px solid #ccc;">
+                        <div class="header-product-new">
+                            <h3>Sản phẩm mới</h3>
+                        </div>
+                        <div class="box" th:each="proNew : ${productNew}">
+                            <a th:href="@{/product-detail(id=${proNew.id})}">
+                                <div class="content-product-new row">
+                                    <div class="pro-new-img col-4">
+                                        <img src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${proNew.images}" alt="" class="single-img">
+                                    </div>
+                                    <div class="pro-new-title col-8">
+                                        <h3 th:text="${proNew.productName}"></h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!--News-->
+                    <div style="margin: 0 10px;border: 1px solid #ccc;">
+                        <div class="header-product-new">
+                            <h3>Tin tức mới</h3>
+                        </div>
+                        <div class="box" th:each="proNew : ${productNew}">
+                            <a th:href="@{/product-detail(id=${proNew.id})}">
+                                <div class="content-product-new row">
+                                    <div class="pro-new-img col-4">
+                                        <img src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${proNew.images}" alt="" class="single-img">
+                                    </div>
+                                    <div class="pro-new-title col-8">
+                                        <h3 th:text="${proNew.productName}"></h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 justify-content-center content-right" th:each="prd : ${product}">
+                    <div style="margin: 0 10px;">
+                        <div class="row header-product-new">
+                            <p><span>Trang chủ / Sản phẩm </span></p>
+                        </div>
+                        <div class="row box-detail-product">                       <div class="col-4 col-md-4">
+                                <!-- Single Listings Slides -->
+                                <div class="listings-content">
+                                    <img src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${prd.images}" alt="" class="single-img">
+                                </div>
+                            </div>
+                            <div class="col-8 col-md-8">
+                                <section>
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td>Tên Sản Phẩm</td>
+                                            <td><h5 th:text="${prd.productName}"></h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="price-produdct">Giá Sản </td>
+                                            <td>
+                                                <h5 class="price-produdct" th:if="${product.price.length() > 0}" th:text="${product.price} +' 円'"></h5>
+                                                <h5 class="price-produdct" th:if="${product.price.length() == 0}">Giá Liên Hệ</h5>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </div>
+                            <div class="col-12 decscription-product">
+                                <div class="decscription-product-title">
+                                    <h3>Mô tả</h3>
+                                </div>
+                                <div class="decscription-product-content">
+                                    <p  th:text="${prd.decscription}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Listings Content Area End ##### -->
+</div>
+</body>
+
+</html>

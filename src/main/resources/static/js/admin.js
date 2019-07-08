@@ -179,6 +179,24 @@
 				}
 			});
 		});
+
+	// :: Form News Edit Add
+	$('.eBtnNew').on('click', function(event){
+		event.preventDefault();
+		var href = $(this).attr('href');
+		// :: Ajax
+		$.get(href, function(nw,status){
+			console.log(nw);
+			$('#newForm #id').attr('value',nw.id);
+			$('#newForm #title').attr('value',nw.title);
+			$('#newForm #content').val(nw.content);
+			if (newpage.images !== null){
+				$('#newForm #imagePreview4').find('img.previewImage').attr('src', 'data:image/png;base64,' + nw.images);
+			} else {
+				$('#newForm #imagePreview4').find('img.previewImage').attr('src', 'img/bg-img/noimage256.png');
+			}
+		});
+	});
 	    
 	 	// :: Form Client Edit Add
 	    $('.eBtnClient').on('click', function(event){

@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name="new")
+@Table(name="news")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class New {
     @Id
@@ -20,6 +20,9 @@ public class New {
 
     @Column(name="content")
     private String content;
+
+    @Column(name="images")
+    private String images;
 
     @Column(name="created_at")
     private Date createdAt;

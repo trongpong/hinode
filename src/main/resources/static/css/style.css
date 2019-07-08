@@ -2103,3 +2103,13 @@ table tr.dsWifi, table.dsWifi td {
 #product-list-box .property-content {
   padding: 20px !important;
 }
+.new-list-decscription span{
+  word-break: break-all !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 25px;
+  -webkit-line-clamp: 3;
+  height: 75px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

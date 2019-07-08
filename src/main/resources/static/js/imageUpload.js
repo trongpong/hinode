@@ -18,12 +18,19 @@
 		inputImage3 = $("#imageProdduct"),
 		imagePrevew3 = $("#imagePreview3"),
 		cancelImage3 = $("#cancelImage3");
-	
+
+	var addImage4 = $("#addImage4"),
+		inputImage4 = $("#imageNew"),
+		imagePrevew4 = $("#imagePreview4"),
+		cancelImage4 = $("#cancelImage4");
+
 	initImagePreview(addImage, inputImage, imagePrevew, cancelImage);
 	initImagePreview(addImage1, inputImage1, imagePrevew1, cancelImage1);
 	initImagePreview(addImage2, inputImage2, imagePrevew2, cancelImage2);
 	initImagePreview(addImage3, inputImage3, imagePrevew3, cancelImage3);
-	
+	initImagePreview(addImage4, inputImage4, imagePrevew4, cancelImage4);
+
+
 	//:: Init image review
 	function initImagePreview(addImage, inputImage, imagePrevew, cancelImage){
 		addImage.click(function(){

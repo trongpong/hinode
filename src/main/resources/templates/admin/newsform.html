@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{admin/index}">
+
+<head>
+    <!-- Title  -->
+    <title>New | Admin page</title>
+</head>
+<body>
+
+    <div layout:fragment="content"><!-- DIV CONTENT -->
+        <div style="width: 100%; height: 90px; display: block;"></div>
+        <div class="container">
+            <!-- News HEADER TITLE -->
+            <div class="col-12">
+                <!-- PAGINATION -->
+                <nav>
+                    <!-- TITLE -->
+                    <h2 id="headTitleNew" class="headTitle">Danh sách tin tức</h2>
+                    <button type="button" class="headButton btn btn-primary" data-toggle="modal" data-target="#myModalNew">Thêm mới</button>
+                    <div class="clearfix"></div>
+                </nav>
+                <!-- PAGINATION -->
+            </div>
+            <!-- HEADER TITLE -->
+
+            <!-- START TABLE -->
+            <div class="col-12">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                        <div class="table100 ver1 mb-15">
+                            <table data-vertable="ver1">
+                                <thead>
+                                <tr class="row100 head">
+                                    <th class="column100 column1" data-column="column1">ID</th>
+                                    <th class="column100 column2" data-column="column2">Hình ảnh</th>
+                                    <th class="column100 column3" data-column="column3">Title</th>
+                                    <th class="column100 column6" data-column="column6">Thao tác</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="row100" th:each="nw : ${newlist}">
+                                    <td width="10%" class="column100 column1" data-column="column1" th:text="*{nw.id}"></td>
+                                    <td width="30%" class="column100 column2" data-column="column2">
+                                        <img th:src="'data:image/png;base64,' + ${nw.images}" onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
+                                    </td>
+                                    <td width="40%" class="column100 column3" data-column="column3" th:text="*{nw.title}">
+
+                                    </td>
+                                    <td width="20%" class="column100 column6" data-column="column6">
+                                        <a th:href="@{findOneNew/(id=${nw.id})}" class="eBtnNew" data-toggle="modal" data-target="#myModalNew">
+                                            <button type="button" class="btn btn-warning" >Sửa</button>
+                                        </a>
+                                        <a th:href="@{/delete/new/{id}(id=${nw.id})}"><button type="button" class="btn btn-danger">Xóa</button></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END TABLE -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModalNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalAll2">Thêm mới/Chỉnh sửa tun tức</h5>
+                        </div>
+                        <form id="newForm" th:action="@{/saveNew}" th:object="${newpage}" method="post" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="form-row">
+                                    <input type='text' th:field="*{id}" name="id" id="id" value="" hidden/>
+                                    <div class="form-group col-12" id="imagePreview4">
+                                        <input type='file' name="images" id="imageNew" hidden/>
+                                        <div class="previewArea">
+                                            <img class="previewImage" src="img/bg-img/noimage256.png"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <leabel for="title">Tiêu đề</leabel>
+                                        <input th:field="*{title}" type="text" required value="" class="form-control" name="title" id="title" placeholder="Chưa nhập...">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="content">Nội dung</label>
+                                        <textarea th:field="*{content}" type="text" value="" class="form-control" name="content" id="content" placeholder="Chưa nhập..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button style="display: block;" type="button" class="btn btn-warning" id="addImage4">Chọn ảnh</button>
+                                <button type="submit" class="btn btn-primary">OK</button>
+                                <button type="button" class="btn btn-secondary" id="cancelImage4" data-dismiss="modal">Hủy</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

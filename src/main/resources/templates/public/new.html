@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
@@ -89,29 +89,20 @@
                     </div>
                 </div>
             </div>
-new
-            <div class="row">
+
+            <div class="row" id="product-list-box">
                 <!-- Product List -->
-                <div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
-                    <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${obj}">
-                        <a th:href="@{/single(id=${obj.id})}">
+                <div class="col-12 col-md-3 col-xl-3" th:each="nw : ${newList}">
+                    <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${nw}">
+                        <a th:href="@{/new-detail(id=${nw.id})}">
                             <!-- Property Thumbnail -->
                             <div class="property-thumb">
-                                <img alt=""
-                                     th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}" class="main-img"
-                                     onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
-
-                                <div class="tag">
-                                    <span th:text="#{tag.gift}"></span>
-                                </div>
-                                <div class="list-price">
-                                    <p th:text="*{rentFee}+' 円'">￥20,000</p>
-                                </div>
+                                <img th:src="'data:image/png;base64,' + ${nw.images}" onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
                             </div>
                             <!-- Property Content -->
                             <div class="property-content">
-                                <h5><i class="fa fa-home fa-2x" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
-                                <p class="location"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
+                                <h5 class="text-center"><span th:text="${nw.title}"></span></h5>
+                                <p class="text-justify new-list-decscription"><span  th:text="${nw.content}"></span></p>
                             </div>
                             <!-- Property Content -->
                         </a>

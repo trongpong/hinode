@@ -412,23 +412,6 @@ public class MainController {
 		return "public/product";
 	}
 
-	@GetMapping("/new")
-	public String news(Map<String, Object> model) {
-		// Get slider
-		List<Image> imageSliderList;
-		Map<Integer, String> imgMapSlider = new HashMap<>();
-
-		imageSliderList = imageService.findSlider();
-
-		for (Image img : imageSliderList) {
-			imgMapSlider.put(img.getId(), Base64.getEncoder().encodeToString(img.getImageData()));
-		}
-
-		model.put("imageSliderList", imageSliderList);
-		model.put("imageSilderMap",imgMapSlider);
-		return "public/new";
-	}
-
 	@GetMapping("/productForm")
 	public String ProductForm(Model model) {
 		Product product = new Product();
@@ -517,8 +500,18 @@ public class MainController {
 	@GetMapping("/product-detail")
 	public String productDetail(Map<String, Object> model, @RequestParam int id) {
 		List<Product> productList = productServcie.getProductUpdatedAt();
+		List<New> newList = newsService.getNewtUpdatedAt();
 
-		model.put("productNew", productList.subList(0,5));
+		if(productList.size() > 5) {
+			model.put("productNew", productList.subList(0, 5));
+		} else {
+			model.put("productNew", productList);
+		}
+		if(newList.size() > 5){
+			model.put("newList", newList.subList(0,5));
+		} else {
+			model.put("newList", newList);
+		}
 		model.put("product", productServcie.getById(id));
 		return "public/product-detail";
 	}
@@ -526,5 +519,130 @@ public class MainController {
 	private List<Product> productList(){
 		List<Product> productList = productServcie.getAllProduct();
 		return productList;
+	}
+
+	@GetMapping("/new-detail")
+	public String newDetail(Map<String, Object> model, @RequestParam int id) {
+		List<Product> productList = productServcie.getProductUpdatedAt();
+		List<New> newList = newsService.getNewtUpdatedAt();
+
+		if(productList.size() > 5) {
+			model.put("productNew", productList.subList(0, 5));
+		} else {
+			model.put("productNew", productList);
+		}
+		if(newList.size() > 5){
+			model.put("newList", newList.subList(0,5));
+		} else {
+			model.put("newList", newList);
+		}
+		model.put("newOne", newsService.getById(id));
+		return "public/new-detail";
+	}
+
+	@GetMapping("/new")
+	public String news(Map<String, Object> model) {
+		// Get slider
+		List<Image> imageSliderList;
+		Map<Integer, String> imgMapSlider = new HashMap<>();
+
+		imageSliderList = imageService.findSlider();
+
+		for (Image img : imageSliderList) {
+			imgMapSlider.put(img.getId(), Base64.getEncoder().encodeToString(img.getImageData()));
+		}
+
+		model.put("imageSliderList", imageSliderList);
+		model.put("imageSilderMap",imgMapSlider);
+
+		model.put("newList",newtList());
+
+		return "public/new";
+	}
+
+	@GetMapping("/newForm")
+	public String newsForm(Model model) {
+		New newpage = new New();
+		model.addAttribute("newpage", newpage);
+		model.addAttribute("newlist", newtList());
+		System.out.println(newtList());
+		return "admin/newsform";
+	}
+
+	@PostMapping("/saveNew")
+	public String saveNew(HttpServletRequest request) throws Exception {
+		Map<String, Object> formMap = new HashMap<String, Object>();
+		ServletFileUpload upload = new ServletFileUpload();
+		FileItemIterator iterStream = upload.getItemIterator(request);
+		New newpage = new New();
+
+		while (iterStream.hasNext()) {
+			FileItemStream item = iterStream.next();
+			InputStream stream = item.openStream();
+			if (!item.isFormField()) {
+				byte[] data = null;
+				final ByteArrayOutputStream serializedData = new ByteArrayOutputStream();
+				int b = stream.read();
+				while (b != -1) {
+					serializedData.write(b);
+					b = stream.read();
+				}
+				data = serializedData.toByteArray();
+				if (data.length > 0) {
+					formMap.put("images", Base64.getEncoder().encodeToString(data));
+				}
+			} else {
+				String name = item.getFieldName();
+				String value = Streams.asString(stream);
+
+				formMap.put(name, value);
+			}
+
+			stream.close();
+		}
+
+		int id = Integer.valueOf(formMap.get("id").toString());
+		if (id == 0) {
+			// :: New
+			if (!(formMap.get("title") == null)) {
+				newpage.setTitle(formMap.get("title").toString());
+			}
+			if (!(formMap.get("content") == null)) {
+				newpage.setContent(formMap.get("content").toString());
+			}
+			if (!(formMap.get("images") == null)) {
+				newpage.setImages(formMap.get("images").toString());
+			}
+			newpage.setCreatedAt(new Date());
+			newpage.setUpdatedAt(new Date());
+			newsService.add(newpage);
+		} else {
+			// :: Update
+			newpage = newsService.getById(id);
+			if (!(formMap.get("title") == null)) {
+				newpage.setTitle(formMap.get("title").toString());
+			}
+			if (!(formMap.get("content") == null)) {
+				newpage.setContent(formMap.get("content").toString());
+			}
+			if (!(formMap.get("images") == null)) {
+				newpage.setImages(formMap.get("images").toString());
+			}
+			newpage.setUpdatedAt(new Date());
+			newsService.add(newpage);
+		}
+
+		return "redirect:/newForm";
+	}
+
+	@GetMapping("/delete/new/{id}")
+	public String deleteNew(@PathVariable int id) {
+		newsService.delete(id);
+		return "redirect:/newForm";
+	}
+
+	private List<New> newtList(){
+		List<New> newtList = newsService.getAllNew();
+		return newtList;
 	}
 }

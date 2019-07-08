@@ -26,6 +26,9 @@ public class JsonController {
 	
 	@Autowired
 	private ImageService imageService;
+
+	@Autowired
+	private NewsService newsService;
 	
 	@GetMapping("/getImage")
 	public List<Image> getImage(int houseId) {
@@ -56,5 +59,10 @@ public class JsonController {
 	@GetMapping("/findOneClient")
 	public Client findOneClient(int id) {
 		return clientService.getOne(id);
+	}
+
+	@GetMapping("/findOneNew")
+	public New findOneNew(int id){
+		return newsService.getById(id);
 	}
 }

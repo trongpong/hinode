@@ -58,31 +58,13 @@
                         <div class="row header-product-new">
                             <p><span>Trang chủ / Tin tức </span></p>
                         </div>
-                        <div class="row box-detail-product">                       <div class="col-4 col-md-4">
-                            <!-- Single Listings Slides -->
-                            <div class="listings-content">
-                                <img src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${nw.images}" alt="" class="single-img">
-                            </div>
-                        </div>
-                            <div class="col-8 col-md-8">
+                        <div class="row box-detail-product">
+                            <div class="col-12 col-md-12">
                                 <section>
-                                    <table class="table table-bordered">
-                                        <tbody>
-                                        <tr>
-                                            <td>Tên Sản Phẩm</td>
-                                            <td><h5 th:text="${nw.title}"></h5></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                    <h3 th:text="${nw.title}" class="title-new-detail"></h3>
+                                    <p><u th:text="${#dates.format(nw.createdAt, 'dd-MM-yyyy')}"></u></p>
+                                    <p th:text="${nw.content}" class="content-new"></p>
                                 </section>
-                            </div>
-                            <div class="col-12 decscription-product">
-                                <div class="decscription-product-title">
-                                    <h3>Mô tả</h3>
-                                </div>
-                                <div class="decscription-product-content">
-                                    <p  th:text="${nw.content}"></p>
-                                </div>
                             </div>
                         </div>
                     </div>

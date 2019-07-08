@@ -2113,3 +2113,9 @@ table tr.dsWifi, table.dsWifi td {
   display: -webkit-box;
   -webkit-box-orient: vertical;
 }
+.content-new{
+  word-break: break-all !important;
+}
+.title-new-detail{
+  color: #ff6300;
+}

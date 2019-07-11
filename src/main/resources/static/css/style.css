@@ -2090,7 +2090,7 @@ table tr.dsWifi, table.dsWifi td {
   margin-top: 30px;
   padding: 20px;
 }
-#product-list-box .product-list-decscript {
+#product-list-box .product-list-decscription span{
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   line-height: 25px !important;

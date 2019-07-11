@@ -18,7 +18,7 @@
                     <!--Product-->
                     <div style="margin: 0 10px;border: 1px solid #ccc;">
                         <div class="header-product-new">
-                            <h3>Sản phẩm mới</h3>
+                            <h3 th:text="#{tag.product.top}">Sản phẩm mới</h3>
                         </div>
                         <div class="box" th:each="proNew : ${productNew}">
                             <a th:href="@{/product-detail(id=${proNew.id})}">
@@ -37,7 +37,7 @@
                     <!--News-->
                     <div style="margin: 0 10px;border: 1px solid #ccc;">
                         <div class="header-product-new">
-                            <h3>Tin tức mới</h3>
+                            <h3 th:text="#{tag.news.top}">Tin tức mới</h3>
                         </div>
                         <div class="box" th:each="nw : ${newList}">
                             <a th:href="@{/product-detail(id=${nw.id})}">

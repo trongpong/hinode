@@ -32,25 +32,25 @@ public class House {
 	private String roomType;
 	
 	@Column(name="rent_fee", nullable=true)
-	private int rentFee;
+	private String rentFee;
 	
 	@Column(name="deposite_fee", nullable=true)
-	private int depositeFee;
+	private String depositeFee;
 	
 	@Column(name="guarantee_fee", nullable=true)
-	private int guaranteeFee;
+	private String guaranteeFee;
 	
 	@Column(name="manage_fee", nullable=true)
-	private int manageFee = 0;
+	private String manageFee;
 	
 	@Column(name="area", nullable=true)
-	private double area;
+	private String area;
 	
 	@Column(name="build_from", nullable=true)
-	private LocalDate buildFrom;
+	private String buildFrom;
 	
 	@Column(name="movable_date", nullable=true)
-	private LocalDate movableDate;
+	private String movableDate;
 	
 	@Column(name="status", nullable=true, length=20)
 	private String status;
@@ -69,9 +69,18 @@ public class House {
 	
 	@Column(name="del_flg", length = 1)
 	private String delFlg;
+	
+	@Column(name="urlCrawler")
+    private String urlCrawler;
+    
+    @Column(name="isCrawler")
+    private Boolean isCrawler;
+    
+    @Column(name="urlImage")
+    private String urlImage;
 
 	public House() {
-		buildFrom = LocalDate.now();
+		buildFrom = LocalDate.now().toString();
 	}
 	
 	

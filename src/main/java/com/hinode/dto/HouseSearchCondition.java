@@ -28,4 +28,6 @@ public class HouseSearchCondition {
 	private double areaFrom;
 
 	private double areaTo;
+	
+	private int page;
 }

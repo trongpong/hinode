@@ -1,538 +1,628 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<meta charset="UTF-8">
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title  -->
-    <title th:text="#{project.title}"></title>
+<!-- Title  -->
+<title th:text="#{project.title}"></title>
 
-    <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-    
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<!-- Favicon  -->
+<link rel="icon" href="img/core-img/favicon.ico">
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="south-load"></div>
-    </div>
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="south-load"></div>
+	</div>
 
-    <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
+	<!-- ##### Header Area Start ##### -->
+	<header class="header-area">
 		<!-- Main Header Area -->
-        <div class="main-header-area" id="stickyHeader">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between container" id="southNav">
+		<div class="main-header-area" id="stickyHeader">
+			<div class="classy-nav-container breakpoint-off">
+				<!-- Classy Menu -->
+				<nav class="classy-navbar justify-content-between container"
+					id="southNav">
 
-                    <!-- Logo -->
-                    <a class="nav-brand" href="index"><img class="ilogo" src="img/core-img/headlogo.png" alt=""></a>
+					<!-- Logo -->
+					<a class="nav-brand" href="index"><img class="ilogo"
+						src="img/core-img/headlogo.png" alt=""></a>
 
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
+					<!-- Navbar Toggler -->
+					<div class="classy-navbar-toggler">
+						<span class="navbarToggler"><span></span><span></span><span></span></span>
+					</div>
 
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="/index" th:text="#{menu.home}">Home</a></li>
-                                <li><a href="/index#about" th:text="#{menu.about}">About Us</a></li>
-                                <li><a href="/product" th:text="#{menu.product}">Products</a></li>
-                                <li><a href="/new" th:text="#{menu.news}">News</a></li>
-                                <li><a href="/index#contact" th:text="#{menu.contact}">Contact</a></li>
-                                <li><a href="/wifi" th:text="#{menu.wifiRental}">Pocket Wifi</a></li>
-                                <li class="v-spread"><a href="#">|</a></li>
-                                <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.ja}"><a href="#" class="language flg flg-japan" data-value="ja">JP</a></li>
-                                <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.en}"title="Tooltip on bottom"><a href="#" class="language flg flg-eng" data-value="en">EN</a></li>
-                                <li data-toggle="tooltip" data-placement="bottom" th:title="#{lang.vi}"title="Tooltip on bottom"><a href="#" class="language flg flg-vietnam" data-value="vi">VI</a></li>
-                            </ul>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+					<!-- Menu -->
+					<div class="classy-menu">
+						<!-- Nav Start -->
+						<div class="classynav">
+							<ul>
+								<li><a href="/index" th:text="#{menu.home}">Home</a></li>
+								<li><a href="/index#about" th:text="#{menu.about}">About
+										Us</a></li>
+								<li><a href="/product" th:text="#{menu.product}">Products</a></li>
+								<li><a href="/new" th:text="#{menu.news}">News</a></li>
+								<li><a href="/index#contact" th:text="#{menu.contact}">Contact</a></li>
+								<li><a href="/wifi" th:text="#{menu.wifiRental}">Pocket
+										Wifi</a></li>
+								<li class="v-spread"><a href="#">|</a></li>
+								<li data-toggle="tooltip" data-placement="bottom"
+									th:title="#{lang.ja}"><a href="#"
+									class="language flg flg-japan" data-value="ja">JP</a></li>
+								<li data-toggle="tooltip" data-placement="bottom"
+									th:title="#{lang.en}" title="Tooltip on bottom"><a
+									href="#" class="language flg flg-eng" data-value="en">EN</a></li>
+								<li data-toggle="tooltip" data-placement="bottom"
+									th:title="#{lang.vi}" title="Tooltip on bottom"><a
+									href="#" class="language flg flg-vietnam" data-value="vi">VI</a></li>
+							</ul>
+						</div>
+						<!-- Nav End -->
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- ##### Header Area End ##### -->
 
-    <!-- #################### START CONTENT  #################### -->
-    <div layout:fragment="content">
-    <div style="width: 100%; height: 70px; display: block;"></div>
-    <!-- ##### Hero Area Start ##### -->
-    <section id="home" class="hero-area">
-        <div class="hero-slides owl-carousel">
-            <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img" 
-            	th:each="imageSlider : ${imageSliderList}"
-            	th:style="'background:url(data:image/png;base64,' + ${imageSilderMap.get(imageSlider.id)} +') 50% 50%;'">
-           	</div>
-        </div>
-    </section>
-    <!-- ##### Hero Area End ##### -->
+	<!-- #################### START CONTENT  #################### -->
+	<div layout:fragment="content">
+		<div style="width: 100%; height: 70px; display: block;"></div>
+		<!-- ##### Hero Area Start ##### -->
+		<section id="home" class="hero-area">
+			<div class="hero-slides owl-carousel">
+				<!-- Single Hero Slide -->
+				<div class="single-hero-slide bg-img"
+					th:each="imageSlider : ${imageSliderList}"
+					th:style="'background:url(data:image/png;base64,' + ${imageSilderMap.get(imageSlider.id)} +') 50% 50%;'">
+				</div>
+			</div>
+		</section>
+		<!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Advance Search Area Start ##### -->
-    <div class="south-search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="advanced-search-form">
-                        <!-- Search Title -->
-                        <div class="search-title">
-                            <p th:text="#{tag.headersearch}"></p>
-                        </div>
-                        <!-- Search Form -->
-                        <form th:action="@{/listings}" method="post" id="advanceSearch" th:object="${condition}">
-                        	<div class="row">
-                            	<div class="col-12 col-md-4 col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchStation" th:placeholder="#{search.station}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchLine" th:placeholder="#{search.line}">
-                                    </div>
-                                </div>
-                                <input type="hidden" id="iptStation" name="station" th:field="*{station}">
-                            </div>
-                            <div class="row">
-                            	<div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchName" th:placeholder="#{search.name}" th:field="*{name}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchAddress" th:placeholder="#{search.address}" th:field="*{address}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-6">
-                                    <div class="form-group">
-                                        <select th:field="*{roomType}" class="form-control" name="srchRoomtype" id="srchRoomtype">
-                                            <option value="" th:text="#{search.roomtype}" ></option>
-                                            <option value="1K">1K</option>
-                                            <option value="1LK">1LK</option>
-                                            <option value="1LDK">1LDK</option>
-                                            <option value="2K">2K</option>
-                                            <option value="2LK">2LK</option>
-                                            <option value="2LDK">2LDK</option>
-                                            <option value="3K">3K</option>
-                                            <option value="3LK">3LK</option>
-                                            <option value="3LDK">3LDK</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="search-form-second-steps">
-	                           	<div class="row">
-	                                <!-- From to -->
-	                                <div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.depositefee}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchDepositeFeeFrom" th:placeholder="#{search.from}" th:field="*{depositeFeeFrom}">
-									  <input type="text" class="form-control" name="srchDepositeFeeTo" th:placeholder="#{search.to}" th:field="*{depositeFeeTo}">
-									</div>
-									
-									<div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.rentfee}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchRentFeeFrom" th:placeholder="#{search.from}" th:field="*{rentFeeFrom}">
-									  <input type="text" class="form-control" name="srchRentFeeTo" th:placeholder="#{search.to}" th:field="*{rentFeeTo}">
-									</div>
-								</div>	
-								
+		<!-- ##### Advance Search Area Start ##### -->
+		<div class="south-search-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="advanced-search-form">
+							<!-- Search Title -->
+							<div class="search-title">
+								<p th:text="#{tag.headersearch}"></p>
+							</div>
+							<!-- Search Form -->
+							<form th:action="@{/listings}" method="post" id="advanceSearch"
+								th:object="${condition}">
 								<div class="row">
-	                                <!-- From to -->
-									<div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.guaranteefee}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchGuaranteeFeeFrom" th:placeholder="#{search.from}" th:field="*{guaranteeFeeFrom}">
-									  <input type="text" class="form-control" name="srchGuaranteeFeeTo" th:placeholder="#{search.to}" th:field="*{guaranteeFeeTo}">
+									<div class="col-12 col-md-4 col-lg-6">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchStation"
+												th:placeholder="#{search.station}">
+										</div>
 									</div>
-									
-									<div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.area}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchAreaFrom" th:placeholder="#{search.from}" th:field="*{areaFrom}">
-									  <input type="text" class="form-control" name="srchAreaTo" th:placeholder="#{search.to}" th:field="*{areaTo}">
+
+									<div class="col-12 col-md-4 col-lg-6">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchLine"
+												th:placeholder="#{search.line}">
+										</div>
+									</div>
+									<input type="hidden" id="iptStation" name="station"
+										th:field="*{station}">
+								</div>
+								<div class="row">
+									<div class="col-12 col-md-4 col-lg-3">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchName"
+												th:placeholder="#{search.name}" th:field="*{name}">
+										</div>
+									</div>
+
+									<div class="col-12 col-md-4 col-lg-3">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchAddress"
+												th:placeholder="#{search.address}" th:field="*{address}">
+										</div>
+									</div>
+
+									<div class="col-12 col-md-4 col-lg-6">
+										<div class="form-group">
+											<select th:field="*{roomType}" class="form-control"
+												name="srchRoomtype" id="srchRoomtype">
+												<option value="" th:text="#{search.roomtype}"></option>
+												<option value="1K">1K</option>
+												<option value="1LK">1LK</option>
+												<option value="1LDK">1LDK</option>
+												<option value="2K">2K</option>
+												<option value="2LK">2LK</option>
+												<option value="2LDK">2LDK</option>
+												<option value="3K">3K</option>
+												<option value="3LK">3LK</option>
+												<option value="3LDK">3LDK</option>
+											</select>
+										</div>
 									</div>
 								</div>
+								<div class="search-form-second-steps">
+									<div class="row">
+										<!-- From to -->
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text"
+													th:text="#{search.depositefee}"></span>
+											</div>
+											<input type="text" class="form-control"
+												name="srchDepositeFeeFrom" th:placeholder="#{search.from}"
+												th:field="*{depositeFeeFrom}"> <input type="text"
+												class="form-control" name="srchDepositeFeeTo"
+												th:placeholder="#{search.to}" th:field="*{depositeFeeTo}">
+										</div>
+
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text" th:text="#{search.rentfee}"></span>
+											</div>
+											<input type="text" class="form-control"
+												name="srchRentFeeFrom" th:placeholder="#{search.from}"
+												th:field="*{rentFeeFrom}"> <input type="text"
+												class="form-control" name="srchRentFeeTo"
+												th:placeholder="#{search.to}" th:field="*{rentFeeTo}">
+										</div>
+									</div>
+
+									<div class="row">
+										<!-- From to -->
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text"
+													th:text="#{search.guaranteefee}"></span>
+											</div>
+											<input type="text" class="form-control"
+												name="srchGuaranteeFeeFrom" th:placeholder="#{search.from}"
+												th:field="*{guaranteeFeeFrom}"> <input type="text"
+												class="form-control" name="srchGuaranteeFeeTo"
+												th:placeholder="#{search.to}" th:field="*{guaranteeFeeTo}">
+										</div>
+
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text" th:text="#{search.area}"></span>
+											</div>
+											<input type="text" class="form-control" name="srchAreaFrom"
+												th:placeholder="#{search.from}" th:field="*{areaFrom}">
+											<input type="text" class="form-control" name="srchAreaTo"
+												th:placeholder="#{search.to}" th:field="*{areaTo}">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div
+										class="col-12 d-flex justify-content-between align-items-end">
+										<!-- More Filter -->
+										<div class="more-filter">
+											<a href="#" th:text="#{tag.filtersearch}" id="moreFilter"></a>
+										</div>
+										<!-- Submit -->
+										<div class="form-group mb-0">
+											<button type="submit" class="btn south-btn"
+												th:text="#{btn.search}"></button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ##### Advance Search Area End ##### -->
+
+		<!-- ##### Featured Properties Area Start ##### -->
+		<section id="recommend"
+			class="featured-properties-area section-padding-100-50">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="section-heading">
+							<h2 th:text="#{tag.recommend}"></h2>
+							<p th:text="#{tag.recommend.text}"></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<!-- Single Featured Property -->
+					<div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
+						<div class="single-featured-property mb-50" data-wow-delay="100ms"
+							th:object="${obj}">
+							<a th:href="@{/single(id=${obj.id})}"> <!-- Property Thumbnail -->
+								<div class="property-thumb">
+									<img th:if="${!obj.isCrawler}"
+										th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}"
+										class="main-img"
+										onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
+									<img class="class=" main-img"" th:if="${obj.isCrawler}"
+										th:src="${obj.urlImage}"
+										onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
+
+									<div class="tag">
+										<span th:text="#{tag.gift}"></span>
+									</div>
+									<div class="list-price">
+										<p th:text="*{rentFee}+' 円'">￥20,000</p>
+									</div>
+								</div> <!-- Property Content -->
+								<div class="property-content">
+									<h5>
+										<i class="fa fa-home fa-2x" aria-hidden="true"></i><span
+											th:text="*{name}"></span>
+									</h5>
+									<p class="location">
+										<i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span
+											th:text="*{address}"></span>
+									</p>
+								</div> <!-- Property Content -->
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Featured Properties Area End ##### -->
+
+		<!-- ##### Call To Action Area Start ##### -->
+		<div id="about" class="container"
+			style="display: block; width: 100%; height: 50px;"></div>
+		<section class="call-to-action-area bg-fixed" style="">
+			<div class="container h-100">
+				<div class="row align-items-center h-100">
+					<div class="col-12">
+						<div class="cta-content text-center">
+							<h2 th:text="#{tag.about}"></h2>
+							<h5 th:text="#{tag.about.text}"></h5>
+							<h6 class="mt-30">株式会社HINODE</h6>
+							<table class="table mt-15"
+								style="text-align: left; border: solid 1px;">
+								<tbody>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row" style="width: 154px;">会社名</th>
+										<td>株式会社HINODE</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">代表者</th>
+										<td>フォン ミン ホアン</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">設立年月日</th>
+										<td>2017年 8月 28日</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">所在地</th>
+										<td>〒170-0013<br>東京都豊島区東池袋３－９－１２ニットービル４０１
+										</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">資本金</th>
+										<td>500万円</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">免許番号</th>
+										<td>東京都知事（１）102441号</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">メールアドレス</th>
+										<td>sale.hinode@gmail.com</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">TEL</th>
+										<td>03-6907-2663</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">FAX</th>
+										<td>03-6907-2664</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">営業時間</th>
+										<td>10:00-19:00</td>
+									</tr>
+									<tr style="border-bottom: 2px solid; border-top: 2px solid;">
+										<th scope="row">事業内容</th>
+										<td>・不動産<br> 日本での新生活をスタートする際、最初につまづくのが「物件探し」。<br>
+											外国人だからと断られたり、うまく日本語で交渉できなかったりと、様々な理由で物件探しは難航するものです。<br>
+											当社では外国人向けに日本の住宅情報を提供するHINODE.<br> 入居前から入居中、退去時まで、<br>
+											当社のサービスは日本で生活している間ずっとご利用いただけます。<br> ・貿易<br> <br>
+											・有料職業紹介<br> 有料職業紹介許可 １１―ユー３００６７０<br>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Call To Action Area End ##### -->
+
+		<!-- ##### Meet The Team Area Start ##### -->
+		<section class="meet-the-team-area section-padding-100-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="section-heading">
+							<h2 th:text="#{tag.aboutTeam}"></h2>
+							<p th:text="#{tag.aboutTeam.text}"></p>
+						</div>
+					</div>
+				</div>
+				<div id="owl-carousel-team" class="owl-carousel owl-theme">
+					<!-- Single Team Member -->
+					<div class="team-member" th:each="staff : ${staffList}">
+						<img th:src="'data:image/png;base64,' + ${staff.sImage}">
+						<div class="team-info">
+							<span th:text="${staff.sName}"></span>
+							<p th:text="${staff.sPosition}"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Meet The Team Area End ##### -->
+
+		<!-- ##### Testimonials Area Start ##### -->
+		<section class="south-testimonials-area section-padding-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="section-heading wow fadeInUp" data-wow-delay="250ms">
+							<h2 th:text="#{tag.client}">Client testimonials</h2>
+							<p th:text="#{tag.client.text}">Suspendisse dictum enim sit
+								amet libero malesuada feugiat.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<div class="testimonials-slides owl-carousel wow fadeInUp"
+							data-wow-delay="500ms">
+
+							<!-- Single Testimonial Slide -->
+							<div class="single-testimonial-slide text-center"
+								th:each="client : ${clientList}">
+								<h5 th:text="${client.cName}">Perfect Home for me</h5>
+								<p th:text="${client.cComment}"></p>
+								<div class="testimonial-author-info">
+									<!-- img src="img/bg-img/noimage256.png" alt="" -->
+									<p>
+										<span th:text="${client.cAddress}">Customer</span>
+									</p>
+								</div>
 							</div>
-							
-							<div class="row">
-                                <div class="col-12 d-flex justify-content-between align-items-end">
-                                    <!-- More Filter -->
-                                    <div class="more-filter">
-                                        <a href="#" th:text="#{tag.filtersearch}" id="moreFilter"></a>
-                                    </div> 
-                                    <!-- Submit -->
-                                    <div class="form-group mb-0">
-                                        <button type="submit" class="btn south-btn" th:text="#{btn.search}"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Advance Search Area End ##### -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Testimonials Area End ##### -->
 
-    <!-- ##### Featured Properties Area Start ##### -->
-    <section id="recommend" class="featured-properties-area section-padding-100-50" >
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h2 th:text="#{tag.recommend}"></h2>
-                        <p th:text="#{tag.recommend.text}"></p>
-                    </div>
-                </div>
-            </div>
+		<!-- ##### Contact Start ##### -->
+		<section id="contact" class="south-contact-area section-padding-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="section-heading wow fadeInUp" data-wow-delay="250ms">
+							<h2 th:text="#{tag.contact}">Liên hệ với chúng tôi</h2>
+							<p th:text="#{tag.contact.text}">Suspendisse dictum enim sit
+								amet libero malesuada feugiat.</p>
+						</div>
+					</div>
+				</div>
 
-            <div class="row">
+				<div class="row">
+					<!-- Contact Form Area -->
+					<div class="col-12">
+						<div class="contact-form">
+							<form action="#" method="post">
+								<div class="form-group">
+									<input type="text" class="form-control-index" name="text"
+										id="contact-name" th:placeholder="#{tag.contact.formName}">
+								</div>
+								<div class="form-group">
+									<input type="number" class="form-control-index" name="number"
+										id="contact-number" th:placeholder="#{tag.contact.formPhone}">
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control-index" name="email"
+										id="contact-email" th:placeholder="#{tag.contact.formEmail}">
+								</div>
+								<div class="form-group">
+									<textarea class="form-control-index" name="message"
+										id="message" cols="30" rows="10"
+										th:placeholder="#{tag.contact.formMessage}"></textarea>
+								</div>
+								<button type="submit" class="btn south-btn"
+									th:text="#{btn.sendmessage}">Send Message</button>
+							</form>
+						</div>
+					</div>
+				</div>
 
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
-                    <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${obj}">
-                    	<a th:href="@{/single(id=${obj.id})}">
-	                        <!-- Property Thumbnail -->
-	                        <div class="property-thumb">
-	                            <img alt="" 
-	                            th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}" class="main-img"
-	                            onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
-	                            
-	                            <div class="tag">
-	                                <span th:text="#{tag.gift}"></span>
-	                            </div>
-	                            <div class="list-price">
-	                                <p th:text="*{rentFee}+' 円'">￥20,000</p>
-	                            </div>
-	                        </div>
-	                        <!-- Property Content -->
-	                        <div class="property-content">
-	                            <h5><i class="fa fa-home fa-2x" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
-	                            <p class="location"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
-	                        </div>
-	                        <!-- Property Content -->
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Featured Properties Area End ##### -->
-
-    <!-- ##### Call To Action Area Start ##### -->
-    <div id="about" class="container" style="display: block; width: 100%; height: 50px;"></div>
-    <section class="call-to-action-area bg-fixed" style="">
-        <div class="container h-100">
-           	<div class="row align-items-center h-100">
-               	<div class="col-12">
-                  	<div class="cta-content text-center">
-                       <h2 th:text="#{tag.about}"></h2>
-                       <h5 th:text="#{tag.about.text}"></h5>
-                       <h6 class="mt-30">株式会社HINODE</h6>
-                       	<table class="table mt-15" style="text-align: left; border: solid 1px;">
-						  <tbody>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row" style="width: 154px;">会社名</th>
-						      <td>株式会社HINODE </td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">代表者</th>
-						      <td>フォン　ミン　ホアン </td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">設立年月日</th>
-						      <td>2017年 8月 28日 </td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">所在地</th>
-						      <td>〒170-0013<br>東京都豊島区東池袋３－９－１２ニットービル４０１　
-							  </td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">資本金</th>
-						      <td>500万円</td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">免許番号</th>
-						      <td>東京都知事（１）102441号 </td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">メールアドレス</th>
-						      <td>sale.hinode@gmail.com</td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">TEL</th>
-						      <td>03-6907-2663 </td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">FAX</th>
-						      <td>03-6907-2664</td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">営業時間</th>
-						      <td>10:00-19:00</td>
-						    </tr>
-						    <tr style="border-bottom: 2px solid; border-top: 2px solid;">
-						      <th scope="row">事業内容</th>
-						      <td>・不動産<br>
-								日本での新生活をスタートする際、最初につまづくのが「物件探し」。<br>
-								外国人だからと断られたり、うまく日本語で交渉できなかったりと、様々な理由で物件探しは難航するものです。<br>
-								当社では外国人向けに日本の住宅情報を提供するHINODE.<br>
-								入居前から入居中、退去時まで、<br>
-								当社のサービスは日本で生活している間ずっとご利用いただけます。<br>
-								・貿易<br>
-								<br>
-								・有料職業紹介<br>
-								有料職業紹介許可　１１―ユー３００６７０<br>
-							  </td>
-						    </tr>
-						  </tbody>
-						</table> 
-                	</div>
-              	</div>
-           	</div>
-        </div>
-    </section>
-    <!-- ##### Call To Action Area End ##### -->
-    
-    <!-- ##### Meet The Team Area Start ##### -->
-    <section class="meet-the-team-area section-padding-100-0">
-        <div class="container">
-        	<div class="row">
-                <div class="col-12">
-                    <div class="section-heading">
-                        <h2 th:text="#{tag.aboutTeam}"></h2>
-                        <p th:text="#{tag.aboutTeam.text}"></p>
-                    </div>
-                </div>
-            </div>
-            <div id="owl-carousel-team" class="owl-carousel owl-theme">
-                <!-- Single Team Member -->
-                <div class="team-member" th:each="staff : ${staffList}">
-                	<img th:src="'data:image/png;base64,' + ${staff.sImage}">
-                	<div class="team-info">
-	                    <span th:text="${staff.sName}"></span>
-	                    <p th:text="${staff.sPosition}"></p>
-	                </div>
-                </div> 
-            </div>
-        </div>
-    </section>
-    <!-- ##### Meet The Team Area End ##### -->
-    
-    <!-- ##### Testimonials Area Start ##### -->
-    <section class="south-testimonials-area section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
-                        <h2 th:text="#{tag.client}">Client testimonials</h2>
-                        <p th:text="#{tag.client.text}">Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="testimonials-slides owl-carousel wow fadeInUp" data-wow-delay="500ms">
-
-                        <!-- Single Testimonial Slide -->
-                        <div class="single-testimonial-slide text-center" th:each="client : ${clientList}">
-                            <h5 th:text="${client.cName}">Perfect Home for me</h5>
-                            <p th:text="${client.cComment}"></p>
-                            <div class="testimonial-author-info">
-                                <!-- img src="img/bg-img/noimage256.png" alt="" -->
-                                <p><span th:text="${client.cAddress}">Customer</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Testimonials Area End ##### -->
-    
-    <!-- ##### Contact Start ##### -->
-    <section id="contact" class="south-contact-area section-padding-100">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading wow fadeInUp" data-wow-delay="250ms">
-                        <h2 th:text="#{tag.contact}">Liên hệ với chúng tôi</h2>
-                        <p th:text="#{tag.contact.text}">Suspendisse dictum enim sit amet libero malesuada feugiat.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Contact Form Area -->
-                <div class="col-12">
-                    <div class="contact-form">
-                        <form action="#" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control-index" name="text" id="contact-name" th:placeholder="#{tag.contact.formName}">
-                            </div>
-                            <div class="form-group">
-                                <input type="number" class="form-control-index" name="number" id="contact-number" th:placeholder="#{tag.contact.formPhone}">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control-index" name="email" id="contact-email" th:placeholder="#{tag.contact.formEmail}">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control-index" name="message" id="message" cols="30" rows="10" th:placeholder="#{tag.contact.formMessage}"></textarea>
-                            </div>
-                            <button type="submit" class="btn south-btn" th:text="#{btn.sendmessage}">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-    <!-- ##### Contact End ##### -->
+			</div>
+		</section>
+		<!-- ##### Contact End ##### -->
 	</div>
 	<!-- #################### END CONTENT  #################### -->
 	<section class="topFooter mt-30">
-    	<div class="container">
-    		<h1 style="font-size: 3.5rem;">TEL: 03-6907-2663</h1>
-    	</div>
-    </section>
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area section-padding-100-0 bg-img gradient-background-overlay" style="background-image: url(img/bg-img/cta.jpg);">
-        <!-- Main Footer Area -->
-        <div class="main-footer-area">
-            <div class="container">
-                <div class="row">
-                    <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area mb-100">
-                            <!-- Widget Title -->
-                            <div class="widget-title">
-                                <h6 th:text="#{footer.about}">About Us</h6>
-                            </div>
-                            <div class="footer-logo my-4">
-                                <img src="img/core-img/logo.png" alt="">
-                            </div>
-                        </div>
-                    </div>
+		<div class="container">
+			<h1 style="font-size: 3.5rem;">TEL: 03-6907-2663</h1>
+		</div>
+	</section>
+	<!-- ##### Footer Area Start ##### -->
+	<footer
+		class="footer-area section-padding-100-0 bg-img gradient-background-overlay"
+		style="background-image: url(img/bg-img/cta.jpg);">
+		<!-- Main Footer Area -->
+		<div class="main-footer-area">
+			<div class="container">
+				<div class="row">
+					<!-- Single Footer Widget -->
+					<div class="col-12 col-sm-6 col-xl-3">
+						<div class="footer-widget-area mb-100">
+							<!-- Widget Title -->
+							<div class="widget-title">
+								<h6 th:text="#{footer.about}">About Us</h6>
+							</div>
+							<div class="footer-logo my-4">
+								<img src="img/core-img/logo.png" alt="">
+							</div>
+						</div>
+					</div>
 
-                    <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area mb-100">
-                            <!-- Widget Title -->
-                            <div class="widget-title">
-                                <h6 th:text="#{footer.hour}">Hours</h6>
-                            </div>
-                            <!-- Office Hours -->
-                            <div class="weekly-office-hours">
-                                <ul>
-                                    <li class="d-flex align-items-center justify-content-between"><span>Monday - Sunday</span> <span>10 AM - 19 PM</span></li>
-                                    <li class="d-flex align-items-center justify-content-between"><span>Day off</span> <span>夏休み - お正月</span></li>
-                                </ul>
-                            </div>
-                            <!-- Address -->
-                            <div class="address">
-                                <h6><i class="fa fa-volume-control-phone" aria-hidden="true"></i> 03-6907-2663</h6>
-                                <h6><i class="fa fa-fax" aria-hidden="true"></i> 03-6907-2664</h6>
-                                <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> sale.hinode@gmail.com</h6>
-                                <h6><i class="fa fa-map-marker" aria-hidden="true"></i> 東京都豊島区東池袋３－９－１２<br>ニットービル 401</h6>
-                            </div>
-                        </div>
-                    </div>
+					<!-- Single Footer Widget -->
+					<div class="col-12 col-sm-6 col-xl-3">
+						<div class="footer-widget-area mb-100">
+							<!-- Widget Title -->
+							<div class="widget-title">
+								<h6 th:text="#{footer.hour}">Hours</h6>
+							</div>
+							<!-- Office Hours -->
+							<div class="weekly-office-hours">
+								<ul>
+									<li class="d-flex align-items-center justify-content-between"><span>Monday
+											- Sunday</span> <span>10 AM - 19 PM</span></li>
+									<li class="d-flex align-items-center justify-content-between"><span>Day
+											off</span> <span>夏休み - お正月</span></li>
+								</ul>
+							</div>
+							<!-- Address -->
+							<div class="address">
+								<h6>
+									<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+									03-6907-2663
+								</h6>
+								<h6>
+									<i class="fa fa-fax" aria-hidden="true"></i> 03-6907-2664
+								</h6>
+								<h6>
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+									sale.hinode@gmail.com
+								</h6>
+								<h6>
+									<i class="fa fa-map-marker" aria-hidden="true"></i>
+									東京都豊島区東池袋３－９－１２<br>ニットービル 401
+								</h6>
+							</div>
+						</div>
+					</div>
 
-                    <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area mb-100">
-                            <!-- Widget Title -->
-                            <div class="widget-title">
-                                <h6 th:text="#{footer.useful}">Useful Links</h6>
-                            </div>
-                            <!-- MXH -->
-                            <div class="address">
-                                <h6><i class="fa fa-facebook-square" aria-hidden="true"></i> <a href="#">fanpageHinode</a></h6>
-                                <h6><i class="fa fa-twitter-square" aria-hidden="true"></i> <a href="#">twitterHinode</a></h6>
-                                <h6><i class="fa fa-instagram" aria-hidden="true"></i> <a href="#">instagramHinode</a></h6>
-                                <h6><i class="fa fa-linkedin-square" aria-hidden="true"></i> <a href="#">linkedinHinode</a></h6>
-                                <h6><i class="fa fa-google-plus-square" aria-hidden="true"></i> <a href="#">google+Hinode</a></h6>
-                                <h6><i class="fa fa-youtube-square" aria-hidden="true"></i> <a href="#">youtubeHinode</a></h6>
-                            </div>
-                        </div>
-                    </div>
+					<!-- Single Footer Widget -->
+					<div class="col-12 col-sm-6 col-xl-3">
+						<div class="footer-widget-area mb-100">
+							<!-- Widget Title -->
+							<div class="widget-title">
+								<h6 th:text="#{footer.useful}">Useful Links</h6>
+							</div>
+							<!-- MXH -->
+							<div class="address">
+								<h6>
+									<i class="fa fa-facebook-square" aria-hidden="true"></i> <a
+										href="#">fanpageHinode</a>
+								</h6>
+								<h6>
+									<i class="fa fa-twitter-square" aria-hidden="true"></i> <a
+										href="#">twitterHinode</a>
+								</h6>
+								<h6>
+									<i class="fa fa-instagram" aria-hidden="true"></i> <a href="#">instagramHinode</a>
+								</h6>
+								<h6>
+									<i class="fa fa-linkedin-square" aria-hidden="true"></i> <a
+										href="#">linkedinHinode</a>
+								</h6>
+								<h6>
+									<i class="fa fa-google-plus-square" aria-hidden="true"></i> <a
+										href="#">google+Hinode</a>
+								</h6>
+								<h6>
+									<i class="fa fa-youtube-square" aria-hidden="true"></i> <a
+										href="#">youtubeHinode</a>
+								</h6>
+							</div>
+						</div>
+					</div>
 
-                    <!-- Single Footer Widget -->
-                    <div class="col-12 col-sm-6 col-xl-3">
-                        <div class="footer-widget-area mb-100">
-                            <!-- Widget Title -->
-                            <div class="widget-title">
-                                <h6 th:text="#{footer.feature}">Featured Properties</h6>
-                            </div>
-                            <!-- Featured Properties Slides -->
-                            <div class="featured-properties-slides owl-carousel">
-                                <!-- Single Slide -->
-                                <div class="single-featured-properties-slide">
-                                    <a href="#"><img src="img/bg-img/feature1.png" alt=""></a>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-featured-properties-slide">
-                                    <a href="#"><img src="img/bg-img/feature2.png" alt=""></a>
-                                </div>
-                                <!-- Single Slide -->
-                                <div class="single-featured-properties-slide">
-                                    <a href="#"><img src="img/bg-img/feature3.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+					<!-- Single Footer Widget -->
+					<div class="col-12 col-sm-6 col-xl-3">
+						<div class="footer-widget-area mb-100">
+							<!-- Widget Title -->
+							<div class="widget-title">
+								<h6 th:text="#{footer.feature}">Featured Properties</h6>
+							</div>
+							<!-- Featured Properties Slides -->
+							<div class="featured-properties-slides owl-carousel">
+								<!-- Single Slide -->
+								<div class="single-featured-properties-slide">
+									<a href="#"><img src="img/bg-img/feature1.png" alt=""></a>
+								</div>
+								<!-- Single Slide -->
+								<div class="single-featured-properties-slide">
+									<a href="#"><img src="img/bg-img/feature2.png" alt=""></a>
+								</div>
+								<!-- Single Slide -->
+								<div class="single-featured-properties-slide">
+									<a href="#"><img src="img/bg-img/feature3.png" alt=""></a>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
 
-        <!-- Copywrite Text -->
-        <div class="copywrite-text d-flex align-items-center justify-content-center">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by <a href="#" target="_blank">TN</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+		<!-- Copywrite Text -->
+		<div
+			class="copywrite-text d-flex align-items-center justify-content-center">
+			<p>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				Copyright &copy;
+				<script>
+					document.write(new Date().getFullYear());
+				</script>
+				All rights reserved | by <a href="#" target="_blank">TN</a>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		</div>
+	</footer>
+	<!-- ##### Footer Area End ##### -->
 
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
-    <script src="js/classy-nav.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-    <!-- EPPZ Scroll -->
-    <script src="js/eppzscroll.js"></script>
+	<!-- jQuery (Necessary for All JavaScript Plugins) -->
+	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<!-- Popper js -->
+	<script src="js/popper.min.js"></script>
+	<!-- Bootstrap js -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Plugins js -->
+	<script src="js/plugins.js"></script>
+	<script src="js/classy-nav.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<!-- Active js -->
+	<script src="js/active.js"></script>
+	<!-- EPPZ Scroll -->
+	<script src="js/eppzscroll.js"></script>
 
 </body>
 

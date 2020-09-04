@@ -27,6 +27,12 @@ public class Product {
 
     @Column(name="decscription")
     private String decscription;
+    
+    @Column(name="urlCrawler")
+    private String urlCrawler;
+    
+    @Column(name="isCrawler")
+    private Boolean isCrawler;
 
     @Column(name="created_at")
     private Date createdAt;

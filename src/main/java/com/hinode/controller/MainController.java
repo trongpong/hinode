@@ -69,7 +69,7 @@ public class MainController {
 			}
 		}
 		
-		model.put("houseList", houseService.findTopNewHouse());
+		model.put("houseList", houseList);
 		model.put("condition", new HouseSearchCondition());
 		model.put("imgMap", imgMap);
 		
@@ -96,7 +96,7 @@ public class MainController {
 	}
 
 	@RequestMapping("/listings")
-	public String list(Model model, @ModelAttribute HouseSearchCondition condition, @RequestParam(defaultValue = "0") int page) {
+	public String list(Model model, @ModelAttribute HouseSearchCondition condition) {
 
 		// Pre search
 		if (condition.getAreaTo() == 0) {
@@ -115,7 +115,7 @@ public class MainController {
 			condition.setGuaranteeFeeTo(MAX_INT);
 		}
 
-		Page<House> houseList = houseService.findByConditionPagination(condition, page, LIST_SIZE, new Sort(Sort.Direction.ASC, "id"));
+		Page<House> houseList = houseService.findByConditionPagination(condition, condition.getPage(), LIST_SIZE, Sort.by(Sort.Direction.ASC, "id"));
 		Map<Integer, String> imgMap = new HashMap<>();
 		for (House house : houseList) {
 			List<Image> imgList = houseService.findAllImageByHouseId(house.getId());
@@ -126,7 +126,7 @@ public class MainController {
 		
 		model.addAttribute("houseList", houseList);
 		model.addAttribute("condition", condition);
-		model.addAttribute("currentPage", page);
+		model.addAttribute("currentPage", condition.getPage());
 		model.addAttribute("imgMap", imgMap);
 		return "public/listings";
 	}
@@ -134,8 +134,10 @@ public class MainController {
 	@GetMapping("/single")
 	public String single(Map<String, Object> model, @RequestParam int id) {
 		// Put house
-		model.put("house", houseService.getById(id));
+		House house = houseService.getById(id);
+		model.put("house", house);
 		
+		if(!house.getIsCrawler()) {
 		List<Image> imgList = houseService.findAllImageByHouseId(id);
 		
 		List<String> imgStrData = new ArrayList<>();
@@ -144,6 +146,12 @@ public class MainController {
 		}
 		
 		model.put("imgList", imgStrData);
+		}else {
+			List<String> imgStrData = new ArrayList<>();
+			imgStrData.add(house.getUrlImage());
+			imgStrData.add(house.getUrlImage());
+			model.put("image", imgStrData);
+		}
 		return "public/single-listings";
 	}
 

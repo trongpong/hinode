@@ -1,5 +1,6 @@
 package com.hinode.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,9 @@ public class HouseService{
 				, condition.getRentFeeFrom(), condition.getRentFeeTo(), condition.getDepositeFeeFrom()
 				, condition.getDepositeFeeTo(), condition.getGuaranteeFeeFrom(), condition.getGuaranteeFeeTo()
 				, condition.getAreaFrom(), condition.getAreaTo(), PageRequest.of(page, size, sort));
+	}
+
+	public ArrayList<String> getUrlCrawler() {
+        return houseDAO.getUrlCrawler();
 	}
 }

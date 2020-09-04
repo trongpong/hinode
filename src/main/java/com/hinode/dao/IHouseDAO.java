@@ -1,5 +1,6 @@
 package com.hinode.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
@@ -51,4 +52,7 @@ public interface IHouseDAO extends JpaRepository<House, Integer> {
 			, @Param("guaranteeFeeFrom") int guaranteeFeeFrom, @Param("guaranteeFeeTo") int guaranteeFeeTo
 			, @Param("areaFrom") double areaFrom, @Param("areaTo") double areaTo
 			, Pageable pageable);
+
+	@Query(value = "select h.url_crawler from house h", nativeQuery = true )
+	ArrayList<String> getUrlCrawler();
 }

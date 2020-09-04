@@ -1,179 +1,230 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{public/index}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{public/index}">
 
 <head>
-    <!-- Title  -->
-    <title>South - Real Estate Agency Template | Listings</title>
+<!-- Title  -->
+<title>South - Real Estate Agency Template | Listings</title>
+<script>
+	function submitFunction(page) {
+		document.getElementById("pageId").value = page;
+		document.getElementById("advanceSearch").submit();
+	}
+</script>
+<style type="text/css">
+.active {
+	background-color: #ccc;
+	color: white;
+}
+
+.pager-item {
+	width: 44px;
+	float: left;
+	margin: 5px;
+	text-align: center;
+}
+</style>
 </head>
 
 <body>
-    <div layout:fragment="content">
-    <div style="width: 100%; height: 150px; display: block;"></div>
-    <!-- ##### Advance Search Area Start ##### -->
-    <div class="south-search-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="advanced-search-form">
-                        <!-- Search Title -->
-                        <div class="search-title">
-                            <p th:text="#{tag.headersearch}"></p>
-                        </div>
-                        <!-- Search Form -->
-                        <form th:action="@{/listings}" method="post" id="advanceSearch" th:object="${condition}">
-                        	<div class="row">
-                            	<div class="col-12 col-md-4 col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchStation" th:placeholder="#{search.station}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchLine" th:placeholder="#{search.line}">
-                                    </div>
-                                </div>
-                                <input type="hidden" id="iptStation" name="station" th:field="*{station}">
-                            </div>
-                            <div class="row">
-                            	<div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchName" th:placeholder="#{search.name}" th:field="*{name}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-3">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="srchAddress" th:placeholder="#{search.address}" th:field="*{address}">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-12 col-md-4 col-lg-6">
-                                    <div class="form-group">
-                                        <select th:field="*{roomType}" class="form-control" name="srchRoomtype" id="srchRoomtype">
-                                            <option value="" th:text="#{search.roomtype}" ></option>
-                                            <option value="1K">1K</option>
-                                            <option value="1LK">1LK</option>
-                                            <option value="1LDK">1LDK</option>
-                                            <option value="2K">2K</option>
-                                            <option value="2LK">2LK</option>
-                                            <option value="2LDK">2LDK</option>
-                                            <option value="3K">3K</option>
-                                            <option value="3LK">3LK</option>
-                                            <option value="3LDK">3LDK</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="search-form-second-steps">
-	                           	<div class="row">
-	                                <!-- From to -->
-	                                <div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.depositefee}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchDepositeFeeFrom" th:placeholder="#{search.from}" th:field="*{depositeFeeFrom}">
-									  <input type="text" class="form-control" name="srchDepositeFeeTo" th:placeholder="#{search.to}" th:field="*{depositeFeeTo}">
-									</div>
-									
-									<div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.rentfee}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchRentFeeFrom" th:placeholder="#{search.from}" th:field="*{rentFeeFrom}">
-									  <input type="text" class="form-control" name="srchRentFeeTo" th:placeholder="#{search.to}" th:field="*{rentFeeTo}">
-									</div>
-								</div>	
-								
+	<div layout:fragment="content">
+		<div style="width: 100%; height: 150px; display: block;"></div>
+		<!-- ##### Advance Search Area Start ##### -->
+		<div class="south-search-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="advanced-search-form">
+							<!-- Search Title -->
+							<div class="search-title">
+								<p th:text="#{tag.headersearch}"></p>
+							</div>
+							<!-- Search Form -->
+							<form th:action="@{/listings}" method="post" id="advanceSearch"
+								th:object="${condition}">
+								<input type="hidden" id="pageId" name="page" th:field="*{page}">
 								<div class="row">
-	                                <!-- From to -->
-									<div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.guaranteefee}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchGuaranteeFeeFrom" th:placeholder="#{search.from}" th:field="*{guaranteeFeeFrom}">
-									  <input type="text" class="form-control" name="srchGuaranteeFeeTo" th:placeholder="#{search.to}" th:field="*{guaranteeFeeTo}">
+									<div class="col-12 col-md-4 col-lg-6">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchStation"
+												th:placeholder="#{search.station}">
+										</div>
 									</div>
-									
-									<div class="input-group form-group col-md-6">
-									  <div class="input-group-prepend">
-									    <span class="input-group-text" th:text="#{search.area}"></span>
-									  </div>
-									  <input type="text" class="form-control" name="srchAreaFrom" th:placeholder="#{search.from}" th:field="*{areaFrom}">
-									  <input type="text" class="form-control" name="srchAreaTo" th:placeholder="#{search.to}" th:field="*{areaTo}">
+
+									<div class="col-12 col-md-4 col-lg-6">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchLine"
+												th:placeholder="#{search.line}">
+										</div>
+									</div>
+									<input type="hidden" id="iptStation" name="station"
+										th:field="*{station}">
+								</div>
+								<div class="row">
+									<div class="col-12 col-md-4 col-lg-3">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchName"
+												th:placeholder="#{search.name}" th:field="*{name}">
+										</div>
+									</div>
+
+									<div class="col-12 col-md-4 col-lg-3">
+										<div class="form-group">
+											<input type="text" class="form-control" name="srchAddress"
+												th:placeholder="#{search.address}" th:field="*{address}">
+										</div>
+									</div>
+
+									<div class="col-12 col-md-4 col-lg-6">
+										<div class="form-group">
+											<select th:field="*{roomType}" class="form-control"
+												name="srchRoomtype" id="srchRoomtype">
+												<option value="" th:text="#{search.roomtype}"></option>
+												<option value="1K">1K</option>
+												<option value="1LK">1LK</option>
+												<option value="1LDK">1LDK</option>
+												<option value="2K">2K</option>
+												<option value="2LK">2LK</option>
+												<option value="2LDK">2LDK</option>
+												<option value="3K">3K</option>
+												<option value="3LK">3LK</option>
+												<option value="3LDK">3LDK</option>
+											</select>
+										</div>
 									</div>
 								</div>
-							</div>
-							
-							<div class="row">
-                                <div class="col-12 d-flex justify-content-between align-items-end">
-                                    <!-- More Filter -->
-                                    <div class="more-filter">
-                                        <a href="#" th:text="#{tag.filtersearch}" id="moreFilter"></a>
-                                    </div> 
-                                    <!-- Submit -->
-                                    <div class="form-group mb-0">
-                                        <button type="submit" class="btn south-btn" th:text="#{btn.search}"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Advance Search Area End ##### -->
+								<div class="search-form-second-steps">
+									<div class="row">
+										<!-- From to -->
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text"
+													th:text="#{search.depositefee}"></span>
+											</div>
+											<input type="text" class="form-control"
+												name="srchDepositeFeeFrom" th:placeholder="#{search.from}"
+												th:field="*{depositeFeeFrom}"> <input type="text"
+												class="form-control" name="srchDepositeFeeTo"
+												th:placeholder="#{search.to}" th:field="*{depositeFeeTo}">
+										</div>
 
-    <!-- ##### Listing Content Wrapper Area Start ##### -->
-    <section class="listings-content-wrapper section-padding-100">
-        <div class="container">
-            <div class="row">
-                <!-- Single Featured Property -->
-                <div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
-                    <div class="single-featured-property mb-50" data-wow-delay="100ms" th:object="${obj}">
-                    	<a th:href="@{/single(id=${obj.id})}">
-	                        <!-- Property Thumbnail -->
-	                        <div class="property-thumb">
-	                            <img alt="" 
-	                            th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}" class="main-img"
-	                            onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
-	                            <div class="tag">
-	                                <span th:text="#{tag.gift}"></span>
-	                            </div>
-	                            <div class="list-price">
-	                                <p th:text="*{rentFee}+' 円'">￥20,000</p>
-	                            </div>
-	                        </div>
-	                        <!-- Property Content -->
-	                        <div class="property-content">
-	                            <h5><i class="fa fa-home fa-2x" aria-hidden="true"></i><span th:text="*{name}"></span></h5>
-	                            <p class="location"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span  th:text="*{address}"></span></p>
-	                        </div>
-	                        <!-- Property Content -->
-                        </a>
-                    </div>
-                </div>
-            </div>
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text" th:text="#{search.rentfee}"></span>
+											</div>
+											<input type="text" class="form-control"
+												name="srchRentFeeFrom" th:placeholder="#{search.from}"
+												th:field="*{rentFeeFrom}"> <input type="text"
+												class="form-control" name="srchRentFeeTo"
+												th:placeholder="#{search.to}" th:field="*{rentFeeTo}">
+										</div>
+									</div>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="south-pagination d-flex justify-content-end">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-							    <li class="page-item" th:each="i : ${#numbers.sequence(0, houseList.totalPages - 1)}">
-							    	<a class="page-link" th:text="${(i+1)}" th:href="@{?(page=${i})}" th:classappend="${currentPage}==${i}?'active':''"></a>
-						    	</li>
-						  	</ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Listing Content Wrapper Area End ##### -->
-    
+									<div class="row">
+										<!-- From to -->
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text"
+													th:text="#{search.guaranteefee}"></span>
+											</div>
+											<input type="text" class="form-control"
+												name="srchGuaranteeFeeFrom" th:placeholder="#{search.from}"
+												th:field="*{guaranteeFeeFrom}"> <input type="text"
+												class="form-control" name="srchGuaranteeFeeTo"
+												th:placeholder="#{search.to}" th:field="*{guaranteeFeeTo}">
+										</div>
+
+										<div class="input-group form-group col-md-6">
+											<div class="input-group-prepend">
+												<span class="input-group-text" th:text="#{search.area}"></span>
+											</div>
+											<input type="text" class="form-control" name="srchAreaFrom"
+												th:placeholder="#{search.from}" th:field="*{areaFrom}">
+											<input type="text" class="form-control" name="srchAreaTo"
+												th:placeholder="#{search.to}" th:field="*{areaTo}">
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div
+										class="col-12 d-flex justify-content-between align-items-end">
+										<!-- More Filter -->
+										<div class="more-filter">
+											<a href="#" th:text="#{tag.filtersearch}" id="moreFilter"></a>
+										</div>
+										<!-- Submit -->
+										<div class="form-group mb-0">
+											<button type="submit" class="btn south-btn"
+												th:text="#{btn.search}"></button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ##### Advance Search Area End ##### -->
+
+		<!-- ##### Listing Content Wrapper Area Start ##### -->
+		<section class="listings-content-wrapper section-padding-100">
+			<div class="container">
+				<div class="row">
+					<!-- Single Featured Property -->
+					<div class="col-12 col-md-6 col-xl-4" th:each="obj : ${houseList}">
+						<div class="single-featured-property mb-50" data-wow-delay="100ms"
+							th:object="${obj}">
+							<a th:href="@{/single(id=${obj.id})}"> <!-- Property Thumbnail -->
+								<div class="property-thumb">
+									<img alt="" th:if="${!obj.isCrawler}"
+										th:src="'data:image/png;base64,' + ${imgMap.get(obj.id)}"
+										class="main-img"
+										onerror="this.onerror=null;this.src='img/bg-img/noimage256.png';">
+									<img th:if="${obj.isCrawler}" src="img/bg-img/noimage256.png"
+										th:src="${obj.urlImage}" alt="" class="single-img">
+									<div class="tag">
+										<span th:text="#{tag.gift}"></span>
+									</div>
+									<div class="list-price">
+										<!-- <p th:text="*{rentFee}+' 円'">￥20,000</p> -->
+										<p th:text="*{rentFee}">￥20,000</p>
+									</div>
+								</div> <!-- Property Content -->
+								<div class="property-content">
+									<h5>
+										<i class="fa fa-home fa-2x" aria-hidden="true"></i><span
+											th:text="*{name}"></span>
+									</h5>
+									<p class="location">
+										<i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span
+											th:text="*{address}"></span>
+									</p>
+								</div> <!-- Property Content -->
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-12">
+						<nav aria-label="pagenavi">
+							<ul class="pager">
+								<li class="pager-item"
+									th:each="i : ${#numbers.sequence(0, houseList.totalPages - 1)}">
+									<a class="page-link" th:text="${(i+1)}"
+									th:attr="onclick=|submitFunction(${i})|"
+									th:classappend="${currentPage}==${i}?'active':''"></a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Listing Content Wrapper Area End ##### -->
+
 	</div>
 </body>
-
 </html>

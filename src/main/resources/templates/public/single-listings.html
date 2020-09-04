@@ -1,110 +1,128 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en" layout:decorate="~{public/index}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en"
+	layout:decorate="~{public/index}">
 
 <head>
-    <!-- Title  -->
-    <title>South - Real Estate Agency Template | Listings</title>
+<!-- Title  -->
+<title>South - Real Estate Agency Template | Listings</title>
 </head>
 
 <body>
-    <div layout:fragment="content">
-    <div style="width: 100%; height: 40px; display: block;"></div>
-    <!-- ##### Listings Content Area Start ##### -->
-    <section class="listings-content-wrapper">
-        <div class="container">
-            <div class="row justify-content-center">
-            	<div class="col-12 col-lg-6">
-                    <!-- Single Listings Slides -->
-                    <div class="listings-content single-listings-sliders owl-carousel mt-70">
-                        <img  th:each="img : ${imgList}" src="img/bg-img/noimage256.png" th:src="'data:image/png;base64,' + ${img}" alt="" class="single-img">
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6">
-                    <table class="table tblsingle mt-70" th:object="${house}">
-						  <tbody>
-						    <tr>
-						      <th scope="row" th:text="#{search.rentfee}"></th>
-						      <td><p  class="tdRenFee" th:text="*{rentFee}"></p><p class="tdMoney">円</p></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.depositefee}"></th>
-						      <td th:text="|*{depositeFee} 円|"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.guaranteefee}"></th>
-						      <td th:text="|*{guaranteeFee} 円|"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.station}"></th>
-						      <td th:text="*{station}"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.name}"></th>
-						      <td th:text="*{name}"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.address}"></th>
-						      <td th:text="*{address}"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.roomtype}"></th>
-						      <td th:text="*{roomType}"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.area}"></th>
-						      <td th:text="|*{area}m²|"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.buildfrom}"></th>
-						      <td th:text="*{buildFrom}"></td>
-						    </tr>
-						    <tr>
-						      <th scope="row" th:text="#{search.other}"></th>
-						      <td th:text="*{other}"></td>
-						    </tr>
-						  </tbody>
-					</table>   
-                    <div class="listings-content">
-                        <!-- Listings Btn Groups -->
-                        <div class="listings-btn-groups mt-15">
-                            <a style="margin: 0 auto 15px;" href="#" id="toggleContact" class="btn south-btn" th:text="#{btn.tocontact}"></a>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-            
-            <div id="contact-form-single" class="row" style="display: none;">
-            	<div class="col-12">
-                    <div class="contact-realtor-wrapper">
-                        <div class="realtor-info">
-                            <div class="realtor---info">
-                                <h2 th:text="#{tag.contact}"></h2>
-                            </div>
-                            <div class="realtor--contact-form">
-                                <form action="#" method="post">
-                                    <div class="form-group">
-		                                <input type="text" class="form-control" name="text" id="contact-name" th:placeholder="#{tag.contact.formName}">
-		                            </div>
-		                            <div class="form-group">
-		                                <input type="number" class="form-control" name="number" id="contact-number" th:placeholder="#{tag.contact.formPhone}">
-		                            </div>
-		                            <div class="form-group">
-		                                <input type="email" class="form-control" name="email" id="contact-email" th:placeholder="#{tag.contact.formEmail}">
-		                            </div>
-		                            <div class="form-group">
-		                                <textarea class="form-control" name="message" id="message" cols="30" rows="10" th:placeholder="#{tag.contact.formMessage}"></textarea>
-		                            </div>
-		                            <button type="submit" class="btn south-btn" th:text="#{btn.sendmessage}">Send Message</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Listings Content Area End ##### -->
-</div>
+	<div layout:fragment="content">
+		<div style="width: 100%; height: 40px; display: block;"></div>
+		<!-- ##### Listings Content Area Start ##### -->
+		<section class="listings-content-wrapper">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-6">
+						<!-- Single Listings Slides -->
+						<div
+							class="listings-content single-listings-sliders owl-carousel mt-70">
+							<img th:if="${!house.isCrawler}" th:each="img : ${imgList}"
+								src="img/bg-img/noimage256.png"
+								th:src="'data:image/png;base64,' + ${img}" alt=""
+								class="single-img">
+							<img th:if="${house.isCrawler}" th:each="img : ${image}"
+								src="img/bg-img/noimage256.png" th:src="${img}" alt=""
+								class="single-img">
+						</div>
+					</div>
+					<div class="col-12 col-lg-6">
+						<table class="table tblsingle mt-70" th:object="${house}">
+							<tbody>
+								<tr>
+									<th scope="row" th:text="#{search.rentfee}"></th>
+									<td><p class="tdRenFee" th:text="*{rentFee}"></p> <!-- <p class="tdMoney">円</p> --></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.depositefee}"></th>
+									<td th:if="${depositeFee != null}" th:text="|*{depositeFee} 円|"></td>
+									<td th:if="${depositeFee == null}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.guaranteefee}"></th>
+									<td th:if="${guaranteeFee != null}" th:text="|*{guaranteeFee} 円|"></td>
+									<td th:if="${guaranteeFee == null}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.station}"></th>
+									<td th:text="*{station}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.name}"></th>
+									<td th:text="*{name}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.address}"></th>
+									<td th:text="*{address}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.roomtype}"></th>
+									<td th:text="*{roomType}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.area}"></th>
+									<td th:text="|*{area}m²|"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.buildfrom}"></th>
+									<td th:text="*{buildFrom}"></td>
+								</tr>
+								<tr>
+									<th scope="row" th:text="#{search.other}"></th>
+									<td th:text="*{other}"></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="listings-content">
+							<!-- Listings Btn Groups -->
+							<div class="listings-btn-groups mt-15">
+								<a style="margin: 0 auto 15px;" href="#" id="toggleContact"
+									class="btn south-btn" th:text="#{btn.tocontact}"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="contact-form-single" class="row" style="display: none;">
+					<div class="col-12">
+						<div class="contact-realtor-wrapper">
+							<div class="realtor-info">
+								<div class="realtor---info">
+									<h2 th:text="#{tag.contact}"></h2>
+								</div>
+								<div class="realtor--contact-form">
+									<form action="#" method="post">
+										<div class="form-group">
+											<input type="text" class="form-control" name="text"
+												id="contact-name" th:placeholder="#{tag.contact.formName}">
+										</div>
+										<div class="form-group">
+											<input type="number" class="form-control" name="number"
+												id="contact-number"
+												th:placeholder="#{tag.contact.formPhone}">
+										</div>
+										<div class="form-group">
+											<input type="email" class="form-control" name="email"
+												id="contact-email" th:placeholder="#{tag.contact.formEmail}">
+										</div>
+										<div class="form-group">
+											<textarea class="form-control" name="message" id="message"
+												cols="30" rows="10"
+												th:placeholder="#{tag.contact.formMessage}"></textarea>
+										</div>
+										<button type="submit" class="btn south-btn"
+											th:text="#{btn.sendmessage}">Send Message</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ##### Listings Content Area End ##### -->
+	</div>
 </body>
 
 </html>
